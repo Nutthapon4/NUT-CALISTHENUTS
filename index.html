@@ -14,21 +14,22 @@
         }
 
         :root {
-            /* Light Theme: White & Indigo Navy */
-            --bg-color: #f8fafc;          /* พื้นหลังสีขาวอมฟ้าอ่อนสะอาดตา */
-            --card-bg: #ffffff;           /* สีการ์ดขาวบริสุทธิ์ */
-            --accent-primary: #1e1b4b;     /* สีน้ำเงินครามเข้ม (Deep Indigo) */
+            /* Light Dynamic Theme */
+            --bg-color: #f1f5f9;          /* พื้นหลังฟ้าเทาซอฟต์ๆ */
+            --card-bg: #ffffff;           /* สีการ์ดขาว */
+            --accent-primary: #1e1b4b;     /* สีน้ำเงินครามเข้ม */
             --accent-primary-hover: #312e81;
-            --accent-sub: #4338ca;         /* สีครามสดใสไฮไลท์ */
-            --accent-light: #0284c7;       /* สีฟ้าไฮไลท์เน้นจุดสำคัญ */
+            --accent-sub: #4338ca;         /* สีครามสดใส */
+            --accent-light: #0284c7;       /* สีฟ้าไฮไลท์ */
+            --text-red: #dc2626;           /* สีแดงเน้นย้ำ */
             --line-green: #06c755;
             --line-green-hover: #05b34c;
-            --text-main: #0f172a;         /* ข้อความสีน้ำเงินเข้ม/เกือบดำ อ่านง่าย */
-            --text-sub: #475569;          /* ข้อความสีเทาเข้ม */
-            --border-color: #e2e8f0;      /* เส้นขอบสีเทาอ่อน */
-            --card-shadow: 0 4px 20px rgba(30, 27, 75, 0.06);
-
-            /* Logo Original Colors (คงเดิม) */
+            --text-main: #0f172a;         
+            --text-sub: #475569;          
+            --border-color: #cbd5e1;      
+            --card-shadow: 0 10px 25px -5px rgba(30, 27, 75, 0.08), 0 8px 10px -6px rgba(30, 27, 75, 0.04);
+            
+            /* Logo Original Colors */
             --logo-red: #ff1e27;
         }
 
@@ -36,6 +37,12 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
+            /* เพิ่ม ลวดลายพื้นหลัง ให้ดูมีอะไร ไม่โล่ง */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(67, 56, 202, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(2, 132, 199, 0.08) 0px, transparent 50%),
+                radial-gradient(rgba(30, 27, 75, 0.04) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 24px 24px;
         }
 
         .container {
@@ -44,15 +51,26 @@
             padding: 0 20px;
         }
 
+        /* Keyframe Animations */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(67, 56, 202, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(67, 56, 202, 0.45); }
+        }
+
         /* Navbar */
         nav {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid rgba(203, 213, 225, 0.8);
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         .nav-container {
@@ -93,7 +111,8 @@
         }
 
         .logo-box:hover .logo-badge {
-            box-shadow: 0 4px 15px rgba(255, 30, 39, 0.7);
+            box-shadow: 0 4px 18px rgba(255, 30, 39, 0.7);
+            transform: skewX(-8deg) scale(1.05);
         }
 
         .logo-text {
@@ -143,34 +162,38 @@
             border-radius: 6px;
             font-weight: 700;
             text-decoration: none;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
         .btn-header:hover {
             background-color: var(--accent-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 27, 75, 0.2);
         }
 
         /* Hero Section */
         .hero {
-            padding: 85px 0 55px;
+            padding: 90px 0 60px;
             text-align: center;
-            background: radial-gradient(circle at center, #eef2ff 0%, var(--bg-color) 80%);
+            position: relative;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 50px;
             font-weight: 900;
             margin-bottom: 18px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--accent-primary);
+            text-shadow: 0 2px 10px rgba(30, 27, 75, 0.05);
         }
 
+        /* ข้อความที่ขอเปลี่ยนสีแดง และลบ ... ออก */
         .hero-subproblem {
-            color: var(--accent-sub);
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 12px;
+            color: var(--text-red);
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 14px;
             letter-spacing: 0.5px;
         }
 
@@ -178,8 +201,8 @@
             color: var(--text-sub);
             font-size: 16px;
             max-width: 760px;
-            margin: 0 auto 32px;
-            line-height: 1.7;
+            margin: 0 auto 35px;
+            line-height: 1.8;
         }
 
         .hero-solution strong {
@@ -193,23 +216,23 @@
         }
 
         .btn-primary {
-            background-color: var(--accent-primary);
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-sub) 100%);
             color: #ffffff;
-            padding: 13px 30px;
-            border-radius: 6px;
+            padding: 14px 32px;
+            border-radius: 8px;
             font-weight: 700;
             border: none;
             cursor: pointer;
             font-size: 16px;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 4px 15px rgba(30, 27, 75, 0.2);
         }
 
         .btn-primary:hover {
-            background-color: var(--accent-primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(30, 27, 75, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(30, 27, 75, 0.3);
         }
 
         .btn-line {
@@ -239,31 +262,40 @@
         .btn-outline {
             background: #ffffff;
             color: var(--accent-primary);
-            border: 1px solid #cbd5e1;
-            padding: 13px 30px;
-            border-radius: 6px;
-            font-weight: 600;
+            border: 1px solid var(--border-color);
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 700;
             cursor: pointer;
             font-size: 16px;
             text-decoration: none;
             transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
 
         .btn-outline:hover {
-            border-color: var(--accent-primary);
-            background: #f8fafc;
+            border-color: var(--accent-sub);
+            color: var(--accent-sub);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.06);
         }
 
-        /* Story Banner */
+        /* Story Banner (ขยับดุ๊กดิ๊กนุ่มนวล) */
         .story-section {
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            border-left: 5px solid var(--accent-sub);
-            border-radius: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #cbd5e1;
+            border-left: 6px solid var(--accent-sub);
+            border-radius: 16px;
             padding: 35px;
             margin: 40px auto;
             max-width: 920px;
             box-shadow: var(--card-shadow);
+            animation: floatSlow 6s ease-in-out infinite; /* Animation ลอยขึ้นลง */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .story-section:hover {
+            box-shadow: 0 15px 35px rgba(67, 56, 202, 0.12);
         }
 
         .story-header {
@@ -302,7 +334,7 @@
             font-size: 12px;
             font-weight: 800;
             padding: 4px 12px;
-            border-radius: 4px;
+            border-radius: 20px;
         }
 
         .story-text {
@@ -330,27 +362,45 @@
             margin-top: 5px;
         }
 
-        /* Skills Section */
+        /* Skills Section (อนิเมชันขยับตามเมาส์) */
         .grid-skills {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 20px;
+            gap: 22px;
             margin-bottom: 60px;
         }
 
         .skill-card {
             background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
             padding: 24px;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-sub), var(--accent-light));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .skill-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-sub);
-            box-shadow: var(--card-shadow);
+            transform: translateY(-8px) scale(1.02);
+            border-color: #c7d2fe;
+            box-shadow: 0 12px 25px rgba(30, 27, 75, 0.1);
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
         }
 
         .skill-header {
@@ -402,34 +452,40 @@
 
         .pricing-card {
             background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
             padding: 35px 25px;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.3s;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: var(--card-shadow);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(30, 27, 75, 0.12);
         }
 
         .pricing-card.featured {
             border: 2px solid var(--accent-sub);
-            background: #ffffff;
-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.12);
+            background: linear-gradient(180deg, #ffffff 0%, #f4f5ff 100%);
+            animation: pulseGlow 4s infinite, floatSlow 5s ease-in-out infinite; /* Animation ลอย + กระพริบเน้นความฮิต */
         }
 
         .badge-popular {
             position: absolute;
             top: -14px;
             right: 25px;
-            background-color: var(--accent-sub);
+            background: linear-gradient(135deg, var(--accent-sub) 0%, var(--accent-primary) 100%);
             color: #ffffff;
             font-size: 12px;
             font-weight: 800;
             padding: 4px 14px;
             border-radius: 20px;
             text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(67, 56, 202, 0.3);
         }
 
         .plan-name {
@@ -473,15 +529,16 @@
 
         /* Policy & Scope Notice */
         .policy-notice {
-            background-color: #f1f5f9;
+            background-color: #ffffff;
             border: 1px dashed #cbd5e1;
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 22px;
             margin-bottom: 80px;
             text-align: left;
             font-size: 14px;
             color: var(--text-sub);
             line-height: 1.7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
 
         .policy-notice strong {
@@ -489,19 +546,24 @@
         }
 
         .policy-notice span.no-refund {
-            color: #dc2626;
+            color: var(--text-red);
             font-weight: 700;
         }
 
         /* Form Section */
         .form-section {
             background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
             padding: 40px;
             max-width: 800px;
             margin: 0 auto 60px;
             box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .form-section:hover {
+            transform: translateY(-3px);
         }
 
         .form-grid {
@@ -529,46 +591,49 @@
         .form-group input, 
         .form-group select, 
         .form-group textarea {
-            background-color: #ffffff;
+            background-color: #f8fafc;
             border: 1px solid #cbd5e1;
-            border-radius: 6px;
+            border-radius: 8px;
             padding: 12px 15px;
             color: #0f172a;
             font-size: 14px;
             outline: none;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
         }
 
         .form-group input:focus, 
         .form-group select:focus, 
         .form-group textarea:focus {
+            background-color: #ffffff;
             border-color: var(--accent-sub);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            box-shadow: 0 0 0 4px rgba(67, 56, 202, 0.12);
         }
 
         /* Coming Soon Section */
         .coming-soon-card {
-            background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%);
             border: 1px solid #c7d2fe;
-            border-radius: 16px;
-            padding: 40px 25px;
+            border-radius: 18px;
+            padding: 45px 25px;
             text-align: center;
             max-width: 800px;
             margin: 0 auto 80px;
             position: relative;
-            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.08);
+            box-shadow: 0 10px 30px rgba(67, 56, 202, 0.08);
+            animation: floatSlow 7s ease-in-out infinite;
         }
 
         .cs-badge {
             display: inline-block;
-            background-color: var(--accent-sub);
+            background: linear-gradient(135deg, var(--accent-sub) 0%, var(--accent-primary) 100%);
             color: #ffffff;
             font-size: 12px;
             font-weight: 900;
             letter-spacing: 2px;
-            padding: 5px 16px;
+            padding: 6px 18px;
             border-radius: 30px;
             margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(67, 56, 202, 0.25);
         }
 
         .coming-soon-card h2 {
@@ -594,17 +659,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(15, 23, 42, 0.6);
+            background-color: rgba(15, 23, 42, 0.65);
             z-index: 1000;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            backdrop-filter: blur(4px);
         }
 
         .modal-content {
             background-color: #ffffff;
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 16px;
             max-width: 560px;
             width: 100%;
             padding: 30px;
@@ -612,7 +678,8 @@
             text-align: left;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: floatSlow 8s ease-in-out infinite;
         }
 
         .close-btn {
@@ -622,12 +689,17 @@
             font-size: 24px;
             color: var(--text-sub);
             cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: var(--text-red);
         }
 
         .bank-card {
             background-color: #f8fafc;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 16px;
             margin: 12px 0;
             display: flex;
@@ -710,7 +782,7 @@
         .help-box {
             background-color: rgba(6, 199, 85, 0.08);
             border: 1px solid rgba(6, 199, 85, 0.3);
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 16px;
             margin-top: 15px;
             font-size: 13px;
@@ -747,7 +819,7 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
+            .hero h1 { font-size: 34px; }
             .form-grid { grid-template-columns: 1fr; }
             .form-group.full-width { grid-column: span 1; }
             .nav-links { display: none; }
@@ -779,7 +851,8 @@
     <section class="hero">
         <div class="container">
             <h1>INCREASE YOUR SKILL AND STRENGTH</h1>
-            <p class="hero-subproblem">ถ้าคุณยังเป็นคนที่เปลี่ยนโปรแกรมบ่อย สับสนในการเลือกท่า และยังไม่เข้าใจหลัก Anatomy & Physiology...</p>
+            <!-- ปรับเป็นสีแดงสดเรียบร้อย + ลบ ... ออกแล้ว -->
+            <p class="hero-subproblem">ถ้าคุณยังเป็นคนที่เปลี่ยนโปรแกรมบ่อย สับสนในการเลือกท่า และยังไม่เข้าใจหลัก Anatomy & Physiology</p>
             <p class="hero-solution"><strong>ตารางฝึกนี้จะช่วยเปลี่ยน</strong>การออกกำลังกายด้วยน้ำหนักตัวของคุณ ให้กลายเป็นโปรแกรมสร้างกล้ามเนื้อและพัฒนาทักษะ Calisthenics ได้อย่างเป็นระบบ เห็นผลจริง และปลอดภัยที่สุด</p>
             <div class="hero-btns">
                 <a href="#pricing" class="btn-primary">ดูราคาตารางการฝึก</a>
@@ -788,7 +861,7 @@
         </div>
     </section>
 
-    <!-- Science-Based Intro Story & Thought-provoking Question -->
+    <!-- Science-Based Intro Story (มี Animation ลอยเบาๆ) -->
     <section class="container">
         <div class="story-section">
             <div class="story-header">
@@ -808,7 +881,7 @@
         </div>
     </section>
 
-    <!-- Skills & Foundation Section -->
+    <!-- Skills Section (มี Hover Lift Animation) -->
     <section class="container" id="skills">
         <div class="section-title">
             <h2>ความแข็งแรงพื้นฐาน & สกิลสาย STRENGTH</h2>
@@ -883,7 +956,7 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Pricing Section ( featured card มี อนิเมชันลอย + ไฟเรืองแสง) -->
     <section class="container" id="pricing">
         <div class="section-title">
             <h2>ตารางการฝึกสำเร็จรูป (3 ระดับราคา)</h2>
@@ -906,7 +979,7 @@
                 <button class="btn-primary" onclick="selectPlan('Starter Plan (399฿)')">เลือกตาราง 399 บาท</button>
             </div>
 
-            <!-- Tier 2: 799 (Featured) -->
+            <!-- Tier 2: 799 (Featured + Animation Glow Float) -->
             <div class="pricing-card featured">
                 <div class="badge-popular">คุ้มค่าที่สุด</div>
                 <div>
@@ -1001,7 +1074,7 @@
         </div>
     </section>
 
-    <!-- Coaching 1-1 Coming Soon Section -->
+    <!-- Coaching 1-1 Coming Soon Section (มี อนิเมชันขยับลอย) -->
     <section class="container">
         <div class="coming-soon-card">
             <div class="cs-badge">COMING SOON</div>
