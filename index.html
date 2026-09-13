@@ -14,15 +14,20 @@
         }
 
         :root {
-            --bg-color: #0b0b0d;
-            --card-bg: #141417;
-            --accent-red: #ff1e27;
-            --accent-red-hover: #e0000a;
+            /* Indigo & White Theme */
+            --bg-color: #0b132b;          /* สีพื้นหลังครามเข้ม */
+            --card-bg: #1c2541;           /* สีการ์ดคราม */
+            --accent-primary: #4f46e5;     /* สีน้ำเงินครามหลัก (Primary Indigo) */
+            --accent-primary-hover: #4338ca;
+            --accent-light: #38bdf8;       /* สีฟ้าสว่างไฮไลท์ */
             --line-green: #06c755;
             --line-green-hover: #05b34c;
-            --text-main: #ffffff;
-            --text-sub: #cccccc;
-            --border-color: #242429;
+            --text-main: #ffffff;         /* ข้อความสีขาว */
+            --text-sub: #cbd5e1;          /* ข้อความสีเทาขาว */
+            --border-color: #2a385b;      /* เส้นขอบคราม */
+            
+            /* Logo Original Colors (ไม่เปลี่ยน) */
+            --logo-red: #ff1e27;
         }
 
         body {
@@ -39,7 +44,7 @@
 
         /* Navbar */
         nav {
-            background-color: rgba(11, 11, 13, 0.95);
+            background-color: rgba(11, 19, 43, 0.95);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
@@ -54,6 +59,7 @@
             height: 75px;
         }
 
+        /* Logo Original Styling Preserved */
         .logo-box {
             display: flex;
             align-items: center;
@@ -85,7 +91,7 @@
 
         .logo-box:hover .logo-badge {
             box-shadow: 0 0 20px rgba(255, 30, 39, 0.9);
-            border-color: var(--accent-red);
+            border-color: var(--logo-red);
         }
 
         .logo-text {
@@ -102,7 +108,7 @@
         }
 
         .logo-subtitle {
-            color: var(--accent-red);
+            color: var(--logo-red);
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 2px;
@@ -129,7 +135,7 @@
         }
 
         .btn-header {
-            background-color: var(--accent-red);
+            background-color: var(--accent-primary);
             color: #ffffff;
             padding: 9px 20px;
             border-radius: 6px;
@@ -139,14 +145,14 @@
         }
 
         .btn-header:hover {
-            background-color: var(--accent-red-hover);
+            background-color: var(--accent-primary-hover);
         }
 
         /* Hero Section */
         .hero {
             padding: 85px 0 55px;
             text-align: center;
-            background: radial-gradient(circle at center, #2b080a 0%, var(--bg-color) 70%);
+            background: radial-gradient(circle at center, #1e1b4b 0%, var(--bg-color) 75%);
         }
 
         .hero h1 {
@@ -159,7 +165,7 @@
         }
 
         .hero-subproblem {
-            color: #ff4d52;
+            color: var(--accent-light);
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 12px;
@@ -185,7 +191,7 @@
         }
 
         .btn-primary {
-            background-color: var(--accent-red);
+            background-color: var(--accent-primary);
             color: #ffffff;
             padding: 13px 30px;
             border-radius: 6px;
@@ -199,9 +205,9 @@
         }
 
         .btn-primary:hover {
-            background-color: var(--accent-red-hover);
+            background-color: var(--accent-primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 30, 39, 0.4);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
         }
 
         .btn-line {
@@ -246,9 +252,9 @@
 
         /* Story Banner */
         .story-section {
-            background: linear-gradient(135deg, #1a080a 0%, #141417 100%);
+            background: linear-gradient(135deg, #1e1b4b 0%, #1c2541 100%);
             border: 1px solid var(--border-color);
-            border-left: 5px solid var(--accent-red);
+            border-left: 5px solid var(--accent-primary);
             border-radius: 12px;
             padding: 35px;
             margin: 40px auto;
@@ -274,18 +280,18 @@
         }
 
         .story-title i {
-            color: var(--accent-red);
+            color: var(--accent-light);
         }
 
         .thought-question {
-            color: #ff4d52;
+            color: var(--accent-light);
             font-size: 19px;
             font-weight: 800;
             margin-bottom: 12px;
         }
 
         .edu-tag {
-            background: var(--accent-red);
+            background: var(--accent-primary);
             color: #ffffff;
             font-size: 12px;
             font-weight: 800;
@@ -336,7 +342,7 @@
 
         .skill-card:hover {
             transform: translateY(-4px);
-            border-color: var(--accent-red);
+            border-color: var(--accent-primary);
         }
 
         .skill-header {
@@ -364,11 +370,11 @@
 
         .tag-strength {
             font-size: 11px;
-            color: var(--accent-red);
+            color: var(--accent-light);
             font-weight: 700;
             text-transform: uppercase;
-            background: rgba(255, 30, 39, 0.15);
-            border: 1px solid rgba(255, 30, 39, 0.4);
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.4);
             padding: 3px 8px;
             border-radius: 4px;
         }
@@ -399,15 +405,15 @@
         }
 
         .pricing-card.featured {
-            border: 2px solid var(--accent-red);
-            background: linear-gradient(180deg, #1f080a 0%, var(--card-bg) 100%);
+            border: 2px solid var(--accent-primary);
+            background: linear-gradient(180deg, #1e1b4b 0%, var(--card-bg) 100%);
         }
 
         .badge-popular {
             position: absolute;
             top: -14px;
             right: 25px;
-            background-color: var(--accent-red);
+            background-color: var(--accent-primary);
             color: #ffffff;
             font-size: 12px;
             font-weight: 800;
@@ -451,7 +457,7 @@
         }
 
         .plan-features li i {
-            color: var(--accent-red);
+            color: var(--accent-light);
             margin-top: 4px;
         }
 
@@ -473,7 +479,7 @@
         }
 
         .policy-notice span.no-refund {
-            color: var(--accent-red);
+            color: var(--accent-light);
             font-weight: 700;
         }
 
@@ -512,7 +518,7 @@
         .form-group input, 
         .form-group select, 
         .form-group textarea {
-            background-color: #0b0b0d;
+            background-color: var(--bg-color);
             border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 12px 15px;
@@ -524,25 +530,25 @@
         .form-group input:focus, 
         .form-group select:focus, 
         .form-group textarea:focus {
-            border-color: var(--accent-red);
+            border-color: var(--accent-primary);
         }
 
         /* Coming Soon Section */
         .coming-soon-card {
-            background: linear-gradient(135deg, #1f0b0d 0%, #141417 100%);
-            border: 1px solid #ff1e27;
+            background: linear-gradient(135deg, #1e1b4b 0%, var(--card-bg) 100%);
+            border: 1px solid var(--accent-primary);
             border-radius: 16px;
             padding: 40px 25px;
             text-align: center;
             max-width: 800px;
             margin: 0 auto 80px;
             position: relative;
-            box-shadow: 0 0 25px rgba(255, 30, 39, 0.15);
+            box-shadow: 0 0 25px rgba(79, 70, 229, 0.2);
         }
 
         .cs-badge {
             display: inline-block;
-            background-color: var(--accent-red);
+            background-color: var(--accent-primary);
             color: #ffffff;
             font-size: 12px;
             font-weight: 900;
@@ -575,7 +581,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.88);
+            background-color: rgba(5, 10, 24, 0.9);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -605,7 +611,7 @@
         }
 
         .bank-card {
-            background-color: #0b0b0d;
+            background-color: var(--bg-color);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 16px;
@@ -649,7 +655,7 @@
         }
 
         .summary-box {
-            background: #0b0b0d;
+            background: var(--bg-color);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 12px;
@@ -660,7 +666,7 @@
             width: 100%;
             background: transparent;
             border: none;
-            color: #00ff88;
+            color: #38bdf8;
             font-family: monospace;
             font-size: 13px;
             resize: none;
@@ -668,9 +674,9 @@
         }
 
         .btn-copy-manual {
-            background-color: #242429;
+            background-color: #2a385b;
             color: #ffffff;
-            border: 1px solid #3a3a42;
+            border: 1px solid #3b4c7a;
             padding: 8px 14px;
             border-radius: 6px;
             font-size: 12px;
@@ -683,7 +689,7 @@
         }
 
         .btn-copy-manual:hover {
-            background-color: #323238;
+            background-color: #3b4c7a;
         }
 
         .help-box {
@@ -993,7 +999,7 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeCheckout()">&times;</span>
             <h3 style="font-size: 20px; font-weight: 800; color: #ffffff;" id="modalTitle">รายละเอียดการชำระเงิน</h3>
-            <p style="color: var(--accent-red); font-size: 18px; font-weight: 800; margin-top: 4px;" id="modalPrice">ยอดชำระสุทธิ: ฿0</p>
+            <p style="color: var(--accent-light); font-size: 18px; font-weight: 800; margin-top: 4px;" id="modalPrice">ยอดชำระสุทธิ: ฿0</p>
             
             <p style="font-size: 13px; color: var(--text-sub); margin-top: 15px;">โอนเงินเข้าบัญชีด้านล่างนี้:</p>
 
