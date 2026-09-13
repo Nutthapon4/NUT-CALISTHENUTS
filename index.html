@@ -1,63 +1,58 @@
-ผมจัดการสร้างไฟล์ index.html ฉบับสมบูรณ์ให้เรียบร้อยแล้วครับ!
-โดยไฟล์นี้ได้รับการปรับดีไซน์และเนื้อหาตามที่คุณต้องการครบถ้วน:
- * โลโก้ใหม่: สัญลักษณ์ตัว N สไตล์ Calisthenics ดุดัน โทนสี ดำ-ขาว-แดง
- * คำใต้โลโก้ & ข้อความรอง: เปลี่ยนเป็น skill and strength
- * ตัดส่วนสถิติและส่วนที่ 4 ออกทั้งหมด เรียบร้อยแล้วครับ
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUT CALISTHENUTS - Skill and Strength</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <title>NUT CALISTHENUTS | Skill and Strength</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --bg-dark: #0a0a0a;
-            --bg-card: #141414;
-            --bg-card-hover: #1f1f1f;
-            --accent-red: #ff1e27;
-            --accent-red-hover: #e00008;
-            --text-white: #ffffff;
-            --text-gray: #a0a0a0;
-            --border-color: #262626;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Kanit', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Kanit';
+        }
+
+        :root {
+            --bg-color: #0d0d0f;
+            --card-bg: #16161a;
+            --accent-red: #e50914;
+            --accent-red-hover: #f40612;
+            --text-main: #ffffff;
+            --text-sub: #a0a0ab;
+            --border-color: #26262b;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-white);
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* HEADER & NAVIGATION */
-        header {
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: rgba(13, 13, 15, 0.95);
             border-bottom: 1px solid var(--border-color);
-            padding: 12px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 70px;
         }
 
-        /* LOGO DESIGN: N (BLACK, WHITE, RED) */
         .logo-box {
             display: flex;
             align-items: center;
@@ -65,413 +60,635 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            width: 44px;
-            height: 44px;
-            background: #000;
-            border: 2px solid var(--accent-red);
-            border-radius: 8px;
+        .logo-badge {
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 15px rgba(255, 30, 39, 0.3);
+            border-radius: 6px;
         }
 
-        .logo-text-group {
+        .logo-text {
             display: flex;
             flex-direction: column;
         }
 
         .logo-title {
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: var(--text-white);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 800;
             letter-spacing: 1px;
             line-height: 1.1;
-            text-transform: uppercase;
         }
 
         .logo-subtitle {
-            font-size: 0.75rem;
             color: var(--accent-red);
+            font-size: 11px;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: lowercase;
         }
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 25px;
+            align-items: center;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-white);
+            color: var(--text-sub);
             text-decoration: none;
+            font-size: 14px;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--accent-red);
+            color: var(--text-main);
         }
 
-        .btn-primary {
-            background: var(--accent-red);
-            color: var(--text-white);
-            padding: 10px 24px;
+        .btn-header {
+            background-color: var(--accent-red);
+            color: #fff;
+            padding: 8px 18px;
             border-radius: 6px;
+            font-weight: 600;
             text-decoration: none;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-block;
+            transition: background 0.3s;
         }
 
-        .btn-primary:hover {
-            background: var(--accent-red-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 30, 39, 0.4);
+        .btn-header:hover {
+            background-color: var(--accent-red-hover);
         }
 
-        /* SECTION 1: HERO SECTION */
+        /* Hero Section */
         .hero {
-            padding: 160px 5% 100px;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 80px 0 60px;
             text-align: center;
-            position: relative;
+            background: radial-gradient(circle at center, #240a0c 0%, var(--bg-color) 70%);
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            background: var(--accent-red);
-            filter: blur(150px);
-            opacity: 0.25;
-            z-index: -1;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
+        .hero h1 {
+            font-size: 48px;
             font-weight: 900;
+            margin-bottom: 15px;
             text-transform: uppercase;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(180deg, #ffffff 0%, #a0a0a0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
         }
 
-        .hero-subtitle {
-            font-size: 1.8rem;
-            color: var(--accent-red);
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: lowercase;
-            margin-bottom: 30px;
-        }
-
-        .hero-desc {
+        .hero p {
+            color: var(--text-sub);
+            font-size: 18px;
             max-width: 650px;
-            margin: 0 auto 40px;
-            color: var(--text-gray);
-            font-size: 1.1rem;
+            margin: 0 auto 30px;
         }
 
         .hero-btns {
             display: flex;
-            gap: 16px;
             justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-red);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-red-hover);
+            transform: translateY(-2px);
         }
 
         .btn-outline {
-            border: 2px solid #ffffff;
-            color: var(--text-white);
-            padding: 10px 24px;
+            background: transparent;
+            color: #fff;
+            border: 1px solid var(--border-color);
+            padding: 12px 28px;
             border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
             text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
         }
 
         .btn-outline:hover {
-            border-color: var(--accent-red);
-            color: var(--accent-red);
+            border-color: #fff;
         }
 
-        /* SECTION 2: PROGRAM LIST */
-        .section {
-            padding: 80px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        /* Section Title */
         .section-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 12px;
             text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 800;
             text-transform: uppercase;
         }
 
-        .section-title span {
-            color: var(--accent-red);
+        .section-title p {
+            color: var(--text-sub);
+            font-size: 14px;
+            margin-top: 5px;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-gray);
-            margin-bottom: 50px;
-        }
-
-        .cards-grid {
+        /* Technique Cards */
+        .grid-techniques {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
+            gap: 20px;
+            margin-bottom: 60px;
         }
 
-        .card {
-            background: var(--bg-card);
+        .tech-card {
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            border-radius: 10px;
+            padding: 24px;
+            transition: transform 0.3s, border-color 0.3s;
         }
 
-        .card:hover {
-            border-color: var(--accent-red);
-            transform: translateY(-5px);
-            background: var(--bg-card-hover);
+        .tech-card:hover {
+            transform: translateY(-4px);
+            border-color: #444;
         }
 
-        .card-tag {
-            display: inline-block;
-            background: rgba(255, 30, 39, 0.15);
-            color: var(--accent-red);
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        /* SECTION 3: EXERCISE TECHNIQUE GUIDE */
-        .guide-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px;
-        }
-
-        .guide-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .guide-item {
+        .tech-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 20px;
-            background: #0d0d0d;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-red);
+            margin-bottom: 12px;
         }
 
-        .guide-item-title {
+        .tech-title {
+            font-size: 20px;
             font-weight: 700;
-            font-size: 1.1rem;
         }
 
-        .guide-item-desc {
-            color: var(--text-gray);
-            font-size: 0.9rem;
+        .tech-tag {
+            font-size: 11px;
+            color: var(--accent-red);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* FOOTER */
-        footer {
-            background: #000;
-            border-top: 1px solid var(--border-color);
-            padding: 60px 5% 30px;
-            margin-top: 80px;
+        .tech-desc {
+            color: var(--text-sub);
+            font-size: 14px;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .pricing-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px 25px;
+            position: relative;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
+            justify-content: space-between;
+            transition: border-color 0.3s;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--accent-red);
+            background: linear-gradient(180deg, #221013 0%, var(--card-bg) 100%);
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: -14px;
+            right: 25px;
+            background-color: var(--accent-red);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .plan-name {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .plan-price {
+            font-size: 38px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .plan-price span {
+            font-size: 14px;
+            color: var(--text-sub);
+            font-weight: 400;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 20px 0 30px;
+        }
+
+        .plan-features li {
+            color: #d1d1d6;
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .plan-features li i {
+            color: var(--accent-red);
+            margin-top: 4px;
+        }
+
+        /* Application Form Section */
+        .form-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
-        .copyright {
-            color: var(--text-gray);
-            font-size: 0.85rem;
-            margin-top: 20px;
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
-        /* RESPONSIVE DESIGN FOR IPAD & MOBILE */
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ddd;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            background-color: #0d0d0f;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px 15px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--accent-red);
+        }
+
+        /* Modal Payment */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            position: relative;
+            text-align: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            color: var(--text-sub);
+            cursor: pointer;
+        }
+
+        .qr-box {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        .qr-box img {
+            width: 180px;
+            height: 180px;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            color: var(--text-sub);
+            font-size: 13px;
+        }
+
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .hero-subtitle { font-size: 1.4rem; }
+            .hero h1 { font-size: 32px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
             .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER / NAVIGATION -->
-    <header>
-        <div class="nav-container">
-            <!-- LOGO DESIGN (N ICON + BLACK/WHITE/RED + skill and strength) -->
+    <!-- Navbar -->
+    <nav>
+        <div class="container nav-container">
             <a href="#" class="logo-box">
-                <div class="logo-icon">
-                    <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 22 15 H 40 L 62 62 V 15 H 78 V 85 H 60 L 38 38 V 85 H 22 Z" fill="#FFFFFF"/>
-                        <path d="M 40 15 L 60 62 H 48 L 32 38 Z" fill="#FF1E27"/>
-                    </svg>
-                </div>
-                <div class="logo-text-group">
+                <div class="logo-badge">N</div>
+                <div class="logo-text">
                     <span class="logo-title">NUT CALISTHENUTS</span>
                     <span class="logo-subtitle">skill and strength</span>
                 </div>
             </a>
-
             <ul class="nav-links">
-                <li><a href="#hero">หน้าแรก</a></li>
-                <li><a href="#programs">โปรแกรมฝึก</a></li>
-                <li><a href="#guide">เทคนิคการฝึก</a></li>
+                <li><a href="#techniques">เทคนิคการฝึก</a></li>
+                <li><a href="#pricing">โปรแกรม & ราคา</a></li>
+                <li><a href="#apply">สมัครเทรน</a></li>
             </ul>
-
-            <a href="#programs" class="btn-primary">เริ่มฝึกเลย</a>
+            <a href="#apply" class="btn-header">เริ่มฝึกเลย</a>
         </div>
-    </header>
+    </nav>
 
-    <!-- ส่วนที่ 1: HERO SECTION -->
-    <section id="hero" class="hero">
-        <h1 class="hero-title">NUT CALISTHENUTS</h1>
-        <!-- ข้อความรองส่วนที่ 1 เปลี่ยนเป็น skill and strength -->
-        <div class="hero-subtitle">skill and strength</div>
-        <p class="hero-desc">
-            ยกระดับความแข็งแกร่งของร่างกายด้วยการใช้น้ำหนักตัว พัฒนาทักษะ Calisthenics ตั้งแต่ระดับพื้นฐานจนถึงท่าระดับสูงอย่างถูกต้องและปลอดภัย
-        </p>
-        <div class="hero-btns">
-            <a href="#programs" class="btn-primary">ดูโปรแกรมการฝึก</a>
-            <a href="#guide" class="btn-outline">เทคนิคการฝึก</a>
-        </div>
-    </section>
-
-    <!-- ส่วนที่ 2: PROGRAM LIST -->
-    <section id="programs" class="section">
-        <h2 class="section-title">โปรแกรม <span>CALISTHENICS</span></h2>
-        <p class="section-subtitle">เลือกโปรแกรมที่เหมาะสมกับระดับของคุณ</p>
-        
-        <div class="cards-grid">
-            <div class="card">
-                <span class="card-tag">BEGINNER</span>
-                <h3>Foundation Strength</h3>
-                <p>สร้างพื้นฐานกล้ามเนื้อและข้อต่อ เพิ่มจำนวนครั้ง Push-up, Pull-up และ Dip อย่างถูกต้อง</p>
-                <a href="#" class="btn-primary" style="width: 100%; text-align: center;">ดูรายละเอียด</a>
-            </div>
-
-            <div class="card">
-                <span class="card-tag">INTERMEDIATE</span>
-                <h3>Skill Mastery</h3>
-                <p>ฝึกฝนทักษะ Calisthenics เช่น Muscle-up, Handstand และ L-Sit ด้วย Progressive Training</p>
-                <a href="#" class="btn-primary" style="width: 100%; text-align: center;">ดูรายละเอียด</a>
-            </div>
-
-            <div class="card">
-                <span class="card-tag">ADVANCED</span>
-                <h3>Statics & Power</h3>
-                <p>ก้าวสู่ระดับสูงด้วยการฝึกท่า Static Hold เช่น Front Lever, Planche และ Human Flag</p>
-                <a href="#" class="btn-primary" style="width: 100%; text-align: center;">ดูรายละเอียด</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>INCREASE YOUR SKILL AND STRENGTH</h1>
+            <p>ยกระดับความแข็งแกร่งของร่างกายด้วยการใช้น้ำหนักตัว พัฒนาทักษะ Calisthenics ตั้งแต่ระดับพื้นฐานจนถึงท่าระดับสูงอย่างถูกต้องและปลอดภัย</p>
+            <div class="hero-btns">
+                <a href="#pricing" class="btn-primary">ดูโปรแกรมและราคา</a>
+                <a href="#apply" class="btn-outline">สมัครเทรน 1-1 / ออนไลน์</a>
             </div>
         </div>
     </section>
 
-    <!-- ส่วนที่ 3: EXERCISE TECHNIQUE GUIDE -->
-    <section id="guide" class="section">
-        <h2 class="section-title">คู่มือ <span>TECHNIQUE</span></h2>
-        <p class="section-subtitle">ข้อควรระวังและเทคนิคเพื่อป้องกันการบาดเจ็บ</p>
-
-        <div class="guide-box">
-            <div class="guide-list">
-                <div class="guide-item">
-                    <div>
-                        <div class="guide-item-title">Pull-Up (โหนบาร์)</div>
-                        <div class="guide-item-desc">ดึงอกเข้าหาบาร์ ไม่ใช่งอตัว คุมจังหวะลงให้สุดแขน</div>
-                    </div>
-                    <span style="color: var(--accent-red); font-weight: 700;">STRENGTH</span>
+    <!-- Techniques Section -->
+    <section class="container" id="techniques">
+        <div class="section-title">
+            <h2>เทคนิคการฝึก (Technique Cues)</h2>
+            <p>คำแนะนำเทคนิคสำคัญเพื่อป้องกันการบาดเจ็บและเพิ่มประสิทธิภาพในการเล่น</p>
+        </div>
+        <div class="grid-techniques">
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-title">Dip (ดริปบาร์คู่)</span>
+                    <span class="tech-tag">Chest & Triceps</span>
                 </div>
-
-                <div class="guide-item">
-                    <div>
-                        <div class="guide-item-title">Dip (ดริปบาร์คู่)</div>
-                        <div class="guide-item-desc">เกร็งหน้าท้อง ล็อคหัวไหล่ไม่ให้ยกสูง ป้องกันอาการบาดเจ็บไหล่</div>
-                    </div>
-                    <span style="color: var(--accent-red); font-weight: 700;">CHEST & TRICEPS</span>
+                <p class="tech-desc">เกร็งหน้าท้อง ล็อกหัวไหล่ไม่ให้ยกสูง ป้องกันอาการบาดเจ็บไหล่ ดันตัวขึ้นให้สุดแขน</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-title">Handstand (ยืนด้วยมือ)</span>
+                    <span class="tech-tag">Balance & Shoulders</span>
                 </div>
-
-                <div class="guide-item">
-                    <div>
-                        <div class="guide-item-title">Handstand (ยืนด้วยมือ)</div>
-                        <div class="guide-item-desc">ดันไหล่ขึ้นสุด กดนิ้วมือกับพื้นเพื่อควบคุมการทรงตัว</div>
-                    </div>
-                    <span style="color: var(--accent-red); font-weight: 700;">BALANCE</span>
+                <p class="tech-desc">ดันไหล่ขึ้นสุด กดนิ้วมือกับพื้นเพื่อควบคุมการทรงตัว เกร็งก้นและแกนกลางลำตัวให้เป็นเส้นตรง</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-header">
+                    <span class="tech-title">Muscle-Up (ดึงข้อขึ้นบาร์)</span>
+                    <span class="tech-tag">Explosive Pull</span>
                 </div>
+                <p class="tech-desc">ใช้แรงดึงแบบโค้ง (C-Shape) เปลี่ยนมุมข้อมืออย่างรวดเร็วเพื่อส่งตัวขึ้นเหนือบาร์</p>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Pricing Section -->
+    <section class="container" id="pricing">
+        <div class="section-title">
+            <h2>โปรแกรม & ราคาค่าบริการ</h2>
+            <p>เลือกแพ็กเกจการฝึกที่เหมาะสมกับเป้าหมายของคุณ</p>
+        </div>
+        <div class="pricing-grid">
+            
+            <!-- Plan 1 -->
+            <div class="pricing-card">
+                <div>
+                    <div class="plan-name">Online Course</div>
+                    <div class="plan-price">฿1,290 <span>/ คอร์ส</span></div>
+                    <p style="color: var(--text-sub); font-size: 13px;">เหมาะสำหรับผู้ที่ต้องการเรียนรู้ด้วยตนเองผ่านคลังวิดีโอเทคนิค</p>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> เข้าถึงคลังวิดีโอสอนท่าพื้นฐานถึงระดับสูง</li>
+                        <li><i class="fa-solid fa-check"></i> ตารางฝึกซ้อมมาตรฐานสัปดาห์ต่อสัปดาห์</li>
+                        <li><i class="fa-solid fa-check"></i> ดูย้อนหลังได้ตลอดชีพ ไม่มีหมดอายุ</li>
+                    </ul>
+                </div>
+                <button class="btn-primary" onclick="openCheckout('Online Course', 1290)">สมัครคอร์สนี้</button>
+            </div>
+
+            <!-- Plan 2 (Featured) -->
+            <div class="pricing-card featured">
+                <div class="badge-popular">แนะนำยอดฮิต</div>
+                <div>
+                    <div class="plan-name">1-on-1 Online Coaching</div>
+                    <div class="plan-price">฿3,500 <span>/ เดือน</span></div>
+                    <p style="color: var(--text-sub); font-size: 13px;">เหมาะสำหรับคนที่ต้องการโค้ชส่วนตัวคอยดูแลและปรับโปรแกรมให้</p>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> ออกแบบโปรแกรมฝึกส่วนบุคคล (Customized)</li>
+                        <li><i class="fa-solid fa-check"></i> ตรวจและแก้ไขฟอร์มท่าเล่นผ่านวิดีโอแบบ 1-on-1</li>
+                        <li><i class="fa-solid fa-check"></i> ให้คำแนะนำโภชนาการและการฟื้นฟูกล้ามเนื้อ</li>
+                        <li><i class="fa-solid fa-check"></i> ปรึกษาโค้ชนัทได้ตลอดผ่าน Line ส่วนตัว</li>
+                    </ul>
+                </div>
+                <button class="btn-primary" onclick="openCheckout('1-on-1 Online Coaching', 3500)">สมัครเทรนออนไลน์</button>
+            </div>
+
+            <!-- Plan 3 -->
+            <div class="pricing-card">
+                <div>
+                    <div class="plan-name">Personal Training (1-on-1)</div>
+                    <div class="plan-price">฿8,500 <span>/ 10 ชั่วโมง</span></div>
+                    <p style="color: var(--text-sub); font-size: 13px;">ฝึกจับคู่ตัวต่อตัว เซฟท่าและปรับฟอร์มแบบ Realtime 100%</p>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> ฝึกตัวต่อตัวกับโค้ชนัท ปรับฟอร์มละเอียดทุกจุด</li>
+                        <li><i class="fa-solid fa-check"></i> ปลอดภัย 100% มีคนเซฟท่าเล่นยาก (Handstand/Planche)</li>
+                        <li><i class="fa-solid fa-check"></i> ประเมินโครงสร้างร่างกายและความแข็งแรง</li>
+                        <li><i class="fa-solid fa-check"></i> ฟรีตารางซ้อมสำหรับเล่นเองในวันที่ไม่ได้เจอโค้ช</li>
+                    </ul>
+                </div>
+                <button class="btn-primary" onclick="openCheckout('Personal Training (1-on-1)', 8500)">สมัครเทรนส่วนตัว</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="container" id="apply">
+        <div class="section-title">
+            <h2>แบบฟอร์มสมัครเทรน</h2>
+            <p>กรอกข้อมูลของคุณเพื่อให้โค้ชนัทประเมินและติดต่อกลับเพื่อเริ่มฝึก</p>
+        </div>
+        <div class="form-section">
+            <form id="coachingForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">ชื่อ-นามสกุล *</label>
+                        <input type="text" id="name" required placeholder="เช่น นัทธพงศ์ สายแข็ง">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">เบอร์โทรศัพท์ / Line ID *</label>
+                        <input type="text" id="phone" required placeholder="เช่น 081-234-5678 หรือ Line ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">อายุ (ปี) *</label>
+                        <input type="number" id="age" required placeholder="เช่น 25">
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">น้ำหนัก / ส่วนสูง *</label>
+                        <input type="text" id="weight" required placeholder="เช่น 68 กก. / 175 ซม.">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="address">จังหวัด / ที่อยู่ปัจจุบัน *</label>
+                        <input type="text" id="address" required placeholder="เช่น กรุงเทพมหานคร / นครปฐม">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="package">เลือกโปรแกรมที่สนใจ *</label>
+                        <select id="package" required>
+                            <option value="">-- กรุณาเลือกโปรแกรม --</option>
+                            <option value="Online Course (1,290฿)">Online Course (1,290 บาท)</option>
+                            <option value="1-on-1 Online Coaching (3,500฿)">1-on-1 Online Coaching (3,500 บาท/เดือน)</option>
+                            <option value="Personal Training (8,500฿)">Personal Training 1-on-1 (8,500 บาท/10 ชั่วโฒง)</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="experience">ประสบการณ์การออกกำลังกาย / ท่าที่อยากทำได้ *</label>
+                        <textarea id="experience" rows="3" required placeholder="เช่น เคยยกเวทมา 1 ปี, อยากทำ Handstand และ Muscle-up ได้"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="medical">โรคประจำตัว / อาการบาดเจ็บย้อนหลัง (ถ้ามี)</label>
+                        <textarea id="medical" rows="2" placeholder="เช่น เคยเจ็บข้อมือขวา, ไม่มีโรคประจำตัว"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 25px;">ส่งข้อมูลสมัครเทรน</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Modal Payment Checkout -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCheckout()">&times;</span>
+            <h3 style="font-size: 20px; font-weight: 800;" id="modalTitle">ชำระเงินค่าบริการ</h3>
+            <p style="color: var(--text-sub); font-size: 14px; margin-top: 5px;" id="modalPrice">ยอดชำระ: ฿0</p>
+            
+            <div class="qr-box">
+                <!-- QR Code Placeholder -->
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=NUT-CALISTHENUTS-PAYMENT" alt="QR Code Payment">
+            </div>
+            
+            <p style="font-size: 13px; font-weight: 600; color: #fff;">สแกน QR Code ชำระเงินผ่าน Mobile Banking</p>
+            <p style="font-size: 12px; color: var(--text-sub); margin-top: 4px;">พร้อมเพย์: 08X-XXX-XXXX (นัทธพงศ์)</p>
+
+            <div style="margin-top: 20px; text-align: left; background: #0d0d0f; padding: 15px; border-radius: 8px; font-size: 13px;">
+                <p style="color: var(--accent-red); font-weight: 700;">ขั้นตอนหลังโอนเงิน:</p>
+                <p style="color: #bbb;">1. บันทึกสลิปการโอนเงิน</p>
+                <p style="color: #bbb;">2. ส่งหลักฐานสลิปผ่านทาง Line ของโค้ช เพื่อยืนยันสิทธิ์ทันที</p>
+            </div>
+
+            <button class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="closeCheckout()">ปิดหน้าต่างนี้</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <a href="#" class="logo-box">
-                <div class="logo-icon">
-                    <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 22 15 H 40 L 62 62 V 15 H 78 V 85 H 60 L 38 38 V 85 H 22 Z" fill="#FFFFFF"/>
-                        <path d="M 40 15 L 60 62 H 48 L 32 38 Z" fill="#FF1E27"/>
-                    </svg>
-                </div>
-                <div class="logo-text-group">
-                    <span class="logo-title">NUT CALISTHENUTS</span>
-                    <span class="logo-subtitle">skill and strength</span>
-                </div>
-            </a>
-            <p class="copyright">© 2026 NUT CALISTHENUTS. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-logo">
+                <div class="logo-badge" style="width:30px; height:30px; font-size:16px;">N</div>
+                <span style="font-weight: 800; font-size: 16px;">NUT CALISTHENUTS</span>
+            </div>
+            <p class="footer-text">© 2026 NUT CALISTHENUTS. All rights reserved.</p>
         </div>
     </footer>
 
+    <script>
+        function openCheckout(planName, price) {
+            document.getElementById('modalTitle').innerText = 'ชำระเงินโปรแกรม: ' + planName;
+            document.getElementById('modalPrice').innerText = 'ยอดชำระสุทธิ: ฿' + price.toLocaleString();
+            document.getElementById('checkoutModal').style.display = 'flex';
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const selectedPackage = document.getElementById('package').value;
+            alert('ส่งข้อมูลการสมัครเรียบร้อยแล้ว! โค้ชนัทจะติดต่อกลับตามเบอร์/Line ID ที่ระบุไว้โดยเร็วที่สุดครับ');
+            if(selectedPackage) {
+                document.getElementById('checkoutModal').style.display = 'flex';
+            }
+        }
+    </script>
 </body>
 </html>
-```eof
 
-### ขั้นตอนการนำไปใช้บน iPad:
-1. กดดูหน้าต่างตัวอย่างเว็บทางด้านขวามือได้ทันที
-2. นำไฟล์ `index.html` ย้ายใส่ในโฟลเดอร์บนแอป **Files (แฟ้ม)**
-3. อัปโหลดโฟลเดอร์นั้นขึ้น **Vercel** หรือ **Netlify Drop** เพื่อออนไลน์เว็บของคุณได้เลยครับ
 
