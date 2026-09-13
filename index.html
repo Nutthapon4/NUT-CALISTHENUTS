@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -29,7 +31,6 @@
             line-height: 1.6;
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -60,18 +61,20 @@
             text-decoration: none;
         }
 
+        /* Red-Black-White Balanced Logo */
         .logo-badge {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             background-color: #000;
-            border: 2px solid #ffffff;
+            border: 2px solid var(--accent-red);
+            box-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
             color: #ffffff;
             font-weight: 900;
-            font-size: 22px;
+            font-size: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 6px;
+            border-radius: 8px;
         }
 
         .logo-text {
@@ -80,7 +83,7 @@
         }
 
         .logo-title {
-            color: #fff;
+            color: #ffffff;
             font-size: 18px;
             font-weight: 800;
             letter-spacing: 1px;
@@ -90,7 +93,7 @@
         .logo-subtitle {
             color: var(--accent-red);
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: lowercase;
         }
@@ -130,13 +133,13 @@
 
         /* Hero Section */
         .hero {
-            padding: 80px 0 60px;
+            padding: 80px 0 50px;
             text-align: center;
             background: radial-gradient(circle at center, #240a0c 0%, var(--bg-color) 70%);
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 46px;
             font-weight: 900;
             margin-bottom: 15px;
             text-transform: uppercase;
@@ -145,8 +148,8 @@
 
         .hero p {
             color: var(--text-sub);
-            font-size: 18px;
-            max-width: 650px;
+            font-size: 17px;
+            max-width: 700px;
             margin: 0 auto 30px;
         }
 
@@ -167,6 +170,7 @@
             font-size: 16px;
             transition: all 0.3s;
             text-decoration: none;
+            display: inline-block;
         }
 
         .btn-primary:hover {
@@ -190,14 +194,45 @@
             border-color: #fff;
         }
 
+        /* Story Banner (Science-Based Intro) */
+        .story-section {
+            background: linear-gradient(135deg, #1c1315 0%, #121215 100%);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-red);
+            border-radius: 12px;
+            padding: 35px 30px;
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        .story-title {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .story-title i {
+            color: var(--accent-red);
+        }
+
+        .story-text {
+            color: #d1d1d6;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
         /* Section Title */
         .section-title {
             text-align: center;
-            margin: 60px 0 40px;
+            margin: 60px 0 35px;
         }
 
         .section-title h2 {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 800;
             text-transform: uppercase;
         }
@@ -208,15 +243,15 @@
             margin-top: 5px;
         }
 
-        /* Technique Cards */
-        .grid-techniques {
+        /* Skills Section (สาย Strength) */
+        .grid-skills {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-bottom: 60px;
         }
 
-        .tech-card {
+        .skill-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 10px;
@@ -224,40 +259,43 @@
             transition: transform 0.3s, border-color 0.3s;
         }
 
-        .tech-card:hover {
+        .skill-card:hover {
             transform: translateY(-4px);
-            border-color: #444;
+            border-color: var(--accent-red);
         }
 
-        .tech-header {
+        .skill-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
-        .tech-title {
-            font-size: 20px;
+        .skill-name {
+            font-size: 18px;
             font-weight: 700;
+            color: #fff;
         }
 
-        .tech-tag {
+        .skill-tag {
             font-size: 11px;
             color: var(--accent-red);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            background: rgba(229, 9, 20, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
         }
 
-        .tech-desc {
+        .skill-desc {
             color: var(--text-sub);
-            font-size: 14px;
+            font-size: 13px;
         }
 
         /* Pricing Section */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin-bottom: 80px;
         }
@@ -293,7 +331,7 @@
         }
 
         .plan-name {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
             margin-bottom: 10px;
         }
@@ -330,7 +368,7 @@
             margin-top: 4px;
         }
 
-        /* Application Form Section */
+        /* Form Section */
         .form-section {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -380,7 +418,7 @@
             border-color: var(--accent-red);
         }
 
-        /* Modal Payment */
+        /* Modal Bank Payment */
         .modal {
             display: none;
             position: fixed;
@@ -388,7 +426,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(0, 0, 0, 0.88);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -399,11 +437,11 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            max-width: 500px;
+            max-width: 520px;
             width: 100%;
             padding: 30px;
             position: relative;
-            text-align: center;
+            text-align: left;
         }
 
         .close-btn {
@@ -415,18 +453,60 @@
             cursor: pointer;
         }
 
-        .qr-box {
-            background-color: #fff;
-            padding: 15px;
+        .bank-card {
+            background-color: #0d0d0f;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            display: inline-block;
-            margin: 20px 0;
+            padding: 16px;
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .qr-box img {
-            width: 180px;
-            height: 180px;
-            display: block;
+        .bank-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .kbank-icon { background-color: #138f2d; }
+        .promptpay-icon { background-color: #11356f; }
+
+        .bank-details p {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        .bank-details h4 {
+            font-size: 18px;
+            color: #fff;
+            letter-spacing: 1px;
+            margin: 2px 0;
+        }
+
+        .help-box {
+            background-color: rgba(229, 9, 20, 0.08);
+            border: 1px solid rgba(229, 9, 20, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 13px;
+        }
+
+        .help-box h5 {
+            color: var(--accent-red);
+            font-size: 14px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         /* Footer */
@@ -470,11 +550,11 @@
                 </div>
             </a>
             <ul class="nav-links">
-                <li><a href="#techniques">เทคนิคการฝึก</a></li>
-                <li><a href="#pricing">โปรแกรม & ราคา</a></li>
-                <li><a href="#apply">สมัครเทรน</a></li>
+                <li><a href="#skills">สกิลสาย Strength</a></li>
+                <li><a href="#pricing">ตารางการฝึก & ราคา</a></li>
+                <li><a href="#apply">สั่งซื้อตาราง</a></li>
             </ul>
-            <a href="#apply" class="btn-header">เริ่มฝึกเลย</a>
+            <a href="#pricing" class="btn-header">เลือกตารางการฝึก</a>
         </div>
     </nav>
 
@@ -482,99 +562,120 @@
     <section class="hero">
         <div class="container">
             <h1>INCREASE YOUR SKILL AND STRENGTH</h1>
-            <p>ยกระดับความแข็งแกร่งของร่างกายด้วยการใช้น้ำหนักตัว พัฒนาทักษะ Calisthenics ตั้งแต่ระดับพื้นฐานจนถึงท่าระดับสูงอย่างถูกต้องและปลอดภัย</p>
+            <p>เปลี่ยนการออกกำลังกายด้วยน้ำหนักตัวแบบเดิมๆ ให้เป็นโปรแกรมการสร้างกล้ามเนื้อและทักษะ Calisthenics ขั้นสูงอย่างเห็นผลจริง</p>
             <div class="hero-btns">
-                <a href="#pricing" class="btn-primary">ดูโปรแกรมและราคา</a>
-                <a href="#apply" class="btn-outline">สมัครเทรน 1-1 / ออนไลน์</a>
+                <a href="#pricing" class="btn-primary">ดูราคาตารางการฝึก</a>
+                <a href="#skills" class="btn-outline">ดูสกิลสาย Strength</a>
             </div>
         </div>
     </section>
 
-    <!-- Techniques Section -->
-    <section class="container" id="techniques">
+    <!-- Science-Based Intro Story -->
+    <section class="container">
+        <div class="story-section">
+            <div class="story-title">
+                <i class="fa-solid fa-flask"></i>
+                <span>ทำไมต้องใช้โปรแกรมการฝึกที่อิงหลักวิทยาศาสตร์?</span>
+            </div>
+            <p class="story-text">
+                "ผมก็เคยเป็นคนหนึ่งที่ดูคลิปสั้นเทคนิคการฝึกต่างๆ บนโซเชียล แล้วพยายามลองฝึกตาม... แต่ก็ยังพัฒนาได้ช้าและติดขัด จนกระทั่งเจอจุดเปลี่ยนของตัวเอง ทำให้ได้รู้ว่า **การฝึกตามคลิปสั้นไม่ได้เหมาะกับร่างกายของทุกคน**<br><br>
+                ผมจึงได้สร้าง **โปรแกรมการฝึก Calisthenics ที่อิงตามหลักวิทยาศาสตร์การกีฬา (Science-Based)** ขึ้นมา เพื่อออกแบบโครงสร้างการฝึกที่ตอบโจทย์กับร่างกาย ป้องกันอาการบาดเจ็บ และช่วยให้คุณปลดล็อกสกิลและพละกำลังได้อย่างรวดเร็วและเป็นระบบที่สุด"
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section (สาย Strength) -->
+    <section class="container" id="skills">
         <div class="section-title">
-            <h2>เทคนิคการฝึก (Technique Cues)</h2>
-            <p>คำแนะนำเทคนิคสำคัญเพื่อป้องกันการบาดเจ็บและเพิ่มประสิทธิภาพในการเล่น</p>
+            <h2>สกิลที่คุณต้องการ (สาย Strength)</h2>
+            <p>เป้าหมายการฝึกทักษะและความแข็งแกร่งที่คุณสามารถทำได้จริงด้วยตารางการฝึก</p>
         </div>
-        <div class="grid-techniques">
-            <div class="tech-card">
-                <div class="tech-header">
-                    <span class="tech-title">Dip (ดริปบาร์คู่)</span>
-                    <span class="tech-tag">Chest & Triceps</span>
+        <div class="grid-skills">
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Handstand</span>
+                    <span class="skill-tag">Balance & Shoulders</span>
                 </div>
-                <p class="tech-desc">เกร็งหน้าท้อง ล็อกหัวไหล่ไม่ให้ยกสูง ป้องกันอาการบาดเจ็บไหล่ ดันตัวขึ้นให้สุดแขน</p>
+                <p class="skill-desc">ฝึกการทรงตัวบนมือ ควบคุมแกนกลางลำตัว และสร้างความแข็งแกร่งของหัวไหล่</p>
             </div>
-            <div class="tech-card">
-                <div class="tech-header">
-                    <span class="tech-title">Handstand (ยืนด้วยมือ)</span>
-                    <span class="tech-tag">Balance & Shoulders</span>
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Muscle-Up</span>
+                    <span class="skill-tag">Explosive Pull</span>
                 </div>
-                <p class="tech-desc">ดันไหล่ขึ้นสุด กดนิ้วมือกับพื้นเพื่อควบคุมการทรงตัว เกร็งก้นและแกนกลางลำตัวให้เป็นเส้นตรง</p>
+                <p class="skill-desc">ส่งแรงดึงสะพานข้อขึ้นเหนือบาร์อย่างทรงพลัง ด้วยจังหวะและมุมข้อมือที่ถูกต้อง</p>
             </div>
-            <div class="tech-card">
-                <div class="tech-header">
-                    <span class="tech-title">Muscle-Up (ดึงข้อขึ้นบาร์)</span>
-                    <span class="tech-tag">Explosive Pull</span>
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Front Lever</span>
+                    <span class="skill-tag">Core & Lats Strength</span>
                 </div>
-                <p class="tech-desc">ใช้แรงดึงแบบโค้ง (C-Shape) เปลี่ยนมุมข้อมืออย่างรวดเร็วเพื่อส่งตัวขึ้นเหนือบาร์</p>
+                <p class="skill-desc">เกร็งดึงลำตัวขนานกับพื้นด้วยความแข็งแกร่งของหลังส่วนบนและแกนกลาง</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Planche</span>
+                    <span class="skill-tag">Advanced Push</span>
+                </div>
+                <p class="skill-desc">ทักษะการดันทรงตัวขนานพื้นขั้นสูง เพิ่มมวลกล้ามเนื้อและแรงดันสูงสุด</p>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Pricing Section (3สำเร็จรูป) -->
     <section class="container" id="pricing">
         <div class="section-title">
-            <h2>โปรแกรม & ราคาค่าบริการ</h2>
-            <p>เลือกแพ็กเกจการฝึกที่เหมาะสมกับเป้าหมายของคุณ</p>
+            <h2>ตารางการฝึกสำเร็จรูป (3 ระดับราคา)</h2>
+            <p>เลือกตารางการฝึกที่ตรงกับรูปแบบการใช้ชีวิตและเป้าหมายของคุณ</p>
         </div>
         <div class="pricing-grid">
             
-            <!-- Plan 1 -->
+            <!-- Tier 1: 399 -->
             <div class="pricing-card">
                 <div>
-                    <div class="plan-name">Online Course</div>
-                    <div class="plan-price">฿1,290 <span>/ คอร์ส</span></div>
-                    <p style="color: var(--text-sub); font-size: 13px;">เหมาะสำหรับผู้ที่ต้องการเรียนรู้ด้วยตนเองผ่านคลังวิดีโอเทคนิค</p>
+                    <div class="plan-name">Starter Level Plan</div>
+                    <div class="plan-price">฿399 <span>/ ตาราง</span></div>
+                    <p style="color: var(--text-sub); font-size: 13px;">สำหรับผู้ที่ต้องการตารางการฝึกมาตรฐานที่เหมาะกับระดับของตัวเอง</p>
                     <ul class="plan-features">
-                        <li><i class="fa-solid fa-check"></i> เข้าถึงคลังวิดีโอสอนท่าพื้นฐานถึงระดับสูง</li>
-                        <li><i class="fa-solid fa-check"></i> ตารางฝึกซ้อมมาตรฐานสัปดาห์ต่อสัปดาห์</li>
-                        <li><i class="fa-solid fa-check"></i> ดูย้อนหลังได้ตลอดชีพ ไม่มีหมดอายุ</li>
+                        <li><i class="fa-solid fa-check"></i> ได้ตารางการฝึกสำเร็จรูปตรงตามระดับร่างกาย (Beginner / Intermediate)</li>
+                        <li><i class="fa-solid fa-check"></i> ระบุจำนวนเซ็ต จำนวนครั้ง (Reps) และวันพักอย่างชัดเจน</li>
+                        <li><i class="fa-solid fa-check"></i> รับไฟล์ตารางการฝึก PDF นำไปดูซ้อมได้ทันที</li>
                     </ul>
                 </div>
-                <button class="btn-primary" onclick="openCheckout('Online Course', 1290)">สมัครคอร์สนี้</button>
+                <button class="btn-primary" onclick="openCheckout('Starter Level Plan (ตารางตามระดับ)', 399)">เลือกตาราง 399 บาท</button>
             </div>
 
-            <!-- Plan 2 (Featured) -->
+            <!-- Tier 2: 799 (Featured) -->
             <div class="pricing-card featured">
-                <div class="badge-popular">แนะนำยอดฮิต</div>
+                <div class="badge-popular">คุ้มค่าที่สุด</div>
                 <div>
-                    <div class="plan-name">1-on-1 Online Coaching</div>
-                    <div class="plan-price">฿3,500 <span>/ เดือน</span></div>
-                    <p style="color: var(--text-sub); font-size: 13px;">เหมาะสำหรับคนที่ต้องการโค้ชส่วนตัวคอยดูแลและปรับโปรแกรมให้</p>
+                    <div class="plan-name">Flexible Custom Plan</div>
+                    <div class="plan-price">฿799 <span>/ ตาราง</span></div>
+                    <p style="color: var(--text-sub); font-size: 13px;">สามารถปรับเปลี่ยนตารางการฝึกให้เข้ากับเวลาและความสะดวกของตัวเองได้</p>
                     <ul class="plan-features">
-                        <li><i class="fa-solid fa-check"></i> ออกแบบโปรแกรมฝึกส่วนบุคคล (Customized)</li>
-                        <li><i class="fa-solid fa-check"></i> ตรวจและแก้ไขฟอร์มท่าเล่นผ่านวิดีโอแบบ 1-on-1</li>
-                        <li><i class="fa-solid fa-check"></i> ให้คำแนะนำโภชนาการและการฟื้นฟูกล้ามเนื้อ</li>
-                        <li><i class="fa-solid fa-check"></i> ปรึกษาโค้ชนัทได้ตลอดผ่าน Line ส่วนตัว</li>
+                        <li><i class="fa-solid fa-check"></i> ได้ตารางการฝึกสำเร็จรูปตามระดับร่างกาย</li>
+                        <li><i class="fa-solid fa-check"></i> **สามารถปรับเปลี่ยนวันและเวลาซ้อม** ตามความสะดวกของคุณได้เอง</li>
+                        <li><i class="fa-solid fa-check"></i> มีตัวเลือกท่าฝึกทดแทน (Alternative Exercises) เมื่ออุปกรณ์ไม่พร้อม</li>
+                        <li><i class="fa-solid fa-check"></i> ตารางเพิ่มโหลดการฝึก (Progression Plan) สำหรับซ้อมระยะยาว</li>
                     </ul>
                 </div>
-                <button class="btn-primary" onclick="openCheckout('1-on-1 Online Coaching', 3500)">สมัครเทรนออนไลน์</button>
+                <button class="btn-primary" onclick="openCheckout('Flexible Custom Plan (ปรับตามสะดวก)', 799)">เลือกตาราง 799 บาท</button>
             </div>
 
-            <!-- Plan 3 -->
+            <!-- Tier 3: 1299 -->
             <div class="pricing-card">
                 <div>
-                    <div class="plan-name">Personal Training (1-on-1)</div>
-                    <div class="plan-price">฿8,500 <span>/ 10 ชั่วโมง</span></div>
-                    <p style="color: var(--text-sub); font-size: 13px;">ฝึกจับคู่ตัวต่อตัว เซฟท่าและปรับฟอร์มแบบ Realtime 100%</p>
+                    <div class="plan-name">Pro Support Plan</div>
+                    <div class="plan-price">฿1,299 <span>/ ตาราง</span></div>
+                    <p style="color: var(--text-sub); font-size: 13px;">ตารางยืดหยุ่น พร้อมสิทธิ์ทักแชทสอบถามและปรึกษาปัญหาตรงกับโค้ช</p>
                     <ul class="plan-features">
-                        <li><i class="fa-solid fa-check"></i> ฝึกตัวต่อตัวกับโค้ชนัท ปรับฟอร์มละเอียดทุกจุด</li>
-                        <li><i class="fa-solid fa-check"></i> ปลอดภัย 100% มีคนเซฟท่าเล่นยาก (Handstand/Planche)</li>
-                        <li><i class="fa-solid fa-check"></i> ประเมินโครงสร้างร่างกายและความแข็งแรง</li>
-                        <li><i class="fa-solid fa-check"></i> ฟรีตารางซ้อมสำหรับเล่นเองในวันที่ไม่ได้เจอโค้ช</li>
+                        <li><i class="fa-solid fa-check"></i> ได้ตารางการฝึกระดับ Pro ที่ปรับเปลี่ยนได้ตามความสะดวก</li>
+                        <li><i class="fa-solid fa-check"></i> **ทักแชทสอบถามและปรึกษาปัญหากับโค้ชได้ตามสะดวก**</li>
+                        <li><i class="fa-solid fa-check"></i> ส่งคลิปตรวจฟอร์มท่าเล่นเมื่อติดขัดหรือสงสัย</li>
+                        <li><i class="fa-solid fa-check"></i> คำแนะนำด้านการป้องกันบาดเจ็บและฟื้นฟูกล้ามเนื้อ</li>
                     </ul>
                 </div>
-                <button class="btn-primary" onclick="openCheckout('Personal Training (1-on-1)', 8500)">สมัครเทรนส่วนตัว</button>
+                <button class="btn-primary" onclick="openCheckout('Pro Support Plan (ปรึกษาโค้ชได้)', 1299)">เลือกตาราง 1,299 บาท</button>
             </div>
 
         </div>
@@ -583,77 +684,98 @@
     <!-- Application Form Section -->
     <section class="container" id="apply">
         <div class="section-title">
-            <h2>แบบฟอร์มสมัครเทรน</h2>
-            <p>กรอกข้อมูลของคุณเพื่อให้โค้ชนัทประเมินและติดต่อกลับเพื่อเริ่มฝึก</p>
+            <h2>กรอกข้อมูลเพื่อรับตารางการฝึก</h2>
+            <p>ส่งข้อมูลของคุณเพื่อให้ระบบจัดส่งตารางที่ตรงกับระดับร่างกายของคุณมากที่สุด</p>
         </div>
         <div class="form-section">
             <form id="coachingForm" onsubmit="handleFormSubmit(event)">
                 <div class="form-grid">
-                    <div class="form-group">
+                    <div class="form-group full-width">
                         <label for="name">ชื่อ-นามสกุล *</label>
                         <input type="text" id="name" required placeholder="เช่น นัทธพงศ์ สายแข็ง">
                     </div>
+                    
+                    <!-- Separated Phone & Line ID -->
                     <div class="form-group">
-                        <label for="phone">เบอร์โทรศัพท์ / Line ID *</label>
-                        <input type="text" id="phone" required placeholder="เช่น 081-234-5678 หรือ Line ID">
+                        <label for="phone">เบอร์โทรศัพท์ *</label>
+                        <input type="tel" id="phone" required placeholder="เช่น 090-111-7724">
                     </div>
                     <div class="form-group">
+                        <label for="lineId">Line ID *</label>
+                        <input type="text" id="lineId" required placeholder="เช่น nut_calisthenics">
+                    </div>
+
+                    <div class="form-group">
                         <label for="age">อายุ (ปี) *</label>
-                        <input type="number" id="age" required placeholder="เช่น 25">
+                        <input type="number" id="age" required placeholder="เช่น 24">
                     </div>
                     <div class="form-group">
                         <label for="weight">น้ำหนัก / ส่วนสูง *</label>
-                        <input type="text" id="weight" required placeholder="เช่น 68 กก. / 175 ซม.">
+                        <input type="text" id="weight" required placeholder="เช่น 65 กก. / 175 ซม.">
                     </div>
+
                     <div class="form-group full-width">
-                        <label for="address">จังหวัด / ที่อยู่ปัจจุบัน *</label>
-                        <input type="text" id="address" required placeholder="เช่น กรุงเทพมหานคร / นครปฐม">
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="package">เลือกโปรแกรมที่สนใจ *</label>
+                        <label for="package">เลือกตารางการฝึกที่ต้องการ *</label>
                         <select id="package" required>
-                            <option value="">-- กรุณาเลือกโปรแกรม --</option>
-                            <option value="Online Course (1,290฿)">Online Course (1,290 บาท)</option>
-                            <option value="1-on-1 Online Coaching (3,500฿)">1-on-1 Online Coaching (3,500 บาท/เดือน)</option>
-                            <option value="Personal Training (8,500฿)">Personal Training 1-on-1 (8,500 บาท/10 ชั่วโฒง)</option>
+                            <option value="">-- กรุณาเลือกราคาตาราง --</option>
+                            <option value="Starter Plan (399฿)">Starter Level Plan (399 บาท)</option>
+                            <option value="Flexible Plan (799฿)">Flexible Custom Plan (799 บาท)</option>
+                            <option value="Pro Support Plan (1299฿)">Pro Support Plan (1,299 บาท)</option>
                         </select>
                     </div>
+
                     <div class="form-group full-width">
-                        <label for="experience">ประสบการณ์การออกกำลังกาย / ท่าที่อยากทำได้ *</label>
-                        <textarea id="experience" rows="3" required placeholder="เช่น เคยยกเวทมา 1 ปี, อยากทำ Handstand และ Muscle-up ได้"></textarea>
+                        <label for="targetSkill">สกิลที่อยากทำได้ / ประสบการณ์ที่มี *</label>
+                        <textarea id="targetSkill" rows="3" required placeholder="เช่น ออกกำลังกายมา 6 เดือน อยากทำ Handstand และ Muscle-Up ได้"></textarea>
                     </div>
+
                     <div class="form-group full-width">
-                        <label for="medical">โรคประจำตัว / อาการบาดเจ็บย้อนหลัง (ถ้ามี)</label>
-                        <textarea id="medical" rows="2" placeholder="เช่น เคยเจ็บข้อมือขวา, ไม่มีโรคประจำตัว"></textarea>
+                        <label for="medical">โรคประจำตัว / อาการบาดเจ็บที่เคยเป็น (ถ้ามี)</label>
+                        <textarea id="medical" rows="2" placeholder="เช่น เคยเจ็บข้อมือ, ไม่มี"></textarea>
                     </div>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 25px;">ส่งข้อมูลสมัครเทรน</button>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 25px;">ส่งข้อมูลและไปหน้าชำระเงิน</button>
             </form>
         </div>
     </section>
 
-    <!-- Modal Payment Checkout -->
+    <!-- Modal Bank Payment (No QR Code) -->
     <div class="modal" id="checkoutModal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeCheckout()">&times;</span>
-            <h3 style="font-size: 20px; font-weight: 800;" id="modalTitle">ชำระเงินค่าบริการ</h3>
-            <p style="color: var(--text-sub); font-size: 14px; margin-top: 5px;" id="modalPrice">ยอดชำระ: ฿0</p>
+            <h3 style="font-size: 20px; font-weight: 800; color: #fff;" id="modalTitle">รายละเอียดการชำระเงิน</h3>
+            <p style="color: var(--accent-red); font-size: 16px; font-weight: 700; margin-top: 4px;" id="modalPrice">ยอดชำระสุทธิ: ฿0</p>
             
-            <div class="qr-box">
-                <!-- QR Code Placeholder -->
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=NUT-CALISTHENUTS-PAYMENT" alt="QR Code Payment">
-            </div>
-            
-            <p style="font-size: 13px; font-weight: 600; color: #fff;">สแกน QR Code ชำระเงินผ่าน Mobile Banking</p>
-            <p style="font-size: 12px; color: var(--text-sub); margin-top: 4px;">พร้อมเพย์: 08X-XXX-XXXX (นัทธพงศ์)</p>
+            <p style="font-size: 13px; color: var(--text-sub); margin-top: 15px;">โอนเงินผ่านช่องทางธนาคารด้านล่างนี้:</p>
 
-            <div style="margin-top: 20px; text-align: left; background: #0d0d0f; padding: 15px; border-radius: 8px; font-size: 13px;">
-                <p style="color: var(--accent-red); font-weight: 700;">ขั้นตอนหลังโอนเงิน:</p>
-                <p style="color: #bbb;">1. บันทึกสลิปการโอนเงิน</p>
-                <p style="color: #bbb;">2. ส่งหลักฐานสลิปผ่านทาง Line ของโค้ช เพื่อยืนยันสิทธิ์ทันที</p>
+            <!-- PromptPay -->
+            <div class="bank-card">
+                <div class="bank-icon promptpay-icon">พร้อมเพย์</div>
+                <div class="bank-details">
+                    <p>พร้อมเพย์ (PromptPay)</p>
+                    <h4>090-111-7724</h4>
+                    <p>ชื่อบัญชี: นัทธพงศ์</p>
+                </div>
             </div>
 
-            <button class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="closeCheckout()">ปิดหน้าต่างนี้</button>
+            <!-- KBANK -->
+            <div class="bank-card">
+                <div class="bank-icon kbank-icon">กสิกร</div>
+                <div class="bank-details">
+                    <p>ธนาคารกสิกรไทย (KBANK)</p>
+                    <h4>145-3-44900-5</h4>
+                    <p>ชื่อบัญชี: นัทธพงศ์</p>
+                </div>
+            </div>
+
+            <!-- Help / Missing File Resolution -->
+            <div class="help-box">
+                <h5><i class="fa-solid fa-circle-exclamation"></i> ขั้นตอนการรับไฟล์ตารางการฝึก / กรณีเกิดปัญหา:</h5>
+                <p style="color: #ddd;">1. เมื่อโอนเงินเสร็จแล้ว ให้บันทึกสลิปการโอนเงิน</p>
+                <p style="color: #ddd;">2. **หากโอนแล้วยังไม่ได้รับไฟล์ หรือมีข้อสงสัย:** กรุณาส่งสลิปมาที่ **Line ID: nut_calisthenics** หรือโทร **090-111-7724** ได้ทันที โค้ชนัทจะทำการตรวจสอบและส่งไฟล์ตารางให้คุณโดยเร็วที่สุดครับ</p>
+            </div>
+
+            <button class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="closeCheckout()">ปิดหน้าต่างชำระเงิน</button>
         </div>
     </div>
 
@@ -661,7 +783,7 @@
     <footer>
         <div class="container">
             <div class="footer-logo">
-                <div class="logo-badge" style="width:30px; height:30px; font-size:16px;">N</div>
+                <div class="logo-badge" style="width:32px; height:32px; font-size:16px;">N</div>
                 <span style="font-weight: 800; font-size: 16px;">NUT CALISTHENUTS</span>
             </div>
             <p class="footer-text">© 2026 NUT CALISTHENUTS. All rights reserved.</p>
@@ -670,7 +792,7 @@
 
     <script>
         function openCheckout(planName, price) {
-            document.getElementById('modalTitle').innerText = 'ชำระเงินโปรแกรม: ' + planName;
+            document.getElementById('modalTitle').innerText = 'ชำระเงิน: ' + planName;
             document.getElementById('modalPrice').innerText = 'ยอดชำระสุทธิ: ฿' + price.toLocaleString();
             document.getElementById('checkoutModal').style.display = 'flex';
         }
@@ -682,13 +804,12 @@
         function handleFormSubmit(e) {
             e.preventDefault();
             const selectedPackage = document.getElementById('package').value;
-            alert('ส่งข้อมูลการสมัครเรียบร้อยแล้ว! โค้ชนัทจะติดต่อกลับตามเบอร์/Line ID ที่ระบุไว้โดยเร็วที่สุดครับ');
-            if(selectedPackage) {
-                document.getElementById('checkoutModal').style.display = 'flex';
-            }
+            let price = 399;
+            if(selectedPackage.includes('799')) price = 799;
+            if(selectedPackage.includes('1299')) price = 1299;
+
+            openCheckout(selectedPackage || 'ตารางการฝึก Calisthenics', price);
         }
     </script>
 </body>
 </html>
-
-
