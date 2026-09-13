@@ -14,19 +14,21 @@
         }
 
         :root {
-            /* Indigo & White Theme */
-            --bg-color: #0b132b;          /* สีพื้นหลังครามเข้ม */
-            --card-bg: #1c2541;           /* สีการ์ดคราม */
-            --accent-primary: #4f46e5;     /* สีน้ำเงินครามหลัก (Primary Indigo) */
-            --accent-primary-hover: #4338ca;
-            --accent-light: #38bdf8;       /* สีฟ้าสว่างไฮไลท์ */
+            /* Light Theme: White & Indigo Navy */
+            --bg-color: #f8fafc;          /* พื้นหลังสีขาวอมฟ้าอ่อนสะอาดตา */
+            --card-bg: #ffffff;           /* สีการ์ดขาวบริสุทธิ์ */
+            --accent-primary: #1e1b4b;     /* สีน้ำเงินครามเข้ม (Deep Indigo) */
+            --accent-primary-hover: #312e81;
+            --accent-sub: #4338ca;         /* สีครามสดใสไฮไลท์ */
+            --accent-light: #0284c7;       /* สีฟ้าไฮไลท์เน้นจุดสำคัญ */
             --line-green: #06c755;
             --line-green-hover: #05b34c;
-            --text-main: #ffffff;         /* ข้อความสีขาว */
-            --text-sub: #cbd5e1;          /* ข้อความสีเทาขาว */
-            --border-color: #2a385b;      /* เส้นขอบคราม */
-            
-            /* Logo Original Colors (ไม่เปลี่ยน) */
+            --text-main: #0f172a;         /* ข้อความสีน้ำเงินเข้ม/เกือบดำ อ่านง่าย */
+            --text-sub: #475569;          /* ข้อความสีเทาเข้ม */
+            --border-color: #e2e8f0;      /* เส้นขอบสีเทาอ่อน */
+            --card-shadow: 0 4px 20px rgba(30, 27, 75, 0.06);
+
+            /* Logo Original Colors (คงเดิม) */
             --logo-red: #ff1e27;
         }
 
@@ -44,12 +46,13 @@
 
         /* Navbar */
         nav {
-            background-color: rgba(11, 19, 43, 0.95);
+            background-color: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 100;
             backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
 
         .nav-container {
@@ -72,7 +75,7 @@
             height: 44px;
             background: linear-gradient(135deg, #ff1e27 0%, #990006 100%);
             border: 2px solid #ffffff;
-            box-shadow: 0 0 12px rgba(255, 30, 39, 0.6);
+            box-shadow: 0 2px 10px rgba(255, 30, 39, 0.4);
             color: #ffffff;
             font-weight: 900;
             font-size: 26px;
@@ -90,8 +93,7 @@
         }
 
         .logo-box:hover .logo-badge {
-            box-shadow: 0 0 20px rgba(255, 30, 39, 0.9);
-            border-color: var(--logo-red);
+            box-shadow: 0 4px 15px rgba(255, 30, 39, 0.7);
         }
 
         .logo-text {
@@ -100,7 +102,7 @@
         }
 
         .logo-title {
-            color: #ffffff;
+            color: #0f172a;
             font-size: 19px;
             font-weight: 900;
             letter-spacing: 1px;
@@ -131,7 +133,7 @@
         }
 
         .nav-links a:hover {
-            color: #ffffff;
+            color: var(--accent-sub);
         }
 
         .btn-header {
@@ -152,7 +154,7 @@
         .hero {
             padding: 85px 0 55px;
             text-align: center;
-            background: radial-gradient(circle at center, #1e1b4b 0%, var(--bg-color) 75%);
+            background: radial-gradient(circle at center, #eef2ff 0%, var(--bg-color) 80%);
         }
 
         .hero h1 {
@@ -161,11 +163,11 @@
             margin-bottom: 18px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #ffffff;
+            color: var(--accent-primary);
         }
 
         .hero-subproblem {
-            color: var(--accent-light);
+            color: var(--accent-sub);
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 12px;
@@ -181,7 +183,7 @@
         }
 
         .hero-solution strong {
-            color: #ffffff;
+            color: var(--text-main);
         }
 
         .hero-btns {
@@ -207,7 +209,7 @@
         .btn-primary:hover {
             background-color: var(--accent-primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+            box-shadow: 0 5px 15px rgba(30, 27, 75, 0.25);
         }
 
         .btn-line {
@@ -225,40 +227,43 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.4);
+            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
         }
 
         .btn-line:hover {
             background-color: var(--line-green-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(6, 199, 85, 0.6);
+            box-shadow: 0 6px 20px rgba(6, 199, 85, 0.4);
         }
 
         .btn-outline {
-            background: transparent;
-            color: #ffffff;
-            border: 1px solid var(--border-color);
+            background: #ffffff;
+            color: var(--accent-primary);
+            border: 1px solid #cbd5e1;
             padding: 13px 30px;
             border-radius: 6px;
             font-weight: 600;
             cursor: pointer;
             font-size: 16px;
             text-decoration: none;
+            transition: all 0.3s;
         }
 
         .btn-outline:hover {
-            border-color: #ffffff;
+            border-color: var(--accent-primary);
+            background: #f8fafc;
         }
 
         /* Story Banner */
         .story-section {
-            background: linear-gradient(135deg, #1e1b4b 0%, #1c2541 100%);
+            background: #ffffff;
             border: 1px solid var(--border-color);
-            border-left: 5px solid var(--accent-primary);
+            border-left: 5px solid var(--accent-sub);
             border-radius: 12px;
             padding: 35px;
             margin: 40px auto;
             max-width: 920px;
+            box-shadow: var(--card-shadow);
         }
 
         .story-header {
@@ -271,7 +276,7 @@
         }
 
         .story-title {
-            color: #ffffff;
+            color: var(--accent-primary);
             font-size: 20px;
             font-weight: 800;
             display: flex;
@@ -280,19 +285,20 @@
         }
 
         .story-title i {
-            color: var(--accent-light);
+            color: var(--accent-sub);
         }
 
         .thought-question {
-            color: var(--accent-light);
+            color: var(--accent-sub);
             font-size: 19px;
             font-weight: 800;
             margin-bottom: 12px;
         }
 
         .edu-tag {
-            background: var(--accent-primary);
-            color: #ffffff;
+            background: #eef2ff;
+            color: var(--accent-sub);
+            border: 1px solid #c7d2fe;
             font-size: 12px;
             font-weight: 800;
             padding: 4px 12px;
@@ -315,7 +321,7 @@
             font-size: 32px;
             font-weight: 900;
             text-transform: uppercase;
-            color: #ffffff;
+            color: var(--accent-primary);
         }
 
         .section-title p {
@@ -337,12 +343,14 @@
             border: 1px solid var(--border-color);
             border-radius: 10px;
             padding: 24px;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .skill-card:hover {
             transform: translateY(-4px);
-            border-color: var(--accent-primary);
+            border-color: var(--accent-sub);
+            box-shadow: var(--card-shadow);
         }
 
         .skill-header {
@@ -355,26 +363,26 @@
         .skill-name {
             font-size: 19px;
             font-weight: 800;
-            color: #ffffff;
+            color: var(--accent-primary);
         }
 
         .tag-basic {
             font-size: 11px;
-            color: #ffffff;
+            color: #475569;
             font-weight: 700;
             text-transform: uppercase;
-            background: rgba(255, 255, 255, 0.15);
+            background: #f1f5f9;
             padding: 3px 8px;
             border-radius: 4px;
         }
 
         .tag-strength {
             font-size: 11px;
-            color: var(--accent-light);
+            color: var(--accent-sub);
             font-weight: 700;
             text-transform: uppercase;
-            background: rgba(56, 189, 248, 0.15);
-            border: 1px solid rgba(56, 189, 248, 0.4);
+            background: #eef2ff;
+            border: 1px solid #c7d2fe;
             padding: 3px 8px;
             border-radius: 4px;
         }
@@ -401,19 +409,21 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .pricing-card.featured {
-            border: 2px solid var(--accent-primary);
-            background: linear-gradient(180deg, #1e1b4b 0%, var(--card-bg) 100%);
+            border: 2px solid var(--accent-sub);
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.12);
         }
 
         .badge-popular {
             position: absolute;
             top: -14px;
             right: 25px;
-            background-color: var(--accent-primary);
+            background-color: var(--accent-sub);
             color: #ffffff;
             font-size: 12px;
             font-weight: 800;
@@ -426,13 +436,13 @@
             font-size: 21px;
             font-weight: 800;
             margin-bottom: 10px;
-            color: #ffffff;
+            color: var(--accent-primary);
         }
 
         .plan-price {
             font-size: 40px;
             font-weight: 900;
-            color: #ffffff;
+            color: var(--accent-primary);
             margin-bottom: 15px;
         }
 
@@ -448,7 +458,7 @@
         }
 
         .plan-features li {
-            color: var(--text-sub);
+            color: var(--text-main);
             font-size: 14px;
             margin-bottom: 12px;
             display: flex;
@@ -457,14 +467,14 @@
         }
 
         .plan-features li i {
-            color: var(--accent-light);
+            color: var(--accent-sub);
             margin-top: 4px;
         }
 
         /* Policy & Scope Notice */
         .policy-notice {
-            background-color: rgba(255, 255, 255, 0.03);
-            border: 1px dashed var(--border-color);
+            background-color: #f1f5f9;
+            border: 1px dashed #cbd5e1;
             border-radius: 10px;
             padding: 22px;
             margin-bottom: 80px;
@@ -475,11 +485,11 @@
         }
 
         .policy-notice strong {
-            color: #ffffff;
+            color: var(--text-main);
         }
 
         .policy-notice span.no-refund {
-            color: var(--accent-light);
+            color: #dc2626;
             font-weight: 700;
         }
 
@@ -491,6 +501,7 @@
             padding: 40px;
             max-width: 800px;
             margin: 0 auto 60px;
+            box-shadow: var(--card-shadow);
         }
 
         .form-grid {
@@ -512,43 +523,45 @@
         .form-group label {
             font-size: 14px;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--accent-primary);
         }
 
         .form-group input, 
         .form-group select, 
         .form-group textarea {
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
             border-radius: 6px;
             padding: 12px 15px;
-            color: #ffffff;
+            color: #0f172a;
             font-size: 14px;
             outline: none;
+            transition: border-color 0.3s;
         }
 
         .form-group input:focus, 
         .form-group select:focus, 
         .form-group textarea:focus {
-            border-color: var(--accent-primary);
+            border-color: var(--accent-sub);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
         }
 
         /* Coming Soon Section */
         .coming-soon-card {
-            background: linear-gradient(135deg, #1e1b4b 0%, var(--card-bg) 100%);
-            border: 1px solid var(--accent-primary);
+            background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
+            border: 1px solid #c7d2fe;
             border-radius: 16px;
             padding: 40px 25px;
             text-align: center;
             max-width: 800px;
             margin: 0 auto 80px;
             position: relative;
-            box-shadow: 0 0 25px rgba(79, 70, 229, 0.2);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.08);
         }
 
         .cs-badge {
             display: inline-block;
-            background-color: var(--accent-primary);
+            background-color: var(--accent-sub);
             color: #ffffff;
             font-size: 12px;
             font-weight: 900;
@@ -561,7 +574,7 @@
         .coming-soon-card h2 {
             font-size: 28px;
             font-weight: 900;
-            color: #ffffff;
+            color: var(--accent-primary);
             margin-bottom: 10px;
             letter-spacing: 1px;
         }
@@ -581,7 +594,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(5, 10, 24, 0.9);
+            background-color: rgba(15, 23, 42, 0.6);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -589,7 +602,7 @@
         }
 
         .modal-content {
-            background-color: var(--card-bg);
+            background-color: #ffffff;
             border: 1px solid var(--border-color);
             border-radius: 12px;
             max-width: 560px;
@@ -599,6 +612,7 @@
             text-align: left;
             max-height: 90vh;
             overflow-y: auto;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         .close-btn {
@@ -611,7 +625,7 @@
         }
 
         .bank-card {
-            background-color: var(--bg-color);
+            background-color: #f8fafc;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 16px;
@@ -649,14 +663,14 @@
 
         .bank-details h4 {
             font-size: 19px;
-            color: #ffffff;
+            color: var(--accent-primary);
             letter-spacing: 1px;
             margin: 2px 0;
         }
 
         .summary-box {
-            background: var(--bg-color);
-            border: 1px solid var(--border-color);
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
             border-radius: 8px;
             padding: 12px;
             margin: 10px 0 15px;
@@ -666,7 +680,7 @@
             width: 100%;
             background: transparent;
             border: none;
-            color: #38bdf8;
+            color: #0369a1;
             font-family: monospace;
             font-size: 13px;
             resize: none;
@@ -674,9 +688,9 @@
         }
 
         .btn-copy-manual {
-            background-color: #2a385b;
-            color: #ffffff;
-            border: 1px solid #3b4c7a;
+            background-color: #e2e8f0;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
             padding: 8px 14px;
             border-radius: 6px;
             font-size: 12px;
@@ -686,10 +700,11 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            transition: background 0.2s;
         }
 
         .btn-copy-manual:hover {
-            background-color: #3b4c7a;
+            background-color: #cbd5e1;
         }
 
         .help-box {
@@ -715,6 +730,7 @@
             border-top: 1px solid var(--border-color);
             padding: 40px 0;
             text-align: center;
+            background-color: #ffffff;
         }
 
         .footer-logo {
@@ -998,8 +1014,8 @@
     <div class="modal" id="checkoutModal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeCheckout()">&times;</span>
-            <h3 style="font-size: 20px; font-weight: 800; color: #ffffff;" id="modalTitle">รายละเอียดการชำระเงิน</h3>
-            <p style="color: var(--accent-light); font-size: 18px; font-weight: 800; margin-top: 4px;" id="modalPrice">ยอดชำระสุทธิ: ฿0</p>
+            <h3 style="font-size: 20px; font-weight: 800; color: var(--accent-primary);" id="modalTitle">รายละเอียดการชำระเงิน</h3>
+            <p style="color: var(--accent-sub); font-size: 18px; font-weight: 800; margin-top: 4px;" id="modalPrice">ยอดชำระสุทธิ: ฿0</p>
             
             <p style="font-size: 13px; color: var(--text-sub); margin-top: 15px;">โอนเงินเข้าบัญชีด้านล่างนี้:</p>
 
@@ -1037,8 +1053,8 @@
             <!-- Slip Transfer Notice & LINE Button -->
             <div class="help-box">
                 <h5><i class="fa-solid fa-paper-plane"></i> ขั้นตอนสุดท้ายเพื่อรับตารางฝึก:</h5>
-                <p style="color: #ffffff; margin-bottom: 6px;">1. โอนเงินเข้าบัญชีด้านบน แล้วบันทึกสลิป</p>
-                <p style="color: #ffffff; margin-bottom: 12px;">2. กดปุ่มสีเขียว **เปิด LINE** แล้วกด **"วาง" (Paste)** ในช่องพิมพ์เพื่อส่งข้อความพร้อมแนบสลิปได้เลยครับ</p>
+                <p style="color: var(--text-main); margin-bottom: 6px;">1. โอนเงินเข้าบัญชีด้านบน แล้วบันทึกสลิป</p>
+                <p style="color: var(--text-main); margin-bottom: 12px;">2. กดปุ่มสีเขียว **เปิด LINE** แล้วกด **"วาง" (Paste)** ในช่องพิมพ์เพื่อส่งข้อความพร้อมแนบสลิปได้เลยครับ</p>
 
                 <!-- GREEN LINE BUTTON WITH DIRECT USER LINK -->
                 <button class="btn-line" onclick="sendToLine()" style="width: 100%;">
@@ -1056,7 +1072,7 @@
         <div class="container">
             <div class="footer-logo">
                 <div class="logo-badge" style="width:34px; height:34px; font-size:18px;"><span>N</span></div>
-                <span style="font-weight: 900; font-size: 16px;">NUT CALISTHENUTS</span>
+                <span style="font-weight: 900; font-size: 16px; color: #0f172a;">NUT CALISTHENUTS</span>
             </div>
             <p class="footer-text">© 2026 NUT CALISTHENUTS | วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล</p>
         </div>
@@ -1143,10 +1159,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
