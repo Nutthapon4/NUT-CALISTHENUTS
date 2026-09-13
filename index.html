@@ -18,8 +18,6 @@
             --card-bg: #141417;
             --accent-red: #ff1e27;
             --accent-red-hover: #e0000a;
-            --line-green: #06c755;
-            --line-green-hover: #05b34c;
             --text-main: #ffffff;
             --text-sub: #cccccc;
             --border-color: #242429;
@@ -65,9 +63,9 @@
         .logo-badge {
             width: 44px;
             height: 44px;
-            background: linear-gradient(135deg, #1f0506 0%, #000000 100%);
-            border: 2px solid var(--accent-red);
-            box-shadow: 0 0 12px rgba(255, 30, 39, 0.5);
+            background: linear-gradient(135deg, #ff1e27 0%, #990006 100%);
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 12px rgba(255, 30, 39, 0.6);
             color: #ffffff;
             font-weight: 900;
             font-size: 26px;
@@ -85,8 +83,8 @@
         }
 
         .logo-box:hover .logo-badge {
-            box-shadow: 0 0 20px rgba(255, 30, 39, 0.8);
-            border-color: #fff;
+            box-shadow: 0 0 20px rgba(255, 30, 39, 0.9);
+            border-color: var(--accent-red);
         }
 
         .logo-text {
@@ -207,7 +205,7 @@
         }
 
         .btn-line {
-            background-color: var(--line-green);
+            background-color: var(--accent-red);
             color: #ffffff;
             padding: 14px 20px;
             border-radius: 8px;
@@ -221,13 +219,13 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 4px 12px rgba(6, 199, 85, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 30, 39, 0.4);
         }
 
         .btn-line:hover {
-            background-color: var(--line-green-hover);
+            background-color: var(--accent-red-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(6, 199, 85, 0.5);
+            box-shadow: 0 6px 20px rgba(255, 30, 39, 0.6);
         }
 
         .btn-outline {
@@ -280,8 +278,8 @@
         }
 
         .edu-tag {
-            background: #ffffff;
-            color: #000000;
+            background: var(--accent-red);
+            color: #ffffff;
             font-size: 12px;
             font-weight: 800;
             padding: 4px 12px;
@@ -362,7 +360,8 @@
             color: var(--accent-red);
             font-weight: 700;
             text-transform: uppercase;
-            background: rgba(255, 30, 39, 0.12);
+            background: rgba(255, 30, 39, 0.15);
+            border: 1px solid rgba(255, 30, 39, 0.4);
             padding: 3px 8px;
             border-radius: 4px;
         }
@@ -548,7 +547,7 @@
         }
 
         .bank-icon {
-            width: 55px;
+            width: 65px;
             height: 48px;
             border-radius: 6px;
             display: flex;
@@ -557,10 +556,9 @@
             font-weight: 800;
             font-size: 13px;
             color: #ffffff;
+            background-color: #1a1a1e;
+            border: 1px solid var(--border-color);
         }
-
-        .kbank-icon { background-color: #138f2d; }
-        .promptpay-icon { background-color: #11356f; }
 
         .bank-details p {
             font-size: 13px;
@@ -878,7 +876,7 @@
 
             <!-- KBANK -->
             <div class="bank-card">
-                <div class="bank-icon kbank-icon">กสิกร</div>
+                <div class="bank-icon">กสิกร</div>
                 <div class="bank-details">
                     <p>ธนาคารกสิกรไทย (KBANK)</p>
                     <h4>145-3-44900-5</h4>
@@ -888,7 +886,7 @@
 
             <!-- PromptPay -->
             <div class="bank-card">
-                <div class="bank-icon promptpay-icon">พร้อมเพย์</div>
+                <div class="bank-icon">พร้อมเพย์</div>
                 <div class="bank-details">
                     <p>พร้อมเพย์ (PromptPay)</p>
                     <h4>090-111-7724</h4>
@@ -899,13 +897,13 @@
             <!-- Slip Transfer Notice & LINE Button -->
             <div class="help-box">
                 <h5><i class="fa-solid fa-paper-plane"></i> ขั้นตอนสุดท้ายเพื่อรับตารางการฝึก:</h5>
-                <p style="color: #ffffff; margin-bottom: 8px;">1. โอนเงินเข้าบัญชีด้านบน แล้วบันทึกรูปสลิป</p>
-                <p style="color: #ffffff; margin-bottom: 12px;">2. กดปุ่มสีเขียวด้านล่าง ระบบจะส่งข้อมูลที่คุณกรอกเข้าแชท LINE <strong>@nutzeed48</strong> ให้ทันทีเพื่อแนบสลิปส่งหาโค้ชนัท</p>
+                <p style="color: #ffffff; margin-bottom: 6px;">1. โอนเงินเข้าบัญชีด้านบน แล้วบันทึกรูปสลิป</p>
+                <p style="color: #ffffff; margin-bottom: 14px;">2. กดปุ่มสีแดงด้านล่าง **ระบบจะก๊อปปี้ข้อมูลสมัครให้อัตโนมัติ** แล้วเด้งเปิด LINE <strong>@nutzeed48</strong> ให้คุณกดวาง (Paste) ข้อความแล้วส่งสลิปหาโค้ชนัทได้ทันที</p>
 
                 <!-- LINE DIRECT ACTION BUTTON -->
                 <button class="btn-line" onclick="sendToLine()" style="width: 100%;">
                     <i class="fa-brands fa-line" style="font-size: 24px;"></i>
-                    กดเพื่อส่งข้อมูล & สลิปเข้า LINE (@nutzeed48)
+                    กดคัดลอกข้อมูล & เปิด LINE (@nutzeed48)
                 </button>
             </div>
 
@@ -974,8 +972,22 @@
         }
 
         function sendToLine() {
-            const lineUrl = `https://line.me/R/oaMessage/@nutzeed48/?${encodeURIComponent(lineFormattedMessage)}`;
-            window.open(lineUrl, '_blank');
+            // Copy message to clipboard automatically
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(lineFormattedMessage);
+            } else {
+                let textArea = document.createElement("textarea");
+                textArea.value = lineFormattedMessage;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+            }
+
+            alert('คัดลอกข้อมูลเรียบร้อยแล้ว!\nระบบกำลังเปิด LINE (@nutzeed48) ให้คุณกด "วาง" (Paste) ในแชทและส่งสลิปได้เลยครับ');
+
+            // Open LINE Official Account Direct Link
+            window.open('https://line.me/ti/p/@nutzeed48', '_blank');
         }
     </script>
 </body>
