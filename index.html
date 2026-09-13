@@ -205,7 +205,6 @@
             box-shadow: 0 5px 15px rgba(255, 30, 39, 0.4);
         }
 
-        /* Original Green LINE Button */
         .btn-line {
             background-color: var(--line-green);
             color: #ffffff;
@@ -277,6 +276,13 @@
 
         .story-title i {
             color: var(--accent-red);
+        }
+
+        .thought-question {
+            color: #ff4d52;
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 12px;
         }
 
         .edu-tag {
@@ -378,7 +384,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            margin-bottom: 80px;
+            margin-bottom: 25px;
         }
 
         .pricing-card {
@@ -450,6 +456,27 @@
             margin-top: 4px;
         }
 
+        /* Policy & Scope Notice */
+        .policy-notice {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px dashed var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 80px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .policy-notice strong {
+            color: #ffffff;
+        }
+
+        .policy-notice span.no-refund {
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
         /* Form Section */
         .form-section {
             background-color: var(--card-bg);
@@ -519,7 +546,7 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            max-width: 540px;
+            max-width: 560px;
             width: 100%;
             padding: 30px;
             position: relative;
@@ -548,7 +575,6 @@
             gap: 15px;
         }
 
-        /* Original Bank Colors */
         .bank-icon {
             width: 75px;
             height: 48px;
@@ -582,12 +608,31 @@
             margin: 2px 0;
         }
 
+        .summary-box {
+            background: #0b0b0d;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 15px 0;
+        }
+
+        .summary-box textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #00ff88;
+            font-family: monospace;
+            font-size: 13px;
+            resize: none;
+            outline: none;
+        }
+
         .help-box {
             background-color: rgba(6, 199, 85, 0.08);
             border: 1px solid rgba(6, 199, 85, 0.3);
             border-radius: 8px;
             padding: 16px;
-            margin-top: 20px;
+            margin-top: 15px;
             font-size: 13px;
         }
 
@@ -664,19 +709,22 @@
         </div>
     </section>
 
-    <!-- Science-Based Intro Story & Coach Profile -->
+    <!-- Science-Based Intro Story & Thought-provoking Question -->
     <section class="container">
         <div class="story-section">
             <div class="story-header">
                 <div class="story-title">
                     <i class="fa-solid fa-flask"></i>
-                    <span>ทำไมต้องฝึกด้วยโปรแกรมที่อิงหลักวิทยาศาสตร์?</span>
+                    <span>วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล</span>
                 </div>
-                <div class="edu-tag">โค้ชนัท : วิทยาศาสตร์การกีฬา ม.มหิดล</div>
+                <div class="edu-tag">Science-Based Training</div>
+            </div>
+            <div class="thought-question">
+                "เคยคิดไหมทำไมฝึกตามคลิปต่างๆ แต่ก็ยังทำไม่ได้... เพราะอะไร?"
             </div>
             <p class="story-text">
-                "ผมก็เคยเป็นคนหนึ่งที่ดูคลิปสั้นเทคนิคการฝึกต่างๆ แล้วพยายามฝึกตาม... แต่ก็ยังพัฒนาช้าและติดขัด จนเจอจุดเปลี่ยนของตัวเอง ทำให้รู้ว่า **การฝึกตามคลิปสั้นไม่ได้เหมาะกับทุกคน**<br><br>
-                ด้วยความรู้จาก **การศึกษาวิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล** ผมจึงออกแบบ **โปรแกรมการฝึกที่อิงตามหลักวิทยาศาสตร์การกีฬา (Science-Based)** ขึ้นมา เพื่อสร้างโครงสร้างการฝึกที่ตอบโจทย์โครงสร้างร่างกายของแต่ละคน ป้องกันการบาดเจ็บ และช่วยให้คุณพัฒนาพละกำลังได้อย่างรวดเร็วและเป็นระบบที่สุด"
+                หลายคนพยายามดูคลิปเทคนิคต่างๆ แล้วฝึกตาม แต่กลับพัฒนาช้าหรือติดขัดไม่ไปไหน... **นั่นเพราะคลิปสั้นไม่ได้ถูกออกแบบมาให้เข้ากับโครงสร้างร่างกายของทุกคน**<br><br>
+                ด้วยหลัก **วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล** ตารางฝึกนี้จึงถูกออกแบบขึ้นมาเพื่อสร้างโครงสร้างการพัฒนาที่เหมาะกับร่างกาย ป้องกันการบาดเจ็บ และช่วยให้คุณพัฒนาพละกำลังได้อย่างเป็นระบบและเห็นผลจริงที่สุด
             </p>
         </div>
     </section>
@@ -684,7 +732,7 @@
     <!-- Skills & Foundation Section -->
     <section class="container" id="skills">
         <div class="section-title">
-            <h2>ความแข็งแกร่งพื้นฐาน & สกิลสาย STRENGTH</h2>
+            <h2>ความแข็งแรงพื้นฐาน & สกิลสาย STRENGTH</h2>
             <p>สร้างฐานร่างกายให้แน่นด้วยท่าพื้นฐาน แล้วต่อยอดไปสู่ทักษะขั้นสูง</p>
         </div>
         <div class="grid-skills">
@@ -785,11 +833,10 @@
                 <div>
                     <div class="plan-name">Flexible Custom Plan</div>
                     <div class="plan-price">฿799 <span>/ ตาราง</span></div>
-                    <p style="color: var(--text-sub); font-size: 13px;">ปรับเปลี่ยนตารางให้เข้ากับเวลาซ้อม พร้อมคำแนะนำด้านอาหาร</p>
+                    <p style="color: var(--text-sub); font-size: 13px;">ปรับเปลี่ยนตารางให้เข้ากับเวลาซ้อมของคุณได้อย่างยืดหยุ่น</p>
                     <ul class="plan-features">
                         <li><i class="fa-solid fa-check"></i> ได้ตารางการฝึกสำเร็จรูปตามระดับร่างกาย</li>
                         <li><i class="fa-solid fa-check"></i> **สามารถปรับเปลี่ยนวันเวลาซ้อม** ตามความสะดวกของคุณได้</li>
-                        <li><i class="fa-solid fa-check"></i> **ให้คำแนะนำด้านอาหารและโภชนาการ** เพื่อผลลัพธ์ที่รวดเร็วขึ้น</li>
                         <li><i class="fa-solid fa-check"></i> มีตัวเลือกท่าฝึกทดแทน (Alternative Exercises)</li>
                     </ul>
                 </div>
@@ -801,11 +848,11 @@
                 <div>
                     <div class="plan-name">Pro Support Plan</div>
                     <div class="plan-price">฿1,299 <span>/ ตาราง</span></div>
-                    <p style="color: var(--text-sub); font-size: 13px;">ตารางยืดหยุ่น + ปรึกษาคำแนะนำด้านอาหารและถามโค้ชได้ตลอด</p>
+                    <p style="color: var(--text-sub); font-size: 13px;">ตารางยืดหยุ่น + ปรึกษาคำแนะนำด้านอาหารและสอบถามได้ตลอด</p>
                     <ul class="plan-features">
                         <li><i class="fa-solid fa-check"></i> ตารางการฝึกระดับ Pro ที่ปรับเปลี่ยนได้ตามความสะดวก</li>
                         <li><i class="fa-solid fa-check"></i> **ให้คำแนะนำด้านอาหารและโภชนาการเจาะลึก**</li>
-                        <li><i class="fa-solid fa-check"></i> **ทักแชทสอบถามและปรึกษาปัญหากับโค้ชได้ตามสะดวก**</li>
+                        <li><i class="fa-solid fa-check"></i> **ทักแชทสอบถามและปรึกษาปัญหากับทีมงานได้ตลอด**</li>
                         <li><i class="fa-solid fa-check"></i> ส่งคลิปตรวจฟอร์มท่าเล่นเมื่อติดขัด</li>
                     </ul>
                 </div>
@@ -813,13 +860,19 @@
             </div>
 
         </div>
+
+        <!-- Scope & Refund Policy -->
+        <div class="policy-notice">
+            <p style="margin-bottom: 6px;">⏳ <strong>สโคประยะเวลาการใช้งาน:</strong> ตารางฝึกมีอายุครอบคลุม <strong>3 เดือน</strong> (แนะนำให้ประเมินและปรับเปลี่ยนตารางใหม่หลังจาก 3 เดือนเพื่อพัฒนาการที่ต่อเนื่อง)</p>
+            <p>⚠️ <strong>นโยบายการสั่งซื้อ:</strong> <span class="no-refund">เมื่อทำการสั่งซื้อแล้วไม่มีการคืนเงินทุกกรณี</span></p>
+        </div>
     </section>
 
     <!-- Application Form Section -->
     <section class="container" id="apply">
         <div class="section-title">
             <h2>กรอกข้อมูลเพื่อรับตารางการฝึก</h2>
-            <p>ส่งข้อมูลของคุณเพื่อให้โค้ชนัทจัดส่งตารางที่เหมาะกับร่างกายของคุณมากที่สุด</p>
+            <p>ส่งข้อมูลของคุณเพื่อรับจัดส่งตารางที่เหมาะกับร่างกายของคุณมากที่สุด</p>
         </div>
         <div class="form-section">
             <form id="coachingForm" onsubmit="handleFormSubmit(event)">
@@ -827,15 +880,6 @@
                     <div class="form-group full-width">
                         <label for="name">ชื่อ-นามสกุล *</label>
                         <input type="text" id="name" required placeholder="เช่น ณัฐพล คุณชล">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">เบอร์โทรศัพท์ *</label>
-                        <input type="tel" id="phone" required placeholder="เช่น 090-111-7724">
-                    </div>
-                    <div class="form-group">
-                        <label for="lineId">Line ID ของคุณ *</label>
-                        <input type="text" id="lineId" required placeholder="เช่น nut_calisthenics">
                     </div>
 
                     <div class="form-group">
@@ -881,7 +925,7 @@
             
             <p style="font-size: 13px; color: var(--text-sub); margin-top: 15px;">โอนเงินเข้าบัญชีด้านล่างนี้:</p>
 
-            <!-- KBANK Original Green -->
+            <!-- KBANK -->
             <div class="bank-card">
                 <div class="bank-icon kbank">K-BANK</div>
                 <div class="bank-details">
@@ -891,7 +935,7 @@
                 </div>
             </div>
 
-            <!-- PromptPay Original Navy Blue -->
+            <!-- PromptPay -->
             <div class="bank-card">
                 <div class="bank-icon promptpay">พร้อมเพย์</div>
                 <div class="bank-details">
@@ -901,16 +945,22 @@
                 </div>
             </div>
 
+            <!-- Summary Textbox for Backup Copy -->
+            <p style="font-size: 12px; color: var(--text-sub); margin-top: 12px;">ข้อความสมัครที่คุณกรอกไว้ (จะถูกคัดลอกให้อัตโนมัติ):</p>
+            <div class="summary-box">
+                <textarea id="summaryText" rows="5" readonly></textarea>
+            </div>
+
             <!-- Slip Transfer Notice & LINE Button -->
             <div class="help-box">
-                <h5><i class="fa-solid fa-paper-plane"></i> ขั้นตอนสุดท้ายเพื่อรับตารางการฝึก:</h5>
-                <p style="color: #ffffff; margin-bottom: 6px;">1. โอนเงินเข้าบัญชีด้านบน แล้วบันทึกรูปสลิป</p>
-                <p style="color: #ffffff; margin-bottom: 14px;">2. กดปุ่มสีเขียวด้านล่าง **ระบบจะก๊อปปี้ข้อมูลสมัครให้อัตโนมัติ** แล้วเปิด LINE ให้คุณกดวาง (Paste) ข้อความส่งสลิปหาโค้ชนัทได้ทันที</p>
+                <h5><i class="fa-solid fa-paper-plane"></i> ขั้นตอนสุดท้ายเพื่อรับตารางฝึก:</h5>
+                <p style="color: #ffffff; margin-bottom: 6px;">1. โอนเงินเข้าบัญชีด้านบน แล้วแนบสลิป</p>
+                <p style="color: #ffffff; margin-bottom: 12px;">2. กดปุ่มสีเขียวด้านล่าง **ระบบจะคัดลอกข้อความสมัครให้อัตโนมัติ** แล้วเปิด LINE ให้คุณกดวาง (Paste) ส่งสลิปแจ้งได้ทันที</p>
 
                 <!-- GREEN LINE BUTTON WITH DIRECT USER LINK -->
                 <button class="btn-line" onclick="sendToLine()" style="width: 100%;">
                     <i class="fa-brands fa-line" style="font-size: 26px;"></i>
-                    กดคัดลอกข้อมูล & เปิด LINE ส่งสลิป
+                    คัดลอกข้อความ & เปิด LINE ส่งสลิป
                 </button>
             </div>
 
@@ -940,6 +990,7 @@
         function openCheckout(planName, price) {
             document.getElementById('modalTitle').innerText = 'ชำระเงิน: ' + planName;
             document.getElementById('modalPrice').innerText = 'ยอดชำระสุทธิ: ฿' + price.toLocaleString();
+            document.getElementById('summaryText').value = lineFormattedMessage;
             document.getElementById('checkoutModal').style.display = 'flex';
         }
 
@@ -951,8 +1002,6 @@
             e.preventDefault();
             
             const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const lineId = document.getElementById('lineId').value;
             const age = document.getElementById('age').value;
             const weight = document.getElementById('weight').value;
             const selectedPackage = document.getElementById('package').value;
@@ -964,11 +1013,9 @@
             if(selectedPackage.includes('1299')) price = 1299;
 
             // Format message for LINE
-            lineFormattedMessage = `สวัสดีครับโค้ชนัท สั่งซื้อตารางการฝึกครับ\n\n` +
+            lineFormattedMessage = `สวัสดีครับ สั่งซื้อตารางการฝึกครับ\n\n` +
                 `📌 ข้อมูลผู้สมัคร:\n` +
                 `- ชื่อ-นามสกุล: ${name}\n` +
-                `- เบอร์โทรศัพท์: ${phone}\n` +
-                `- Line ID ผู้สมัคร: ${lineId}\n` +
                 `- อายุ: ${age} ปี\n` +
                 `- น้ำหนัก/ส่วนสูง: ${weight}\n` +
                 `- ตารางที่เลือก: ${selectedPackage}\n` +
@@ -979,26 +1026,31 @@
         }
 
         function sendToLine() {
-            // Copy message to clipboard automatically
+            // Copy message to clipboard
+            let copySuccess = false;
+            
             if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(lineFormattedMessage);
-            } else {
-                let textArea = document.createElement("textarea");
-                textArea.value = lineFormattedMessage;
-                document.body.appendChild(textArea);
+                navigator.clipboard.writeText(lineFormattedMessage).then(() => {
+                    copySuccess = true;
+                }).catch(() => {});
+            }
+            
+            if (!copySuccess) {
+                let textArea = document.getElementById('summaryText');
                 textArea.select();
+                textArea.setSelectionRange(0, 99999);
                 document.execCommand('copy');
-                document.body.removeChild(textArea);
             }
 
-            alert('คัดลอกข้อมูลเรียบร้อยแล้ว!\nระบบกำลังเปิด LINE ให้คุณกด "วาง" (Paste) ในแชทและส่งสลิปหาโค้ชนัทได้เลยครับ');
+            alert('คัดลอกข้อมูลสมัครเรียบร้อยแล้ว!\n\nเมื่อเปิดหน้า LINE แล้ว ให้กด "วาง" (Paste) ลงในแชทเพื่อส่งสลิปได้เลยครับ');
 
-            // Direct User LINE Link provided by user
+            // Open user's personal LINE link
             window.open('https://line.me/ti/p/EPjDm7ksT2', '_blank');
         }
     </script>
 </body>
 </html>
+
 
 
 
