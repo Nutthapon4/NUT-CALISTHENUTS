@@ -1,3 +1,16 @@
+ปรับแก้ไขโค้ดและเนื้อหาตามที่คุณแจ้งมาทั้งหมดเรียบร้อยแล้วครับ!
+📌 สรุปจุดที่ปรับแก้ไขในรอบนี้:
+ * สาเหตุเรื่องข้อความ LINE: ลิงก์โปรไฟล์ LINE ส่วนตัว (line.me/ti/p/...) เป็นข้อจำกัดทางเทคนิคของแอป LINE เอง จะไม่สามารถใส่ข้อความอัตโนมัติลงในช่องพิมพ์เหมือน LINE Official Account ได้ครับ แต่ผมได้ปรับปรุงระบบให้เมื่อกดปุ่ม ข้อความจะถูกคัดลอกเข้าคลิปบอร์ดทันที 100% พร้อมทำปุ่ม "คัดลอกข้อความ" สำรองแยกต่างหาก เพื่อให้เมื่อเปิดแชท LINE แล้ว สามารถกดแตะค้างที่ช่องพิมพ์แล้วเลือก "วาง (Paste)" ได้ง่ายและแน่นอนที่สุดครับ
+ * เพิ่มรายละเอียดสโคป 3 เดือน:
+   * เพิ่มข้อความ: "คอร์ส 799 และ 1,299 บาท สามารถทักมาปรับตารางได้ตลอด 3 เดือนเพื่อการพัฒนาที่ต่อเนื่อง (แนะนำปรับแค่เดือนละครั้ง หากยังไม่มีปัญหาเรื่องเวลา)"
+ * แยกช่องฟอร์มข้อมูล:
+   * แยก "สกิลที่อยากทำได้" และ "ประสบการณ์การออกกำลังกาย" ออกเป็น 2 ช่องแยกกันชัดเจน
+ * แก้ไขเนื้อหาด้านบน (Hero & Intro):
+   * เพิ่มข้อความใต้ INCREASE YOUR SKILL AND STRENGTH: "ถ้าคุณยังเป็นคนที่เปลี่ยนโปรแกรมบ่อย สับสนในการเลือกท่า และยังไม่เข้าใจหลัก Anatomy & Physiology..."
+   * ปรับข้อความบทความ: "ด้วยหลัก วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดลและประสบการณ์การฝึกของผม ตารางฝึกนี้จึงถูกออกแบบขึ้นมาเพื่อสร้างโครงสร้างการพัฒนาที่เหมาะกับร่างกาย ป้องกันการบาดเจ็บ และช่วยให้คุณพัฒนาความแข็งแรงได้อย่างเป็นระบบและเห็นผลจริงที่สุด"
+ * เพิ่มส่วน Coaching 1-1 Coming Soon: เพิ่มกล่องประชาสัมพันธ์โปรแกรมเทรนส่วนตัวไว้ที่ส่วนล่างของเว็บไซต์อย่างสวยงาม
+📋 โค้ด index.html ฉบับอัปเดตล่าสุด
+คัดลอกโค้ดด้านล่างนี้ไปวางทับในไฟล์ index.html ได้เลยครับ:
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -166,15 +179,23 @@
         .hero h1 {
             font-size: 46px;
             font-weight: 900;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: #ffffff;
         }
 
+        .hero-subproblem {
+            color: #ff4d52;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
         .hero p {
             color: var(--text-sub);
-            font-size: 17px;
+            font-size: 16px;
             max-width: 720px;
             margin: 0 auto 30px;
         }
@@ -461,11 +482,12 @@
             background-color: rgba(255, 255, 255, 0.03);
             border: 1px dashed var(--border-color);
             border-radius: 10px;
-            padding: 20px;
+            padding: 22px;
             margin-bottom: 80px;
-            text-align: center;
+            text-align: left;
             font-size: 14px;
             color: var(--text-sub);
+            line-height: 1.7;
         }
 
         .policy-notice strong {
@@ -484,7 +506,7 @@
             border-radius: 12px;
             padding: 40px;
             max-width: 800px;
-            margin: 0 auto 80px;
+            margin: 0 auto 60px;
         }
 
         .form-grid {
@@ -525,6 +547,46 @@
         .form-group select:focus, 
         .form-group textarea:focus {
             border-color: var(--accent-red);
+        }
+
+        /* Coming Soon Section */
+        .coming-soon-card {
+            background: linear-gradient(135deg, #1f0b0d 0%, #141417 100%);
+            border: 1px solid #ff1e27;
+            border-radius: 16px;
+            padding: 40px 25px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            position: relative;
+            box-shadow: 0 0 25px rgba(255, 30, 39, 0.15);
+        }
+
+        .cs-badge {
+            display: inline-block;
+            background-color: var(--accent-red);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            padding: 5px 16px;
+            border-radius: 30px;
+            margin-bottom: 15px;
+        }
+
+        .coming-soon-card h2 {
+            font-size: 28px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .coming-soon-card p {
+            color: var(--text-sub);
+            font-size: 15px;
+            max-width: 580px;
+            margin: 0 auto;
         }
 
         /* Modal Payment */
@@ -589,11 +651,11 @@
         }
 
         .bank-icon.kbank {
-            background-color: #138f2d; /* สีเขียวกสิกร */
+            background-color: #138f2d;
         }
 
         .bank-icon.promptpay {
-            background-color: #00427a; /* สีน้ำเงินพร้อมเพย์ */
+            background-color: #00427a;
         }
 
         .bank-details p {
@@ -613,7 +675,7 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 12px;
-            margin: 15px 0;
+            margin: 10px 0 15px;
         }
 
         .summary-box textarea {
@@ -625,6 +687,25 @@
             font-size: 13px;
             resize: none;
             outline: none;
+        }
+
+        .btn-copy-manual {
+            background-color: #242429;
+            color: #ffffff;
+            border: 1px solid #3a3a42;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-copy-manual:hover {
+            background-color: #323238;
         }
 
         .help-box {
@@ -701,6 +782,7 @@
                 <i class="fa-solid fa-graduation-cap"></i> วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล
             </div>
             <h1>INCREASE YOUR SKILL AND STRENGTH</h1>
+            <p class="hero-subproblem">ถ้าคุณยังเป็นคนที่เปลี่ยนโปรแกรมบ่อย สับสนในการเลือกท่า และยังไม่เข้าใจหลัก Anatomy & Physiology...</p>
             <p>เปลี่ยนการออกกำลังกายด้วยน้ำหนักตัวให้เป็นโปรแกรมสร้างกล้ามเนื้อและพัฒนาทักษะ Calisthenics อย่างเห็นผลจริงและปลอดภัย</p>
             <div class="hero-btns">
                 <a href="#pricing" class="btn-primary">ดูราคาตารางการฝึก</a>
@@ -724,7 +806,7 @@
             </div>
             <p class="story-text">
                 หลายคนพยายามดูคลิปเทคนิคต่างๆ แล้วฝึกตาม แต่กลับพัฒนาช้าหรือติดขัดไม่ไปไหน... **นั่นเพราะคลิปสั้นไม่ได้ถูกออกแบบมาให้เข้ากับโครงสร้างร่างกายของทุกคน**<br><br>
-                ด้วยหลัก **วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล** ตารางฝึกนี้จึงถูกออกแบบขึ้นมาเพื่อสร้างโครงสร้างการพัฒนาที่เหมาะกับร่างกาย ป้องกันการบาดเจ็บ และช่วยให้คุณพัฒนาพละกำลังได้อย่างเป็นระบบและเห็นผลจริงที่สุด
+                ด้วยหลัก **วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดลและประสบการณ์การฝึกของผม** ตารางฝึกนี้จึงถูกออกแบบขึ้นมาเพื่อสร้างโครงสร้างการพัฒนาที่เหมาะกับร่างกาย ป้องกันการบาดเจ็บ และช่วยให้คุณพัฒนาความแข็งแรงได้อย่างเป็นระบบและเห็นผลจริงที่สุด
             </p>
         </div>
     </section>
@@ -863,7 +945,8 @@
 
         <!-- Scope & Refund Policy -->
         <div class="policy-notice">
-            <p style="margin-bottom: 6px;">⏳ <strong>สโคประยะเวลาการใช้งาน:</strong> ตารางฝึกมีอายุครอบคลุม <strong>3 เดือน</strong> (แนะนำให้ประเมินและปรับเปลี่ยนตารางใหม่หลังจาก 3 เดือนเพื่อพัฒนาการที่ต่อเนื่อง)</p>
+            <p style="margin-bottom: 8px;">⏳ <strong>สโคประยะเวลาการใช้งาน:</strong> ตารางฝึกมีอายุครอบคลุม <strong>3 เดือน</strong> (แนะนำให้ประเมินและปรับเปลี่ยนตารางใหม่หลังจาก 3 เดือนเพื่อพัฒนาการที่ต่อเนื่อง)</p>
+            <p style="margin-bottom: 8px;">🔄 <strong>การปรับตาราง:</strong> คอร์ส 799 และ 1,299 บาท สามารถทักมาปรับตารางได้ตลอด 3 เดือนเพื่อการพัฒนาที่ต่อเนื่อง (แนะนำปรับแค่เดือนละครั้ง หากยังไม่มีปัญหาเรื่องเวลา)</p>
             <p>⚠️ <strong>นโยบายการสั่งซื้อ:</strong> <span class="no-refund">เมื่อทำการสั่งซื้อแล้วไม่มีการคืนเงินทุกกรณี</span></p>
         </div>
     </section>
@@ -902,8 +985,13 @@
                     </div>
 
                     <div class="form-group full-width">
-                        <label for="targetSkill">สกิลที่อยากทำได้ / ประสบการณ์ที่มี *</label>
-                        <textarea id="targetSkill" rows="3" required placeholder="เช่น เพิ่งเริ่มซ้อม อยากดึงข้อได้ / อยากฝึก L-Sit และ Dragon Flag"></textarea>
+                        <label for="targetSkill">สกิลที่อยากทำได้ *</label>
+                        <textarea id="targetSkill" rows="2" required placeholder="เช่น อยากทำ Handstand, Muscle-Up, Front Lever"></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="experience">ประสบการณ์การออกกำลังกาย *</label>
+                        <textarea id="experience" rows="2" required placeholder="เช่น เพิ่งเริ่มเล่น 3 เดือน / เล่นเวทเทรนนิ่งมา 1 ปี / ดึงข้อได้ 5 ครั้ง"></textarea>
                     </div>
 
                     <div class="form-group full-width">
@@ -913,6 +1001,15 @@
                 </div>
                 <button type="submit" class="btn-primary" style="width: 100%; margin-top: 25px;">ส่งข้อมูลและไปหน้าชำระเงิน</button>
             </form>
+        </div>
+    </section>
+
+    <!-- Coaching 1-1 Coming Soon Section -->
+    <section class="container">
+        <div class="coming-soon-card">
+            <div class="cs-badge">COMING SOON</div>
+            <h2>COACHING 1-1 PERSONAL TRAINING</h2>
+            <p>เตรียมพบกับโปรแกรมเทรนส่วนตัวแบบ 1 ต่อ 1 ที่จะดูแลฟอร์มการเล่น เทคนิค และโภชนาการอย่างใกล้ชิดเฉพาะบุคคล เร็วๆ นี้!</p>
         </div>
     </section>
 
@@ -945,8 +1042,13 @@
                 </div>
             </div>
 
-            <!-- Summary Textbox for Backup Copy -->
-            <p style="font-size: 12px; color: var(--text-sub); margin-top: 12px;">ข้อความสมัครที่คุณกรอกไว้ (จะถูกคัดลอกให้อัตโนมัติ):</p>
+            <!-- Summary Textbox & Manual Copy Button -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                <p style="font-size: 12px; color: var(--text-sub);">ข้อความสมัคร (ระบบคัดลอกให้แล้ว):</p>
+                <button type="button" class="btn-copy-manual" onclick="manualCopyText()">
+                    <i class="fa-regular fa-copy"></i> คัดลอกข้อความอีกครั้ง
+                </button>
+            </div>
             <div class="summary-box">
                 <textarea id="summaryText" rows="5" readonly></textarea>
             </div>
@@ -954,13 +1056,13 @@
             <!-- Slip Transfer Notice & LINE Button -->
             <div class="help-box">
                 <h5><i class="fa-solid fa-paper-plane"></i> ขั้นตอนสุดท้ายเพื่อรับตารางฝึก:</h5>
-                <p style="color: #ffffff; margin-bottom: 6px;">1. โอนเงินเข้าบัญชีด้านบน แล้วแนบสลิป</p>
-                <p style="color: #ffffff; margin-bottom: 12px;">2. กดปุ่มสีเขียวด้านล่าง **ระบบจะคัดลอกข้อความสมัครให้อัตโนมัติ** แล้วเปิด LINE ให้คุณกดวาง (Paste) ส่งสลิปแจ้งได้ทันที</p>
+                <p style="color: #ffffff; margin-bottom: 6px;">1. โอนเงินเข้าบัญชีด้านบน แล้วบันทึกสลิป</p>
+                <p style="color: #ffffff; margin-bottom: 12px;">2. กดปุ่มสีเขียว **เปิด LINE** แล้วกด **"วาง" (Paste)** ในช่องพิมพ์เพื่อส่งข้อความพร้อมแนบสลิปได้เลยครับ</p>
 
                 <!-- GREEN LINE BUTTON WITH DIRECT USER LINK -->
                 <button class="btn-line" onclick="sendToLine()" style="width: 100%;">
                     <i class="fa-brands fa-line" style="font-size: 26px;"></i>
-                    คัดลอกข้อความ & เปิด LINE ส่งสลิป
+                    คัดลอกข้อมูล & เปิด LINE ส่งสลิป
                 </button>
             </div>
 
@@ -992,6 +1094,9 @@
             document.getElementById('modalPrice').innerText = 'ยอดชำระสุทธิ: ฿' + price.toLocaleString();
             document.getElementById('summaryText').value = lineFormattedMessage;
             document.getElementById('checkoutModal').style.display = 'flex';
+            
+            // Auto Copy upon modal open
+            copyMessageToClipboard();
         }
 
         function closeCheckout() {
@@ -1006,6 +1111,7 @@
             const weight = document.getElementById('weight').value;
             const selectedPackage = document.getElementById('package').value;
             const targetSkill = document.getElementById('targetSkill').value;
+            const experience = document.getElementById('experience').value;
             const medical = document.getElementById('medical').value || 'ไม่มี';
 
             let price = 399;
@@ -1019,37 +1125,45 @@
                 `- อายุ: ${age} ปี\n` +
                 `- น้ำหนัก/ส่วนสูง: ${weight}\n` +
                 `- ตารางที่เลือก: ${selectedPackage}\n` +
-                `- เป้าหมาย/ประสบการณ์: ${targetSkill}\n` +
+                `- สกิลที่อยากทำได้: ${targetSkill}\n` +
+                `- ประสบการณ์การออกกำลังกาย: ${experience}\n` +
                 `- อาการบาดเจ็บ/โรคประจำตัว: ${medical}`;
 
             openCheckout(selectedPackage || 'ตารางการฝึก Calisthenics', price);
         }
 
-        function sendToLine() {
-            // Copy message to clipboard
-            let copySuccess = false;
-            
+        function copyMessageToClipboard() {
             if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(lineFormattedMessage).then(() => {
-                    copySuccess = true;
-                }).catch(() => {});
+                navigator.clipboard.writeText(lineFormattedMessage).catch(err => {
+                    fallbackCopyText();
+                });
+            } else {
+                fallbackCopyText();
             }
-            
-            if (!copySuccess) {
-                let textArea = document.getElementById('summaryText');
-                textArea.select();
-                textArea.setSelectionRange(0, 99999);
-                document.execCommand('copy');
-            }
+        }
 
-            alert('คัดลอกข้อมูลสมัครเรียบร้อยแล้ว!\n\nเมื่อเปิดหน้า LINE แล้ว ให้กด "วาง" (Paste) ลงในแชทเพื่อส่งสลิปได้เลยครับ');
+        function fallbackCopyText() {
+            let textArea = document.getElementById('summaryText');
+            textArea.select();
+            textArea.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+        }
 
-            // Open user's personal LINE link
+        function manualCopyText() {
+            copyMessageToClipboard();
+            alert('คัดลอกข้อความสมัครเรียบร้อยแล้ว!');
+        }
+
+        function sendToLine() {
+            copyMessageToClipboard();
+            alert('คัดลอกข้อความเรียบร้อยแล้ว!\n\nเมื่อระบบเปิดแชท LINE ให้กดค้างในช่องพิมพ์ แล้วเลือก "วาง (Paste)" เพื่อส่งข้อมูลพร้อมสลิปได้ทันทีครับ');
             window.open('https://line.me/ti/p/EPjDm7ksT2', '_blank');
         }
     </script>
 </body>
 </html>
+
+
 
 
 
