@@ -18,6 +18,8 @@
             --card-bg: #141417;
             --accent-red: #ff1e27;
             --accent-red-hover: #e0000a;
+            --line-green: #06c755;
+            --line-green-hover: #05b34c;
             --text-main: #ffffff;
             --text-sub: #cccccc;
             --border-color: #242429;
@@ -59,7 +61,6 @@
             text-decoration: none;
         }
 
-        /* Skewed Red/White Logo Badge */
         .logo-badge {
             width: 44px;
             height: 44px;
@@ -204,8 +205,9 @@
             box-shadow: 0 5px 15px rgba(255, 30, 39, 0.4);
         }
 
+        /* Original Green LINE Button */
         .btn-line {
-            background-color: var(--accent-red);
+            background-color: var(--line-green);
             color: #ffffff;
             padding: 14px 20px;
             border-radius: 8px;
@@ -219,13 +221,13 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 4px 15px rgba(255, 30, 39, 0.4);
+            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.4);
         }
 
         .btn-line:hover {
-            background-color: var(--accent-red-hover);
+            background-color: var(--line-green-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 30, 39, 0.6);
+            box-shadow: 0 6px 20px rgba(6, 199, 85, 0.6);
         }
 
         .btn-outline {
@@ -244,7 +246,7 @@
             border-color: #ffffff;
         }
 
-        /* Story Banner (Science-Based Intro & Education) */
+        /* Story Banner */
         .story-section {
             background: linear-gradient(135deg, #1a080a 0%, #141417 100%);
             border: 1px solid var(--border-color);
@@ -311,7 +313,7 @@
             margin-top: 5px;
         }
 
-        /* Skills & Basics Section */
+        /* Skills Section */
         .grid-skills {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -498,7 +500,7 @@
             border-color: var(--accent-red);
         }
 
-        /* Modal Bank Payment */
+        /* Modal Payment */
         .modal {
             display: none;
             position: fixed;
@@ -546,18 +548,26 @@
             gap: 15px;
         }
 
+        /* Original Bank Colors */
         .bank-icon {
-            width: 65px;
+            width: 75px;
             height: 48px;
             border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
+            font-weight: 900;
             font-size: 13px;
             color: #ffffff;
-            background-color: #1a1a1e;
-            border: 1px solid var(--border-color);
+            letter-spacing: 0.5px;
+        }
+
+        .bank-icon.kbank {
+            background-color: #138f2d; /* สีเขียวกสิกร */
+        }
+
+        .bank-icon.promptpay {
+            background-color: #00427a; /* สีน้ำเงินพร้อมเพย์ */
         }
 
         .bank-details p {
@@ -573,8 +583,8 @@
         }
 
         .help-box {
-            background-color: rgba(255, 30, 39, 0.08);
-            border: 1px solid rgba(255, 30, 39, 0.3);
+            background-color: rgba(6, 199, 85, 0.08);
+            border: 1px solid rgba(6, 199, 85, 0.3);
             border-radius: 8px;
             padding: 16px;
             margin-top: 20px;
@@ -582,7 +592,7 @@
         }
 
         .help-box h5 {
-            color: var(--accent-red);
+            color: var(--line-green);
             font-size: 14px;
             margin-bottom: 6px;
             display: flex;
@@ -679,7 +689,6 @@
         </div>
         <div class="grid-skills">
             
-            <!-- Basics for Beginners -->
             <div class="skill-card">
                 <div class="skill-header">
                     <span class="skill-name">Pull-Up (ดึงข้อ)</span>
@@ -704,7 +713,6 @@
                 <p class="skill-desc">พัฒนาหลังแขนและอกส่วนล่าง เพิ่มพลังแรงดันทรงตัวบนบาร์คู่</p>
             </div>
 
-            <!-- Added L-Sit Skill -->
             <div class="skill-card">
                 <div class="skill-header">
                     <span class="skill-name">L-Sit</span>
@@ -713,7 +721,6 @@
                 <p class="skill-desc">ฝึกการทรงตัวบนมือพร้อมยกขาขนานพื้น สร้างความแข็งแรงแกนกลางลำตัวและสะโพก</p>
             </div>
 
-            <!-- Advanced Skills -->
             <div class="skill-card">
                 <div class="skill-header">
                     <span class="skill-name">Handstand</span>
@@ -874,9 +881,9 @@
             
             <p style="font-size: 13px; color: var(--text-sub); margin-top: 15px;">โอนเงินเข้าบัญชีด้านล่างนี้:</p>
 
-            <!-- KBANK -->
+            <!-- KBANK Original Green -->
             <div class="bank-card">
-                <div class="bank-icon">กสิกร</div>
+                <div class="bank-icon kbank">K-BANK</div>
                 <div class="bank-details">
                     <p>ธนาคารกสิกรไทย (KBANK)</p>
                     <h4>145-3-44900-5</h4>
@@ -884,9 +891,9 @@
                 </div>
             </div>
 
-            <!-- PromptPay -->
+            <!-- PromptPay Original Navy Blue -->
             <div class="bank-card">
-                <div class="bank-icon">พร้อมเพย์</div>
+                <div class="bank-icon promptpay">พร้อมเพย์</div>
                 <div class="bank-details">
                     <p>พร้อมเพย์ (PromptPay)</p>
                     <h4>090-111-7724</h4>
@@ -898,12 +905,12 @@
             <div class="help-box">
                 <h5><i class="fa-solid fa-paper-plane"></i> ขั้นตอนสุดท้ายเพื่อรับตารางการฝึก:</h5>
                 <p style="color: #ffffff; margin-bottom: 6px;">1. โอนเงินเข้าบัญชีด้านบน แล้วบันทึกรูปสลิป</p>
-                <p style="color: #ffffff; margin-bottom: 14px;">2. กดปุ่มสีแดงด้านล่าง **ระบบจะก๊อปปี้ข้อมูลสมัครให้อัตโนมัติ** แล้วเด้งเปิด LINE <strong>@nutzeed48</strong> ให้คุณกดวาง (Paste) ข้อความแล้วส่งสลิปหาโค้ชนัทได้ทันที</p>
+                <p style="color: #ffffff; margin-bottom: 14px;">2. กดปุ่มสีเขียวด้านล่าง **ระบบจะก๊อปปี้ข้อมูลสมัครให้อัตโนมัติ** แล้วเปิด LINE ให้คุณกดวาง (Paste) ข้อความส่งสลิปหาโค้ชนัทได้ทันที</p>
 
-                <!-- LINE DIRECT ACTION BUTTON -->
+                <!-- GREEN LINE BUTTON WITH DIRECT USER LINK -->
                 <button class="btn-line" onclick="sendToLine()" style="width: 100%;">
-                    <i class="fa-brands fa-line" style="font-size: 24px;"></i>
-                    กดคัดลอกข้อมูล & เปิด LINE (@nutzeed48)
+                    <i class="fa-brands fa-line" style="font-size: 26px;"></i>
+                    กดคัดลอกข้อมูล & เปิด LINE ส่งสลิป
                 </button>
             </div>
 
@@ -984,13 +991,14 @@
                 document.body.removeChild(textArea);
             }
 
-            alert('คัดลอกข้อมูลเรียบร้อยแล้ว!\nระบบกำลังเปิด LINE (@nutzeed48) ให้คุณกด "วาง" (Paste) ในแชทและส่งสลิปได้เลยครับ');
+            alert('คัดลอกข้อมูลเรียบร้อยแล้ว!\nระบบกำลังเปิด LINE ให้คุณกด "วาง" (Paste) ในแชทและส่งสลิปหาโค้ชนัทได้เลยครับ');
 
-            // Open LINE Official Account Direct Link
-            window.open('https://line.me/ti/p/@nutzeed48', '_blank');
+            // Direct User LINE Link provided by user
+            window.open('https://line.me/ti/p/EPjDm7ksT2', '_blank');
         }
     </script>
 </body>
 </html>
+
 
 
