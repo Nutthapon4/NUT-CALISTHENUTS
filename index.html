@@ -18,6 +18,8 @@
             --card-bg: #141417;
             --accent-red: #ff1e27;
             --accent-red-hover: #e0000a;
+            --line-green: #06c755;
+            --line-green-hover: #05b34c;
             --text-main: #ffffff;
             --text-sub: #cccccc;
             --border-color: #242429;
@@ -59,7 +61,7 @@
             text-decoration: none;
         }
 
-        /* New Cool Skewed Red/White Logo Badge */
+        /* Skewed Red/White Logo Badge */
         .logo-badge {
             width: 44px;
             height: 44px;
@@ -202,6 +204,30 @@
             background-color: var(--accent-red-hover);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 30, 39, 0.4);
+        }
+
+        .btn-line {
+            background-color: var(--line-green);
+            color: #ffffff;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(6, 199, 85, 0.3);
+        }
+
+        .btn-line:hover {
+            background-color: var(--line-green-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(6, 199, 85, 0.5);
         }
 
         .btn-outline {
@@ -492,11 +518,13 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            max-width: 520px;
+            max-width: 540px;
             width: 100%;
             padding: 30px;
             position: relative;
             text-align: left;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .close-btn {
@@ -562,15 +590,6 @@
             display: flex;
             align-items: center;
             gap: 6px;
-        }
-
-        .line-highlight {
-            background-color: var(--accent-red);
-            color: #ffffff;
-            font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 4px;
-            display: inline-block;
         }
 
         /* Footer */
@@ -687,6 +706,15 @@
                 <p class="skill-desc">พัฒนาหลังแขนและอกส่วนล่าง เพิ่มพลังแรงดันทรงตัวบนบาร์คู่</p>
             </div>
 
+            <!-- Added L-Sit Skill -->
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">L-Sit</span>
+                    <span class="skill-tag tag-basic">Core & Hip Flexors</span>
+                </div>
+                <p class="skill-desc">ฝึกการทรงตัวบนมือพร้อมยกขาขนานพื้น สร้างความแข็งแรงแกนกลางลำตัวและสะโพก</p>
+            </div>
+
             <!-- Advanced Skills -->
             <div class="skill-card">
                 <div class="skill-header">
@@ -743,7 +771,7 @@
                         <li><i class="fa-solid fa-check"></i> รับไฟล์ตารางการฝึก PDF นำไปดูซ้อมได้ทันที</li>
                     </ul>
                 </div>
-                <button class="btn-primary" onclick="openCheckout('Starter Level Plan', 399)">เลือกตาราง 399 บาท</button>
+                <button class="btn-primary" onclick="selectPlan('Starter Plan (399฿)')">เลือกตาราง 399 บาท</button>
             </div>
 
             <!-- Tier 2: 799 (Featured) -->
@@ -760,7 +788,7 @@
                         <li><i class="fa-solid fa-check"></i> มีตัวเลือกท่าฝึกทดแทน (Alternative Exercises)</li>
                     </ul>
                 </div>
-                <button class="btn-primary" onclick="openCheckout('Flexible Custom Plan', 799)">เลือกตาราง 799 บาท</button>
+                <button class="btn-primary" onclick="selectPlan('Flexible Plan (799฿)')">เลือกตาราง 799 บาท</button>
             </div>
 
             <!-- Tier 3: 1299 -->
@@ -776,7 +804,7 @@
                         <li><i class="fa-solid fa-check"></i> ส่งคลิปตรวจฟอร์มท่าเล่นเมื่อติดขัด</li>
                     </ul>
                 </div>
-                <button class="btn-primary" onclick="openCheckout('Pro Support Plan', 1299)">เลือกตาราง 1,299 บาท</button>
+                <button class="btn-primary" onclick="selectPlan('Pro Support Plan (1299฿)')">เลือกตาราง 1,299 บาท</button>
             </div>
 
         </div>
@@ -801,8 +829,8 @@
                         <input type="tel" id="phone" required placeholder="เช่น 090-111-7724">
                     </div>
                     <div class="form-group">
-                        <label for="lineId">Line ID *</label>
-                        <input type="text" id="lineId" required placeholder="เช่น @nutzeed48">
+                        <label for="lineId">Line ID ของคุณ *</label>
+                        <input type="text" id="lineId" required placeholder="เช่น nut_calisthenics">
                     </div>
 
                     <div class="form-group">
@@ -826,7 +854,7 @@
 
                     <div class="form-group full-width">
                         <label for="targetSkill">สกิลที่อยากทำได้ / ประสบการณ์ที่มี *</label>
-                        <textarea id="targetSkill" rows="3" required placeholder="เช่น เพิ่งเริ่มซ้อม อยากดึงข้อได้ / อยากฝึก Handstand และ Dragon Flag"></textarea>
+                        <textarea id="targetSkill" rows="3" required placeholder="เช่น เพิ่งเริ่มซ้อม อยากดึงข้อได้ / อยากฝึก L-Sit และ Dragon Flag"></textarea>
                     </div>
 
                     <div class="form-group full-width">
@@ -844,7 +872,7 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeCheckout()">&times;</span>
             <h3 style="font-size: 20px; font-weight: 800; color: #ffffff;" id="modalTitle">รายละเอียดการชำระเงิน</h3>
-            <p style="color: var(--accent-red); font-size: 17px; font-weight: 800; margin-top: 4px;" id="modalPrice">ยอดชำระสุทธิ: ฿0</p>
+            <p style="color: var(--accent-red); font-size: 18px; font-weight: 800; margin-top: 4px;" id="modalPrice">ยอดชำระสุทธิ: ฿0</p>
             
             <p style="font-size: 13px; color: var(--text-sub); margin-top: 15px;">โอนเงินเข้าบัญชีด้านล่างนี้:</p>
 
@@ -868,14 +896,20 @@
                 </div>
             </div>
 
-            <!-- Slip Transfer Notice -->
+            <!-- Slip Transfer Notice & LINE Button -->
             <div class="help-box">
-                <h5><i class="fa-solid fa-paper-plane"></i> ขั้นตอนการรับไฟล์ตารางการฝึก:</h5>
-                <p style="color: #ffffff; margin-bottom: 6px;">1. เมื่อโอนเงินเสร็จแล้ว ให้ถ่ายรูปหรือบันทึกสลิปการโอนเงิน</p>
-                <p style="color: #ffffff;">2. แอด Line ID: <span class="line-highlight">@nutzeed48</span> แล้วส่งสลิปเพื่อขอรับไฟล์ตารางการฝึกได้ทันทีครับ</p>
+                <h5><i class="fa-solid fa-paper-plane"></i> ขั้นตอนสุดท้ายเพื่อรับตารางการฝึก:</h5>
+                <p style="color: #ffffff; margin-bottom: 8px;">1. โอนเงินเข้าบัญชีด้านบน แล้วบันทึกรูปสลิป</p>
+                <p style="color: #ffffff; margin-bottom: 12px;">2. กดปุ่มสีเขียวด้านล่าง ระบบจะส่งข้อมูลที่คุณกรอกเข้าแชท LINE <strong>@nutzeed48</strong> ให้ทันทีเพื่อแนบสลิปส่งหาโค้ชนัท</p>
+
+                <!-- LINE DIRECT ACTION BUTTON -->
+                <button class="btn-line" onclick="sendToLine()" style="width: 100%;">
+                    <i class="fa-brands fa-line" style="font-size: 24px;"></i>
+                    กดเพื่อส่งข้อมูล & สลิปเข้า LINE (@nutzeed48)
+                </button>
             </div>
 
-            <button class="btn-primary" style="width: 100%; margin-top: 20px;" onclick="closeCheckout()">ปิดหน้าต่างชำระเงิน</button>
+            <button class="btn-outline" style="width: 100%; margin-top: 15px; font-size: 14px; padding: 10px;" onclick="closeCheckout()">ปิดหน้าต่างนี้</button>
         </div>
     </div>
 
@@ -891,6 +925,13 @@
     </footer>
 
     <script>
+        let lineFormattedMessage = "";
+
+        function selectPlan(planValue) {
+            document.getElementById('package').value = planValue;
+            document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+        }
+
         function openCheckout(planName, price) {
             document.getElementById('modalTitle').innerText = 'ชำระเงิน: ' + planName;
             document.getElementById('modalPrice').innerText = 'ยอดชำระสุทธิ: ฿' + price.toLocaleString();
@@ -903,14 +944,41 @@
 
         function handleFormSubmit(e) {
             e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const lineId = document.getElementById('lineId').value;
+            const age = document.getElementById('age').value;
+            const weight = document.getElementById('weight').value;
             const selectedPackage = document.getElementById('package').value;
+            const targetSkill = document.getElementById('targetSkill').value;
+            const medical = document.getElementById('medical').value || 'ไม่มี';
+
             let price = 399;
             if(selectedPackage.includes('799')) price = 799;
             if(selectedPackage.includes('1299')) price = 1299;
 
+            // Format message for LINE
+            lineFormattedMessage = `สวัสดีครับโค้ชนัท สั่งซื้อตารางการฝึกครับ\n\n` +
+                `📌 ข้อมูลผู้สมัคร:\n` +
+                `- ชื่อ-นามสกุล: ${name}\n` +
+                `- เบอร์โทรศัพท์: ${phone}\n` +
+                `- Line ID ผู้สมัคร: ${lineId}\n` +
+                `- อายุ: ${age} ปี\n` +
+                `- น้ำหนัก/ส่วนสูง: ${weight}\n` +
+                `- ตารางที่เลือก: ${selectedPackage}\n` +
+                `- เป้าหมาย/ประสบการณ์: ${targetSkill}\n` +
+                `- อาการบาดเจ็บ/โรคประจำตัว: ${medical}`;
+
             openCheckout(selectedPackage || 'ตารางการฝึก Calisthenics', price);
+        }
+
+        function sendToLine() {
+            const lineUrl = `https://line.me/R/oaMessage/@nutzeed48/?${encodeURIComponent(lineFormattedMessage)}`;
+            window.open(lineUrl, '_blank');
         }
     </script>
 </body>
 </html>
+
 
