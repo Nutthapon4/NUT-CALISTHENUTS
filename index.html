@@ -14,18 +14,17 @@
         }
 
         :root {
-            /* Dark Red Premium Theme */
-            --bg-color: #09090b;          /* ดำสนิทแบบสปอร์ต */
-            --card-bg: #18181b;           /* สีการ์ดดำเข้ม */
-            --card-border: #27272a;       /* เส้นขอบการ์ด */
-            --accent-red: #ef4444;        /* สีแดงสดหลัก */
-            --accent-red-hover: #dc2626;  /* สีแดงเข้มเมื่อชี้ */
+            --bg-color: #09090b;
+            --card-bg: #18181b;
+            --card-border: #27272a;
+            --accent-red: #ef4444;
+            --accent-red-hover: #dc2626;
             --red-glow: rgba(239, 68, 68, 0.25);
             --line-green: #06c755;
             --line-green-hover: #05b34c;
-            --text-white: #ffffff;         
-            --text-sub: #94a3b8;          
-            --border-color: #27272a;      
+            --text-white: #ffffff;
+            --text-sub: #94a3b8;
+            --border-color: #27272a;
             --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(239, 68, 68, 0.1);
         }
 
@@ -47,7 +46,6 @@
             padding: 0 20px;
         }
 
-        /* Keyframe Animations */
         @keyframes floatSlow {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-8px); }
@@ -75,7 +73,6 @@
             height: 75px;
         }
 
-        /* Logo Styling */
         .logo-box {
             display: flex;
             align-items: center;
@@ -192,16 +189,13 @@
             text-shadow: 0 0 12px rgba(248, 113, 113, 0.3);
         }
 
+        /* ปรับสีข้อความตรงนี้ให้เป็นสีขาวล้วนเสมอกันทั้งประโยค */
         .hero-solution {
-            color: var(--text-sub);
+            color: #ffffff;
             font-size: 16px;
             max-width: 780px;
             margin: 0 auto 40px;
             line-height: 1.8;
-        }
-
-        .hero-solution strong {
-            color: #ffffff;
         }
 
         .hero-btns {
@@ -840,7 +834,10 @@
         <div class="container">
             <h1>INCREASE YOUR SKILL AND STRENGTH</h1>
             <p class="hero-subproblem">ถ้าคุณยังเป็นคนที่เปลี่ยนโปรแกรมบ่อย สับสนในการเลือกท่า และยังไม่เข้าใจหลัก Anatomy & Physiology</p>
-            <p class="hero-solution"><strong>ตารางฝึกนี้จะช่วยเปลี่ยน</strong>การออกกำลังกายด้วยน้ำหนักตัวของคุณ ให้กลายเป็นโปรแกรมสร้างกล้ามเนื้อและพัฒนาทักษะ Calisthenics ได้อย่างเป็นระบบ เห็นผลจริง และปลอดภัยที่สุด</p>
+            
+            <!-- ปรับเป็นสีขาวล้วนเสมอกันทั้งหมดเรียบร้อยแล้ว -->
+            <p class="hero-solution">ตารางฝึกนี้จะช่วยเปลี่ยนการออกกำลังกายด้วยน้ำหนักตัวของคุณ ให้กลายเป็นโปรแกรมสร้างกล้ามเนื้อและพัฒนาทักษะ Calisthenics ได้อย่างเป็นระบบ เห็นผลจริง และปลอดภัยที่สุด</p>
+            
             <div class="hero-btns">
                 <a href="#pricing" class="btn-primary">ดูราคาตารางการฝึก</a>
                 <a href="#skills" class="btn-outline">ดูสกิล & ท่าฝึก</a>
@@ -854,16 +851,19 @@
             <div class="story-header">
                 <div class="story-title">
                     <i class="fa-solid fa-flask"></i>
-                    <span>วิทยาศาสตร์การกีฬาและประสบการณ์ของผม</span>
+                    <!-- เพิ่มคำว่า มหาวิทยาลัยมหิดล แล้ว -->
+                    <span>วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล และประสบการณ์ของผม</span>
                 </div>
                 <div class="edu-tag">Science-Based Training</div>
             </div>
             <div class="thought-question">
                 "เคยคิดไหมทำไมฝึกตามคลิปต่างๆ แต่ก็ยังทำไม่ได้... เพราะอะไร?"
             </div>
+            
+            <!-- เพิ่มคำว่า มหาวิทยาลัยมหิดล และเอาเครื่องหมายดอกจัน (*) ออกทั้งหมดแล้ว -->
             <p class="story-text">
-                หลายคนพยายามดูคลิปเทคนิคต่างๆ แล้วฝึกตาม แต่กลับพัฒนาช้าหรือติดขัดไม่ไปไหน... **นั่นเพราะคลิปสั้นไม่ได้ถูกออกแบบมาให้เข้ากับโครงสร้างร่างกายของทุกคน**<br><br>
-                ด้วยหลัก **วิทยาศาสตร์การกีฬาและประสบการณ์การฝึกของผม** ตารางฝึกนี้จึงถูกออกแบบขึ้นมาเพื่อสร้างโครงสร้างการพัฒนาที่เหมาะกับร่างกาย ป้องกันการบาดเจ็บ และช่วยให้คุณพัฒนาความแข็งแรงได้อย่างเป็นระบบและเห็นผลจริงที่สุด
+                หลายคนพยายามดูคลิปเทคนิคต่างๆ แล้วฝึกตาม แต่กลับพัฒนาช้าหรือติดขัดไม่ไปไหน... นั่นเพราะคลิปสั้นไม่ได้ถูกออกแบบมาให้เข้ากับโครงสร้างร่างกายของทุกคน<br><br>
+                ด้วยหลัก <strong>วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล และประสบการณ์การฝึกของผม</strong> ตารางฝึกนี้จึงถูกออกแบบขึ้นมาเพื่อสร้างโครงสร้างการพัฒนาที่เหมาะกับร่างกาย ป้องกันการบาดเจ็บ และช่วยให้คุณพัฒนาความแข็งแรงได้อย่างเป็นระบบและเห็นผลจริงที่สุด
             </p>
         </div>
     </section>
@@ -975,7 +975,7 @@
                     <p style="color: var(--text-sub); font-size: 13px;">ปรับเปลี่ยนตารางให้เข้ากับเวลาซ้อมของคุณได้อย่างยืดหยุ่น</p>
                     <ul class="plan-features">
                         <li><i class="fa-solid fa-check"></i> ได้ตารางการฝึกสำเร็จรูปตามระดับร่างกาย</li>
-                        <li><i class="fa-solid fa-check"></i> **สามารถปรับเปลี่ยนวันเวลาซ้อม** ตามความสะดวกของคุณได้</li>
+                        <li><i class="fa-solid fa-check"></i> <strong>สามารถปรับเปลี่ยนวันเวลาซ้อม</strong> ตามความสะดวกของคุณได้</li>
                         <li><i class="fa-solid fa-check"></i> มีตัวเลือกท่าฝึกทดแทน (Alternative Exercises)</li>
                     </ul>
                 </div>
@@ -990,8 +990,8 @@
                     <p style="color: var(--text-sub); font-size: 13px;">ตารางยืดหยุ่น + ปรึกษาคำแนะนำด้านอาหารและสอบถามได้ตลอด</p>
                     <ul class="plan-features">
                         <li><i class="fa-solid fa-check"></i> ตารางการฝึกระดับ Pro ที่ปรับเปลี่ยนได้ตามความสะดวก</li>
-                        <li><i class="fa-solid fa-check"></i> **ให้คำแนะนำด้านอาหารและโภชนาการเจาะลึก**</li>
-                        <li><i class="fa-solid fa-check"></i> **ทักแชทสอบถามและปรึกษาปัญหากับทีมงานได้ตลอด**</li>
+                        <li><i class="fa-solid fa-check"></i> <strong>ให้คำแนะนำด้านอาหารและโภชนาการเจาะลึก</strong></li>
+                        <li><i class="fa-solid fa-check"></i> <strong>ทักแชทสอบถามและปรึกษาปัญหากับทีมงานได้ตลอด</strong></li>
                         <li><i class="fa-solid fa-check"></i> ส่งคลิปตรวจฟอร์มท่าเล่นเมื่อติดขัด</li>
                     </ul>
                 </div>
@@ -1000,7 +1000,7 @@
 
         </div>
 
-        <!-- Scope & Refund Policy -->
+        <!-- Policy Notice -->
         <div class="policy-notice">
             <p style="margin-bottom: 8px;">⏳ <strong>สโคประยะเวลาการใช้งาน:</strong> ตารางฝึกมีอายุครอบคลุม <strong>3 เดือน</strong> (แนะนำให้ประเมินและปรับเปลี่ยนตารางใหม่หลังจาก 3 เดือนเพื่อพัฒนาการที่ต่อเนื่อง)</p>
             <p style="margin-bottom: 8px;">🔄 <strong>การปรับตาราง:</strong> คอร์ส 799 และ 1,299 บาท สามารถทักมาปรับตารางได้ตลอด 3 เดือนเพื่อการพัฒนาที่ต่อเนื่อง (แนะนำปรับแค่เดือนละครั้ง หากยังไม่มีปัญหาเรื่องเวลา)</p>
@@ -1070,7 +1070,7 @@
         </div>
     </section>
 
-    <!-- Modal Bank Payment -->
+    <!-- Modal Payment -->
     <div class="modal" id="checkoutModal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeCheckout()">&times;</span>
@@ -1099,7 +1099,6 @@
                 </div>
             </div>
 
-            <!-- Summary Textbox & Manual Copy Button -->
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
                 <p style="font-size: 12px; color: var(--text-sub);">ข้อความสมัคร (ระบบคัดลอกให้แล้ว):</p>
                 <button type="button" class="btn-copy-manual" onclick="manualCopyText()">
@@ -1110,13 +1109,11 @@
                 <textarea id="summaryText" rows="5" readonly></textarea>
             </div>
 
-            <!-- Slip Transfer Notice & LINE Button -->
             <div class="help-box">
                 <h5><i class="fa-solid fa-paper-plane"></i> ขั้นตอนสุดท้ายเพื่อรับตารางฝึก:</h5>
                 <p style="color: #ffffff; margin-bottom: 6px;">1. โอนเงินเข้าบัญชีด้านบน แล้วบันทึกสลิป</p>
-                <p style="color: #ffffff; margin-bottom: 12px;">2. กดปุ่มสีเขียว **เปิด LINE** แล้วกด **"วาง" (Paste)** ในช่องพิมพ์เพื่อส่งข้อความพร้อมแนบสลิปได้เลยครับ</p>
+                <p style="color: #ffffff; margin-bottom: 12px;">2. กดปุ่มสีเขียว <strong>เปิด LINE</strong> แล้วกด <strong>"วาง" (Paste)</strong> ในช่องพิมพ์เพื่อส่งข้อความพร้อมแนบสลิปได้เลยครับ</p>
 
-                <!-- GREEN LINE BUTTON WITH DIRECT USER LINK -->
                 <button class="btn-line" onclick="sendToLine()" style="width: 100%;">
                     <i class="fa-brands fa-line" style="font-size: 26px;"></i>
                     คัดลอกข้อมูล & เปิด LINE ส่งสลิป
@@ -1134,7 +1131,7 @@
                 <div class="logo-badge" style="width:34px; height:34px; font-size:18px;"><span>N</span></div>
                 <span style="font-weight: 900; font-size: 16px; color: #ffffff;">NUT CALISTHENUTS</span>
             </div>
-            <p class="footer-text">© 2026 NUT CALISTHENUTS | วิทยาศาสตร์การกีฬาและประสบการณ์ของผม</p>
+            <p class="footer-text">© 2026 NUT CALISTHENUTS | วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล และประสบการณ์ของผม</p>
         </div>
     </footer>
 
@@ -1152,7 +1149,6 @@
             document.getElementById('summaryText').value = lineFormattedMessage;
             document.getElementById('checkoutModal').style.display = 'flex';
             
-            // Auto Copy upon modal open
             copyMessageToClipboard();
         }
 
@@ -1175,7 +1171,6 @@
             if(selectedPackage.includes('799')) price = 799;
             if(selectedPackage.includes('1299')) price = 1299;
 
-            // Format message for LINE
             lineFormattedMessage = `สวัสดีครับ สั่งซื้อตารางการฝึกครับ\n\n` +
                 `📌 ข้อมูลผู้สมัคร:\n` +
                 `- ชื่อ-นามสกุล: ${name}\n` +
@@ -1219,3 +1214,4 @@
     </script>
 </body>
 </html>
+
