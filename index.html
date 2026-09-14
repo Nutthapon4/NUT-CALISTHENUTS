@@ -1,315 +1,319 @@
-นี่คือโค้ด HTML & CSS แบบสมบูรณ์ที่ปรับแต่งข้อความ ดีไซน์ฟอนต์ ลิงก์ LINE และโครงสร้างราคาใหม่ทั้งหมด สามารถคัดลอกไปวางแทนที่ในเว็บไซต์ของคุณได้เลยครับ
-<!-- นำไปวางในส่วน <head> ของเว็บไซต์เพื่อดึงฟอนต์ Prompt มาใช้งาน -->
+<!-- Google Font: Prompt -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  :root {
-    --bg-dark: #0a0a0c;
-    --card-bg: #141419;
-    --primary-red: #e53e3e;
-    --primary-red-hover: #c53030;
-    --text-main: #f7fafc;
-    --text-muted: #a0aec0;
-    --border-color: #2d3748;
+  * {
+    box-sizing: border-box;
   }
 
-  body {
-    font-family: 'Prompt', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-main);
+  .nut-landing-container {
+    font-family: 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #0a0a0c;
+    color: #f7fafc;
+    width: 100%;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
   }
 
-  /* Grid Background Effect */
-  .hero-container {
-    background-color: var(--bg-dark);
+  /* Hero Section */
+  .nut-hero {
+    background-color: #0a0a0c;
     background-image: 
       linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 30px 30px;
-    padding: 80px 20px 60px;
+    padding: 60px 20px 40px;
     text-align: center;
   }
 
-  .content-wrapper {
-    max-width: 900px;
+  .nut-hero-content {
+    max-width: 800px;
     margin: 0 auto;
   }
 
-  /* Headline & Typography */
-  .main-title {
-    font-size: 2.5rem;
+  .nut-hero-title {
+    font-size: 2.2rem;
     font-weight: 700;
     line-height: 1.3;
-    color: var(--text-main);
-    margin-bottom: 15px;
-    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin-bottom: 16px;
   }
 
-  .sub-title {
-    font-size: 1.25rem;
+  .nut-hero-subtitle {
+    font-size: 1.15rem;
     font-weight: 600;
-    color: var(--primary-red);
-    margin-bottom: 25px;
+    color: #e53e3e;
+    margin-bottom: 20px;
   }
 
-  .description {
-    font-size: 1.05rem;
+  .nut-hero-desc {
+    font-size: 1rem;
     font-weight: 300;
-    line-height: 1.8;
-    color: var(--text-muted);
-    margin-bottom: 40px;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
+    color: #a0aec0;
+    margin-bottom: 35px;
+    line-height: 1.7;
   }
 
-  /* Buttons */
-  .btn-group {
+  .nut-btn-group {
     display: flex;
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
   }
 
-  .btn {
-    display: inline-block;
-    padding: 14px 28px;
+  .nut-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
     font-size: 1rem;
     font-weight: 600;
     border-radius: 8px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
+    min-width: 200px;
   }
 
-  .btn-primary {
-    background-color: var(--primary-red);
+  .nut-btn-primary {
+    background-color: #e53e3e;
     color: #ffffff;
     border: none;
   }
 
-  .btn-primary:hover {
-    background-color: var(--primary-red-hover);
-    transform: translateY(-2px);
+  .nut-btn-primary:hover {
+    background-color: #c53030;
   }
 
-  .btn-secondary {
+  .nut-btn-secondary {
     background-color: #2d3748;
-    color: var(--text-main);
-    border: 1px solid var(--border-color);
+    color: #ffffff;
+    border: 1px solid #4a5568;
   }
 
-  .btn-secondary:hover {
+  .nut-btn-secondary:hover {
     background-color: #4a5568;
-    transform: translateY(-2px);
   }
 
   /* Pricing Section */
-  .pricing-section {
-    padding: 60px 20px;
+  .nut-pricing-section {
     max-width: 1100px;
     margin: 0 auto;
+    padding: 50px 20px 80px;
   }
 
-  .section-title {
+  .nut-section-title {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: #ffffff;
   }
 
-  .warning-note {
+  .nut-warning-note {
     background-color: rgba(229, 62, 62, 0.1);
-    border-left: 4px solid var(--primary-red);
-    padding: 12px 20px;
-    margin: 20px auto 40px;
-    max-width: 800px;
+    border-left: 4px solid #e53e3e;
+    padding: 14px 18px;
+    margin: 0 auto 35px;
+    max-width: 850px;
     font-size: 0.95rem;
     color: #feb2b2;
-    border-radius: 0 6px 6px 0;
-    text-align: left;
+    border-radius: 0 8px 8px 0;
   }
 
-  .pricing-grid {
+  /* Grid Layout Fix */
+  .nut-pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
   }
 
-  .price-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
+  .nut-price-card {
+    background-color: #141419;
+    border: 1px solid #2d3748;
     border-radius: 12px;
-    padding: 30px;
+    padding: 28px 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
     position: relative;
   }
 
-  .price-card.popular {
-    border-color: var(--primary-red);
-    box-shadow: 0 0 20px rgba(229, 62, 62, 0.15);
+  .nut-price-card.featured {
+    border-color: #e53e3e;
+    box-shadow: 0 0 15px rgba(229, 62, 62, 0.2);
   }
 
-  .popular-badge {
+  .nut-badge {
     position: absolute;
     top: -12px;
     right: 20px;
-    background-color: var(--primary-red);
-    color: #fff;
-    font-size: 0.8rem;
+    background-color: #e53e3e;
+    color: #ffffff;
+    font-size: 0.75rem;
     font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 20px;
+    padding: 3px 10px;
+    border-radius: 12px;
   }
 
-  .card-header h3 {
-    font-size: 1.4rem;
-    margin: 0 0 10px 0;
-  }
-
-  .price {
-    font-size: 2.2rem;
+  .nut-card-title {
+    font-size: 1.3rem;
     font-weight: 700;
-    color: var(--text-main);
+    margin: 0 0 10px 0;
+    color: #ffffff;
+  }
+
+  .nut-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
     margin-bottom: 20px;
   }
 
-  .price span {
-    font-size: 1rem;
-    color: var(--text-muted);
+  .nut-price span {
+    font-size: 0.9rem;
+    color: #a0aec0;
+    font-weight: 400;
   }
 
-  .features-list {
+  .nut-feature-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 30px 0;
-    text-align: left;
+    margin: 0 0 25px 0;
+    flex-grow: 1;
   }
 
-  .features-list li {
-    font-size: 0.95rem;
-    line-height: 1.6;
+  .nut-feature-list li {
+    font-size: 0.9rem;
     color: #cbd5e0;
     margin-bottom: 12px;
     position: relative;
-    padding-left: 24px;
+    padding-left: 20px;
+    line-height: 1.5;
   }
 
-  .features-list li::before {
+  .nut-feature-list li::before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: var(--primary-red);
+    color: #e53e3e;
     font-weight: bold;
   }
 
-  .inherit-text {
+  .nut-feature-highlight {
     font-weight: 600;
-    color: #fff;
-    border-bottom: 1px dashed var(--border-color);
+    color: #ffffff;
     padding-bottom: 8px;
     margin-bottom: 12px !important;
+    border-bottom: 1px dashed #2d3748;
   }
 
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .main-title { font-size: 1.8rem; }
-    .sub-title { font-size: 1.1rem; }
-    .btn { width: 100%; text-align: center; }
+  .nut-card-btn {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  /* Responsive Design for Mobile & Tablet */
+  @media (max-width: 992px) {
+    .nut-pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .nut-hero-title { font-size: 1.6rem; }
+    .nut-hero-subtitle { font-size: 1rem; }
+    .nut-btn { width: 100%; }
   }
 </style>
 
-<!-- ================= HERO SECTION ================= -->
-<section class="hero-container">
-  <div class="content-wrapper">
-    <h1 class="main-title">"เล่นเท่าไหร่ก็ไม่พัฒนา... เพราะคุณเปลี่ยนตารางซ้อมบ่อยเกินไปหรือเปล่า?"</h1>
-    
-    <div class="sub-title">
-      ออกแบบโปรแกรมจากหลักวิทยาศาสตร์การกีฬาและประสบการณ์ของผม
-    </div>
-
-    <p class="description">
-      ถ้าคุณยังเป็นคนที่เปลี่ยนโปรแกรมบ่อย สับสนในการเลือกท่า และยังไม่เข้าใจหลัก Anatomy & Physiology ตารางฝึกนี้จะช่วยเปลี่ยนการออกกำลังกายด้วยน้ำหนักตัวของคุณ ให้กลายเป็นโปรแกรมสร้างกล้ามเนื้อและพัฒนาทักษะ Calisthenics ได้อย่างเป็นระบบ เห็นผลจริง และปลอดภัยที่สุด
-    </p>
-
-    <div class="btn-group">
-      <a href="#pricing" class="btn btn-primary">ดูราคาตารางการฝึก</a>
-      <a href="https://lin.ee/nq2U5EU" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-        สอบถาม / สั่งซื้อผ่าน LINE
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PRICING & DETAILS SECTION ================= -->
-<section id="pricing" class="pricing-section">
-  <h2 class="section-title">รายละเอียดและแพ็กเกจการฝึก</h2>
-
-  <div class="warning-note">
-    💡 <strong>ข้อแนะนำสำคัญ:</strong> การเปลี่ยนตารางฝึกบ่อยเกินไปจะทำให้ร่างกายขาดความต่อเนื่อง ไม่เกิดพัฒนาการที่ชัดเจน ดังนั้นโปรแกรมของเราจึงเน้นการซ้อมอย่างเป็นระบบจนเกิดผลลัพธ์สูงสุดครับ
-  </div>
-
-  <div class="pricing-grid">
-    
-    <!-- PLAN 1 -->
-    <div class="price-card">
-      <div>
-        <div class="card-header">
-          <h3>Starter Level Plan</h3>
-          <div class="price">฿399</div>
-        </div>
-        <ul class="features-list">
-          <li>ตารางฝึก Calisthenics สำเร็จรูปตรงตามระดับ (Beginner / Intermediate)</li>
-          <li>ระบุจำนวน Set, Reps, Rest Time และ Progression Step ชัดเจน (ไฟล์ PDF)</li>
-          <li>มีคลิปวิดีโอตัวอย่างท่าฝึกอย่างถูกต้อง นำไปซ้อมตามได้ทันที</li>
-        </ul>
+<div class="nut-landing-container">
+  <!-- HERO SECTION -->
+  <section class="nut-hero">
+    <div class="nut-hero-content">
+      <h1 class="nut-hero-title">"เล่นเท่าไหร่ก็ไม่พัฒนา... เพราะคุณเปลี่ยนตารางซ้อมบ่อยเกินไปหรือเปล่า?"</h1>
+      
+      <div class="nut-hero-subtitle">
+        ออกแบบโปรแกรมจากหลักวิทยาศาสตร์การกีฬาและประสบการณ์ของผม
       </div>
-      <a href="https://lin.ee/nq2U5EU" target="_blank" class="btn btn-secondary">เลือกแพ็กเกจนี้</a>
-    </div>
 
-    <!-- PLAN 2 -->
-    <div class="price-card popular">
-      <div class="popular-badge">ยอดนิยม</div>
-      <div>
-        <div class="card-header">
-          <h3>Flexible Custom Plan</h3>
-          <div class="price">฿799</div>
-        </div>
-        <ul class="features-list">
-          <li class="inherit-text">รับสิทธิประโยชน์ทั้งหมดของแพ็กเกจ ฿399</li>
-          <li><strong>Fatigue Management:</strong> ระบบการจัดการความเหนื่อยล้า ซ้อมอย่างไรไม่ให้ Overreaching</li>
-          <li><strong>Injury Prevention:</strong> เทคนิคการป้องกันอาการบาดเจ็บเฉพาะทางของสาย Calisthenics</li>
-          <li><strong>Exercise Fundamentals:</strong> ความรู้พื้นฐานการออกกำลังกาย และกลไลการพัฒนาทักษะ</li>
-          <li><strong>Nutrition Guidelines:</strong> คำแนะนำด้านโภชนาการเจาะลึกเพื่อเป้าหมายของคุณ</li>
-          <li><strong>Flexible Design:</strong> ปรับวันซ้อมตามไลฟ์สไตล์ พร้อมท่าฝึกทดแทนเมื่ออุปกรณ์ไม่พร้อม</li>
-        </ul>
+      <p class="nut-hero-desc">
+        ถ้าคุณยังเป็นคนที่เปลี่ยนโปรแกรมบ่อย สับสนในการเลือกท่า และยังไม่เข้าใจหลัก Anatomy & Physiology ตารางฝึกนี้จะช่วยเปลี่ยนการออกกำลังกายด้วยน้ำหนักตัวของคุณ ให้กลายเป็นโปรแกรมสร้างกล้ามเนื้อและพัฒนาทักษะ Calisthenics ได้อย่างเป็นระบบ เห็นผลจริง และปลอดภัยที่สุด
+      </p>
+
+      <div class="nut-btn-group">
+        <a href="#nut-pricing" class="nut-btn nut-btn-primary">ดูราคาตารางการฝึก</a>
+        <a href="https://lin.ee/nq2U5EU" target="_blank" rel="noopener noreferrer" class="nut-btn nut-btn-secondary">
+          สอบถาม / สั่งซื้อผ่าน LINE
+        </a>
       </div>
-      <a href="https://lin.ee/nq2U5EU" target="_blank" class="btn btn-primary">เลือกแพ็กเกจนี้</a>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="nut-pricing" class="nut-pricing-section">
+    <h2 class="nut-section-title">รายละเอียดและแพ็กเกจการฝึก</h2>
+
+    <div class="nut-warning-note">
+      💡 <strong>ข้อแนะนำสำคัญ:</strong> การเปลี่ยนตารางฝึกไม่แนะนำให้เปลี่ยนบ่อยเกินไป เพราะจะทำให้พัฒนาการขาดความต่อเนื่อง ควรฝึกอย่างน้อย 6-8 สัปดาห์เพื่อผลลัพธ์สูงสุดครับ
     </div>
 
-    <!-- PLAN 3 -->
-    <div class="price-card">
-      <div>
-        <div class="card-header">
-          <h3>Pro Support Plan</h3>
-          <div class="price">฿1,299 <span>/ 3 เดือน</span></div>
+    <div class="nut-pricing-grid">
+      
+      <!-- PLAN 1 -->
+      <div class="nut-price-card">
+        <div>
+          <h3 class="nut-card-title">Starter Level Plan</h3>
+          <div class="nut-price">฿399</div>
+          <ul class="nut-feature-list">
+            <li>ตารางฝึก Calisthenics สำเร็จรูปตรงตามระดับ (Beginner / Intermediate)</li>
+            <li>ระบุจำนวน Set, Reps, Rest Time และ Progression Step ชัดเจน (ไฟล์ PDF)</li>
+            <li>มีคลิปวิดีโอตัวอย่างท่าฝึกอย่างถูกต้อง นำไปซ้อมตามได้ทันที</li>
+          </ul>
         </div>
-        <ul class="features-list">
-          <li class="inherit-text">รับสิทธิประโยชน์ทั้งหมดของแพ็กเกจ ฿399 และ ฿799</li>
-          <li><strong>1-on-1 Personal Support:</strong> ทักแชตปรึกษาการฝึกและโภชนาการกับโค้ชได้โดยตรง นาน 3 เดือน</li>
-          <li><strong>Video Form Check:</strong> ส่งคลิปวิดีโอตรวจฟอร์มท่าเล่น เพื่อแก้องศาและพัฒนาเทคนิค</li>
-          <li><strong>Custom Adjustment:</strong> ประเมินและปรับตารางตามการตอบสนองของร่างกายรายบุคคล</li>
-        </ul>
+        <a href="https://lin.ee/nq2U5EU" target="_blank" rel="noopener noreferrer" class="nut-btn nut-btn-secondary nut-card-btn">เลือกแพ็กเกจนี้</a>
       </div>
-      <a href="https://lin.ee/nq2U5EU" target="_blank" class="btn btn-secondary">เลือกแพ็กเกจนี้</a>
+
+      <!-- PLAN 2 -->
+      <div class="nut-price-card nut-featured">
+        <div class="nut-badge">ยอดนิยม</div>
+        <div>
+          <h3 class="nut-card-title">Flexible Custom Plan</h3>
+          <div class="nut-price">฿799</div>
+          <ul class="nut-feature-list">
+            <li class="nut-feature-highlight">รับสิทธิประโยชน์ทั้งหมดของแพ็กเกจ ฿399</li>
+            <li><strong>Fatigue Management:</strong> คำแนะนำระบบการจัดการความเหนื่อยล้า ซ้อมอย่างไรไม่ให้ Overreaching</li>
+            <li><strong>Injury Prevention:</strong> เทคนิคการป้องกันอาการบาดเจ็บเฉพาะทางสาย Calisthenics</li>
+            <li><strong>Exercise Fundamentals:</strong> ความรู้พื้นฐานการออกกำลังกาย และกลไลการพัฒนาทักษะ</li>
+            <li><strong>Nutrition Guidelines:</strong> คำแนะนำด้านโภชนาการเจาะลึกเพื่อเป้าหมายของคุณ</li>
+            <li><strong>Flexible Design:</strong> ปรับวันซ้อมตามไลฟ์สไตล์ พร้อมท่าฝึกทดแทนเมื่ออุปกรณ์ไม่พร้อม</li>
+          </ul>
+        </div>
+        <a href="https://lin.ee/nq2U5EU" target="_blank" rel="noopener noreferrer" class="nut-btn nut-btn-primary nut-card-btn">เลือกแพ็กเกจนี้</a>
+      </div>
+
+      <!-- PLAN 3 -->
+      <div class="nut-price-card">
+        <div>
+          <h3 class="nut-card-title">Pro Support Plan</h3>
+          <div class="nut-price">฿1,299 <span>/ 3 เดือน</span></div>
+          <ul class="nut-feature-list">
+            <li class="nut-feature-highlight">รับสิทธิประโยชน์ทั้งหมดของแพ็กเกจ ฿399 และ ฿799</li>
+            <li><strong>1-on-1 Personal Support:</strong> ทักแชตปรึกษาการฝึกและโภชนาการกับโค้ชได้โดยตรง นาน 3 เดือน</li>
+            <li><strong>Video Form Check:</strong> ส่งคลิปวิดีโอตรวจฟอร์มท่าเล่น เพื่อแก้องศาและพัฒนาเทคนิคอย่างถูกต้อง</li>
+            <li><strong>Custom Adjustment:</strong> ประเมินและปรับตารางตามการตอบสนองของร่างกายรายบุคคล</li>
+          </ul>
+        </div>
+        <a href="https://lin.ee/nq2U5EU" target="_blank" rel="noopener noreferrer" class="nut-btn nut-btn-secondary nut-card-btn">เลือกแพ็กเกจนี้</a>
+      </div>
+
     </div>
-
-  </div>
-</section>
-
+  </section>
+</div>
