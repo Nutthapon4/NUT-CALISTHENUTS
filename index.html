@@ -1,14 +1,9 @@
-ลิงก์ตรงสำหรับเปิดแอป LINE ของไอดี @596oyodw สร้างเสร็จเรียบร้อยแล้วครับ
-ลิงก์สำหรับนำไปใช้แปะหน้า Bio IG / Facebook / Messenger:
-[https://line.me/R/ti/p/@596oyodw?openExternalBrowser=1](https://line.me/R/ti/p/@596oyodw?openExternalBrowser=1)
- 1. อัปเดตลิงก์ในหน้า Bio Instagram และ Facebook
-   นำลิงก์ไปใส่ใน Social Media
-   นำลิงก์ [https://line.me/R/ti/p/@596oyodw?openExternalBrowser=1](https://line.me/R/ti/p/@596oyodw?openExternalBrowser=1) ไปแปะในช่อง Website ในหน้า Bio IG หรือส่งในแชท Messenger
-   วิธีตรวจสอบ: เมื่อลองใช้มือถือกดลิงก์จาก Bio IG ระบบจะบังคับข้ามเบราว์เซอร์ของ IG แล้วสลับเข้าไปหน้าแชท LINE ของคุณทันทีโดยไม่ติดค้าง
- 2. คัดลอกโค้ดเว็บฉบับแก้ไขสมบูรณ์
-   นำโค้ดไปวางทับในระบบเว็บ
-   คัดลอกโค้ด HTML ด้านล่างนี้ไปวางแทนที่ไฟล์เดิมในเว็บของคุณทั้งหมด (ได้รับการอัปเดตไอดี @596oyodw และแก้คำว่า มหาวิทยาลัยมหิดล + เอาเครื่องหมาย * ออกให้เรียบร้อยแล้ว)
-   วิธีตรวจสอบ: เมื่อกรอกข้อมูลบนเว็บแล้วกดปุ่ม "คัดลอกข้อมูล & เปิด LINE ส่งสลิป" ระบบจะคัดลอกข้อความและเปิดหน้าแชท LINE @596oyodw ให้ทันที
+ปรับปรุงฟังก์ชันการเปิด LINE ในระบบเว็บไซต์เรียบร้อยแล้ว โดยเพิ่มระบบสลับไปเรียก line:// URL Scheme โดยตรงบนอุปกรณ์มือถือ ซึ่งช่วยแก้ปัญหากระโดดค้างหน้าเว็บสีขาวหรือติดบล็อกในเบราว์เซอร์ของ Instagram และ Facebook
+สรุปจุดที่แก้ไขในระบบ
+ * เปิดแอป LINE ทันทีบนมือถือ: ระบบจะเรียก line://ti/p/@596oyodw โดยตรง ทำให้แอป LINE เด้งขึ้นมาทันทีโดยไม่ต้องรอโหลดหน้าเว็บสลับไปมา
+ * รองรับ Facebook / IG In-App Browser: มีระบบสำรองดึง [https://line.me/R/ti/p/@596oyodw?openExternalBrowser=1](https://line.me/R/ti/p/@596oyodw?openExternalBrowser=1) ทำงานซ้ำหากมือถือบล็อกคำสั่งแรก
+ * รองรับการใช้งานบนคอมพิวเตอร์ (Desktop): ระบบจะเปลี่ยนไปเปิดหน้าเว็บ LINE สำหรับสแกน QR Code ให้อัตโนมัติ
+โค้ด HTML + JavaScript ฉบับอัปเดตสมบูรณ์
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -1216,8 +1211,21 @@
         function sendToLine() {
             copyMessageToClipboard();
             alert('คัดลอกข้อความเรียบร้อยแล้ว!\n\nเมื่อระบบเปิดแชท LINE ให้กดค้างในช่องพิมพ์ แล้วเลือก "วาง (Paste)" เพื่อส่งข้อมูลพร้อมสลิปได้ทันทีครับ');
-            // ใช้ Direct Link สำหรับไอดี @596oyodw
-            window.location.href = 'https://line.me/R/ti/p/@596oyodw?openExternalBrowser=1';
+            
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // เรียกตรงเข้าแอป LINE บนมือถือด้วย URL Scheme
+                window.location.href = 'line://ti/p/@596oyodw';
+                
+                // ระบบสำรองกรณีเบราว์เซอร์ในแอปบล็อก URL Scheme
+                setTimeout(function() {
+                    window.location.href = 'https://line.me/R/ti/p/@596oyodw?openExternalBrowser=1';
+                }, 1200);
+            } else {
+                // สำหรับคอมพิวเตอร์ Desktop
+                window.location.href = 'https://line.me/R/ti/p/@596oyodw';
+            }
         }
     </script>
 </body>
