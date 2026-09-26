@@ -15,30 +15,36 @@
         }
 
         :root {
-            --bg-color: #09090b;
-            --card-bg: #18181b;
-            --card-border: #27272a;
-            --accent-red: #ef4444;
-            --accent-red-hover: #dc2626;
-            --red-glow: rgba(239, 68, 68, 0.25);
+            --bg-color: #0a0a0a;
+            --card-bg: #161616;
+            --card-border: #2a2a2a;
+            --accent-red: #e3132a;
+            --accent-red-hover: #b80f22;
+            --red-glow: rgba(227, 19, 42, 0.25);
             --line-green: #06c755;
             --line-green-hover: #05b34c;
             --text-white: #ffffff;
-            --text-sub: #94a3b8;
-            --border-color: #27272a;
-            --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(239, 68, 68, 0.1);
+            --text-sub: #9a9a9a;
+            --border-color: #2a2a2a;
+            --ink-black: #000000;
+            --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.85), 0 0 15px rgba(227, 19, 42, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-white);
             line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 50% 15%, rgba(239, 68, 68, 0.15) 0%, transparent 45%),
-                radial-gradient(circle at 80% 80%, rgba(185, 28, 28, 0.08) 0%, transparent 40%),
+            background-image:
+                radial-gradient(circle at 50% 15%, rgba(227, 19, 42, 0.16) 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.35) 0%, transparent 40%),
                 linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+            overflow-x: hidden;
         }
 
         .container {
@@ -53,13 +59,59 @@
         }
 
         @keyframes redPulse {
-            0%, 100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.3); }
-            50% { box-shadow: 0 0 30px rgba(239, 68, 68, 0.6); }
+            0%, 100% { box-shadow: 0 0 15px rgba(227, 19, 42, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(227, 19, 42, 0.6); }
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-stagger.is-visible .skill-card,
+        .reveal-stagger.is-visible .pricing-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-stagger .skill-card,
+        .reveal-stagger .pricing-card {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal-stagger.is-visible .skill-card:nth-child(1) { transition-delay: 0.02s; }
+        .reveal-stagger.is-visible .skill-card:nth-child(2) { transition-delay: 0.08s; }
+        .reveal-stagger.is-visible .skill-card:nth-child(3) { transition-delay: 0.14s; }
+        .reveal-stagger.is-visible .skill-card:nth-child(4) { transition-delay: 0.2s; }
+        .reveal-stagger.is-visible .skill-card:nth-child(5) { transition-delay: 0.26s; }
+        .reveal-stagger.is-visible .skill-card:nth-child(6) { transition-delay: 0.32s; }
+        .reveal-stagger.is-visible .skill-card:nth-child(7) { transition-delay: 0.38s; }
+        .reveal-stagger.is-visible .skill-card:nth-child(8) { transition-delay: 0.44s; }
+        .reveal-stagger.is-visible .pricing-card:nth-child(1) { transition-delay: 0.02s; }
+        .reveal-stagger.is-visible .pricing-card:nth-child(2) { transition-delay: 0.12s; }
+        .reveal-stagger.is-visible .pricing-card:nth-child(3) { transition-delay: 0.22s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal-stagger .skill-card, .reveal-stagger .pricing-card {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            #heroParallax { transform: none !important; }
         }
 
         /* Navbar */
         nav {
-            background-color: rgba(9, 9, 11, 0.85);
+            background-color: rgba(10, 10, 10, 0.85);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             position: sticky;
             top: 0;
@@ -72,6 +124,7 @@
             justify-content: space-between;
             align-items: center;
             height: 75px;
+            gap: 16px;
         }
 
         .logo-box {
@@ -84,9 +137,10 @@
         .logo-badge {
             width: 44px;
             height: 44px;
-            background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+            background: linear-gradient(135deg, #ff2b40 0%, var(--accent-red) 55%, #000000 100%);
+            border: 2px solid #000000;
+            outline: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 15px rgba(227, 19, 42, 0.55);
             color: #ffffff;
             font-weight: 900;
             font-size: 26px;
@@ -101,10 +155,12 @@
         .logo-badge span {
             transform: skewX(8deg);
             font-style: italic;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.8), 0 0 2px #000;
+            -webkit-text-stroke: 0.5px #000000;
         }
 
         .logo-box:hover .logo-badge {
-            box-shadow: 0 0 22px rgba(239, 68, 68, 0.8);
+            box-shadow: 0 0 22px rgba(227, 19, 42, 0.85);
             transform: skewX(-8deg) scale(1.05);
         }
 
@@ -148,20 +204,55 @@
             color: #ffffff;
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            background: #000000;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 4px;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            color: var(--text-sub);
+            font-size: 12px;
+            font-weight: 800;
+            padding: 6px 12px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--accent-red), #7a0d18);
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(227, 19, 42, 0.5);
+        }
+
         .btn-header {
-            background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+            background: linear-gradient(135deg, var(--accent-red) 0%, #7a0d18 100%);
             color: #ffffff;
             padding: 9px 20px;
             border-radius: 6px;
             font-weight: 700;
             text-decoration: none;
             transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+            box-shadow: 0 4px 12px rgba(227, 19, 42, 0.3);
+            white-space: nowrap;
         }
 
         .btn-header:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(239, 68, 68, 0.5);
+            box-shadow: 0 6px 18px rgba(227, 19, 42, 0.5);
         }
 
         /* Hero Section */
@@ -169,6 +260,22 @@
             padding: 100px 0 70px;
             text-align: center;
             position: relative;
+            overflow: hidden;
+        }
+
+        #heroParallax {
+            position: absolute;
+            inset: -10% -10% auto -10%;
+            height: 130%;
+            background: radial-gradient(circle at 50% 20%, rgba(227, 19, 42, 0.22) 0%, transparent 55%);
+            pointer-events: none;
+            will-change: transform;
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -182,12 +289,12 @@
         }
 
         .hero-subproblem {
-            color: #f87171;
+            color: #ff5f6d;
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 16px;
             letter-spacing: 0.5px;
-            text-shadow: 0 0 12px rgba(248, 113, 113, 0.3);
+            text-shadow: 0 0 12px rgba(255, 95, 109, 0.3);
         }
 
         .hero-solution {
@@ -202,10 +309,11 @@
             display: flex;
             justify-content: center;
             gap: 18px;
+            flex-wrap: wrap;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
+            background: linear-gradient(135deg, var(--accent-red) 0%, #7a0d18 100%);
             color: #ffffff;
             padding: 15px 34px;
             border-radius: 8px;
@@ -216,12 +324,12 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+            box-shadow: 0 4px 20px rgba(227, 19, 42, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.6);
+            box-shadow: 0 8px 25px rgba(227, 19, 42, 0.6);
         }
 
         .btn-line {
@@ -263,15 +371,15 @@
         }
 
         .btn-outline:hover {
-            border-color: #ef4444;
-            color: #ef4444;
-            background: rgba(239, 68, 68, 0.05);
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+            background: rgba(227, 19, 42, 0.05);
             transform: translateY(-2px);
         }
 
         /* Story Banner */
         .story-section {
-            background: linear-gradient(135deg, #18181b 0%, #0f0f11 100%);
+            background: linear-gradient(135deg, #161616 0%, #0a0a0a 100%);
             border: 1px solid var(--border-color);
             border-left: 5px solid var(--accent-red);
             border-radius: 16px;
@@ -306,16 +414,16 @@
         }
 
         .thought-question {
-            color: #f87171;
+            color: #ff5f6d;
             font-size: 19px;
             font-weight: 800;
             margin-bottom: 12px;
         }
 
         .edu-tag {
-            background: rgba(239, 68, 68, 0.1);
+            background: rgba(227, 19, 42, 0.1);
             color: var(--accent-red);
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            border: 1px solid rgba(227, 19, 42, 0.3);
             font-size: 12px;
             font-weight: 800;
             padding: 4px 12px;
@@ -361,7 +469,7 @@
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 24px;
-            transition: all 0.35s ease;
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, opacity 0.6s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             position: relative;
             overflow: hidden;
@@ -374,15 +482,15 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, var(--accent-red), #991b1b);
+            background: linear-gradient(90deg, var(--accent-red), #000000);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
 
         .skill-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(239, 68, 68, 0.4);
-            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.15);
+            border-color: rgba(227, 19, 42, 0.4);
+            box-shadow: 0 10px 25px rgba(227, 19, 42, 0.15);
         }
 
         .skill-card:hover::before {
@@ -418,8 +526,8 @@
             color: var(--accent-red);
             font-weight: 700;
             text-transform: uppercase;
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            background: rgba(227, 19, 42, 0.1);
+            border: 1px solid rgba(227, 19, 42, 0.3);
             padding: 3px 8px;
             border-radius: 4px;
         }
@@ -446,18 +554,18 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.4s ease;
+            transition: transform 0.4s ease, border-color 0.4s ease, opacity 0.6s ease;
             box-shadow: var(--card-shadow);
         }
 
         .pricing-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(239, 68, 68, 0.5);
+            border-color: rgba(227, 19, 42, 0.5);
         }
 
         .pricing-card.featured {
             border: 2px solid var(--accent-red);
-            background: linear-gradient(180deg, #1c1917 0%, #120a0a 100%);
+            background: linear-gradient(180deg, #141414 0%, #0a0505 100%);
             animation: redPulse 4s infinite, floatSlow 5s ease-in-out infinite;
         }
 
@@ -465,14 +573,14 @@
             position: absolute;
             top: -14px;
             right: 25px;
-            background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
+            background: linear-gradient(135deg, var(--accent-red) 0%, #000000 100%);
             color: #ffffff;
             font-size: 12px;
             font-weight: 800;
             padding: 4px 14px;
             border-radius: 20px;
             text-transform: uppercase;
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+            box-shadow: 0 4px 12px rgba(227, 19, 42, 0.5);
         }
 
         .plan-name {
@@ -501,7 +609,7 @@
         }
 
         .plan-features li {
-            color: #e4e4e7;
+            color: #e4e4e4;
             font-size: 14px;
             margin-bottom: 12px;
             display: flex;
@@ -532,7 +640,7 @@
         }
 
         .policy-notice span.no-refund {
-            color: #ef4444;
+            color: var(--accent-red);
             font-weight: 700;
         }
 
@@ -569,10 +677,10 @@
             color: #ffffff;
         }
 
-        .form-group input, 
-        .form-group select, 
+        .form-group input,
+        .form-group select,
         .form-group textarea {
-            background-color: #09090b;
+            background-color: #0a0a0a;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 12px 15px;
@@ -582,22 +690,22 @@
             transition: all 0.3s;
         }
 
-        .form-group input:focus, 
-        .form-group select:focus, 
+        .form-group input:focus,
+        .form-group select:focus,
         .form-group textarea:focus {
             border-color: var(--accent-red);
-            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+            box-shadow: 0 0 0 3px rgba(227, 19, 42, 0.2);
         }
 
         .form-group select option {
-            background-color: #09090b;
+            background-color: #0a0a0a;
             color: #ffffff;
         }
 
         /* Coming Soon Section */
         .coming-soon-card {
-            background: linear-gradient(135deg, #18181b 0%, #1c0d0d 100%);
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            background: linear-gradient(135deg, #161616 0%, #180a0a 100%);
+            border: 1px solid rgba(227, 19, 42, 0.3);
             border-radius: 18px;
             padding: 45px 25px;
             text-align: center;
@@ -609,7 +717,7 @@
 
         .cs-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
+            background: linear-gradient(135deg, var(--accent-red) 0%, #000000 100%);
             color: #ffffff;
             font-size: 12px;
             font-weight: 900;
@@ -617,7 +725,7 @@
             padding: 6px 18px;
             border-radius: 30px;
             margin-bottom: 15px;
-            box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+            box-shadow: 0 0 12px rgba(227, 19, 42, 0.4);
         }
 
         .coming-soon-card h2 {
@@ -642,7 +750,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.85);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -651,7 +759,7 @@
         }
 
         .modal-content {
-            background-color: #18181b;
+            background-color: #161616;
             border: 1px solid var(--border-color);
             border-radius: 16px;
             max-width: 560px;
@@ -679,7 +787,7 @@
         }
 
         .bank-card {
-            background-color: #09090b;
+            background-color: #0a0a0a;
             border: 1px solid var(--border-color);
             border-radius: 10px;
             padding: 16px;
@@ -723,7 +831,7 @@
         }
 
         .summary-box {
-            background: #09090b;
+            background: #0a0a0a;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 12px;
@@ -742,9 +850,9 @@
         }
 
         .btn-copy-manual {
-            background-color: #27272a;
+            background-color: #232323;
             color: #ffffff;
-            border: 1px solid #3f3f46;
+            border: 1px solid #3a3a3a;
             padding: 8px 14px;
             border-radius: 6px;
             font-size: 12px;
@@ -758,7 +866,7 @@
         }
 
         .btn-copy-manual:hover {
-            background-color: #3f3f46;
+            background-color: #3a3a3a;
         }
 
         .help-box {
@@ -784,7 +892,7 @@
             border-top: 1px solid var(--border-color);
             padding: 40px 0;
             text-align: center;
-            background-color: #09090b;
+            background-color: #0a0a0a;
         }
 
         .footer-logo {
@@ -817,48 +925,55 @@
                 <div class="logo-badge"><span>N</span></div>
                 <div class="logo-text">
                     <span class="logo-title">NUT CALISTHENUTS</span>
-                    <span class="logo-subtitle">skill and strength</span>
+                    <span class="logo-subtitle" data-i18n="logoSubtitle">skill and strength</span>
                 </div>
             </a>
             <ul class="nav-links">
-                <li><a href="#skills">สกิล & ท่าพื้นฐาน</a></li>
-                <li><a href="#pricing">ตารางการฝึก & ราคา</a></li>
-                <li><a href="#apply">สั่งซื้อตาราง</a></li>
+                <li><a href="#skills" data-i18n="navSkills">สกิล & ท่าพื้นฐาน</a></li>
+                <li><a href="#pricing" data-i18n="navPricing">ตารางการฝึก & ราคา</a></li>
+                <li><a href="#apply" data-i18n="navApply">สั่งซื้อตาราง</a></li>
             </ul>
-            <a href="#pricing" class="btn-header">เลือกตารางการฝึก</a>
+            <div class="nav-right">
+                <div class="lang-toggle">
+                    <button type="button" class="lang-btn active" id="langBtnTh" onclick="setLanguage('th')">TH</button>
+                    <button type="button" class="lang-btn" id="langBtnEn" onclick="setLanguage('en')">EN</button>
+                </div>
+                <a href="#pricing" class="btn-header" data-i18n="navCta">เลือกตารางการฝึก</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
+        <div id="heroParallax"></div>
         <div class="container">
-            <h1>INCREASE YOUR SKILL AND STRENGTH</h1>
-            <p class="hero-subproblem">ถ้าคุณยังเป็นคนที่เปลี่ยนโปรแกรมบ่อย สับสนในการเลือกท่า และยังไม่เข้าใจหลัก Anatomy & Physiology</p>
-            
-            <p class="hero-solution">ตารางฝึกนี้จะช่วยเปลี่ยนการออกกำลังกายด้วยน้ำหนักตัวของคุณ ให้กลายเป็นโปรแกรมสร้างกล้ามเนื้อและพัฒนาทักษะ Calisthenics ได้อย่างเป็นระบบ เห็นผลจริง และปลอดภัยที่สุด</p>
-            
+            <h1 data-i18n="heroTitle">INCREASE YOUR SKILL AND STRENGTH</h1>
+            <p class="hero-subproblem" data-i18n="heroSubproblem">ถ้าคุณยังเป็นคนที่เปลี่ยนโปรแกรมบ่อย สับสนในการเลือกท่า และยังไม่เข้าใจหลัก Anatomy & Physiology</p>
+
+            <p class="hero-solution" data-i18n="heroSolution">ตารางฝึกนี้จะช่วยเปลี่ยนการออกกำลังกายด้วยน้ำหนักตัวของคุณ ให้กลายเป็นโปรแกรมสร้างกล้ามเนื้อและพัฒนาทักษะ Calisthenics ได้อย่างเป็นระบบ เห็นผลจริง และปลอดภัยที่สุด</p>
+
             <div class="hero-btns">
-                <a href="#pricing" class="btn-primary">ดูราคาตารางการฝึก</a>
-                <a href="#skills" class="btn-outline">ดูสกิล & ท่าฝึก</a>
+                <a href="#pricing" class="btn-primary" data-i18n="heroBtnPricing">ดูราคาตารางการฝึก</a>
+                <a href="#skills" class="btn-outline" data-i18n="heroBtnSkills">ดูสกิล & ท่าฝึก</a>
             </div>
         </div>
     </section>
 
     <!-- Science-Based Intro Story -->
     <section class="container">
-        <div class="story-section">
+        <div class="story-section reveal">
             <div class="story-header">
                 <div class="story-title">
                     <i class="fa-solid fa-flask"></i>
-                    <span>วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล และประสบการณ์ของผม</span>
+                    <span data-i18n="storyTitle">วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล และประสบการณ์ของผม</span>
                 </div>
-                <div class="edu-tag">Science-Based Training</div>
+                <div class="edu-tag" data-i18n="storyTag">Science-Based Training</div>
             </div>
-            <div class="thought-question">
+            <div class="thought-question" data-i18n="storyQuestion">
                 "เคยคิดไหมทำไมฝึกตามคลิปต่างๆ แต่ก็ยังทำไม่ได้... เพราะอะไร?"
             </div>
-            
-            <p class="story-text">
+
+            <p class="story-text" data-i18n-html="storyText">
                 หลายคนพยายามดูคลิปเทคนิคต่างๆ แล้วฝึกตาม แต่กลับพัฒนาช้าหรือติดขัดไม่ไปไหน... นั่นเพราะคลิปสั้นไม่ได้ถูกออกแบบมาให้เข้ากับโครงสร้างร่างกายของทุกคน<br><br>
                 ด้วยหลัก <strong>วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล และประสบการณ์การฝึกของผม</strong> ตารางฝึกนี้จึงถูกออกแบบขึ้นมาเพื่อสร้างโครงสร้างการพัฒนาที่เหมาะกับร่างกาย ป้องกันการบาดเจ็บ และช่วยให้คุณพัฒนาความแข็งแรงได้อย่างเป็นระบบและเห็นผลจริงที่สุด
             </p>
@@ -867,74 +982,74 @@
 
     <!-- Skills Section -->
     <section class="container" id="skills">
-        <div class="section-title">
-            <h2>ความแข็งแรงพื้นฐาน & สกิลสาย STRENGTH</h2>
-            <p>สร้างฐานร่างกายให้แน่นด้วยท่าพื้นฐาน แล้วต่อยอดไปสู่ทักษะขั้นสูง</p>
+        <div class="section-title reveal">
+            <h2 data-i18n="skillsTitle">ความแข็งแรงพื้นฐาน & สกิลสาย STRENGTH</h2>
+            <p data-i18n="skillsSubtitle">สร้างฐานร่างกายให้แน่นด้วยท่าพื้นฐาน แล้วต่อยอดไปสู่ทักษะขั้นสูง</p>
         </div>
-        <div class="grid-skills">
-            
+        <div class="grid-skills reveal-stagger">
+
             <div class="skill-card">
                 <div class="skill-header">
-                    <span class="skill-name">Pull-Up (ดึงข้อ)</span>
-                    <span class="skill-tag tag-basic">พื้นฐานสำหรับมือใหม่</span>
+                    <span class="skill-name">Pull-Up</span>
+                    <span class="skill-tag tag-basic" data-i18n="tagBasic">พื้นฐานสำหรับมือใหม่</span>
                 </div>
-                <p class="skill-desc">สร้างกล้ามเนื้อหลังและปีก (Lats) ปูพื้นฐานแรงดึงที่แข็งแกร่งที่สุด</p>
+                <p class="skill-desc" data-i18n="skillPullup">สร้างกล้ามเนื้อหลังและปีก (Lats) ปูพื้นฐานแรงดึงที่แข็งแกร่งที่สุด</p>
             </div>
 
             <div class="skill-card">
                 <div class="skill-header">
-                    <span class="skill-name">Push-Up (วิดพื้น)</span>
-                    <span class="skill-tag tag-basic">พื้นฐานสำหรับมือใหม่</span>
+                    <span class="skill-name">Push-Up</span>
+                    <span class="skill-tag tag-basic" data-i18n="tagBasic">พื้นฐานสำหรับมือใหม่</span>
                 </div>
-                <p class="skill-desc">สร้างแรงดันหน้าอกและหัวไหล่ พร้อมฝึกการเกร็งแกนกลางลำตัวอย่างถูกต้อง</p>
+                <p class="skill-desc" data-i18n="skillPushup">สร้างแรงดันหน้าอกและหัวไหล่ พร้อมฝึกการเกร็งแกนกลางลำตัวอย่างถูกต้อง</p>
             </div>
 
             <div class="skill-card">
                 <div class="skill-header">
-                    <span class="skill-name">Dip (ดิพ)</span>
-                    <span class="skill-tag tag-basic">พื้นฐานสำหรับมือใหม่</span>
+                    <span class="skill-name">Dip</span>
+                    <span class="skill-tag tag-basic" data-i18n="tagBasic">พื้นฐานสำหรับมือใหม่</span>
                 </div>
-                <p class="skill-desc">พัฒนาหลังแขนและอกส่วนล่าง เพิ่มพลังแรงดันทรงตัวบนบาร์คู่</p>
+                <p class="skill-desc" data-i18n="skillDip">พัฒนาหลังแขนและอกส่วนล่าง เพิ่มพลังแรงดันทรงตัวบนบาร์คู่</p>
             </div>
 
             <div class="skill-card">
                 <div class="skill-header">
                     <span class="skill-name">L-Sit</span>
-                    <span class="skill-tag tag-basic">Core & Hip Flexors</span>
+                    <span class="skill-tag tag-basic" data-i18n="tagCore">Core & Hip Flexors</span>
                 </div>
-                <p class="skill-desc">ฝึกการทรงตัวบนมือพร้อมยกขาขนานพื้น สร้างความแข็งแรงแกนกลางลำตัวและสะโพก</p>
+                <p class="skill-desc" data-i18n="skillLsit">ฝึกการทรงตัวบนมือพร้อมยกขาขนานพื้น สร้างความแข็งแรงแกนกลางลำตัวและสะโพก</p>
             </div>
 
             <div class="skill-card">
                 <div class="skill-header">
                     <span class="skill-name">Handstand</span>
-                    <span class="skill-tag tag-strength">Balance & Shoulders</span>
+                    <span class="skill-tag tag-strength" data-i18n="tagBalance">Balance & Shoulders</span>
                 </div>
-                <p class="skill-desc">ฝึกการทรงตัวบนมือ คุมแกนกลางลำตัว และสร้างความแข็งแรงของหัวไหล่</p>
+                <p class="skill-desc" data-i18n="skillHandstand">ฝึกการทรงตัวบนมือ คุมแกนกลางลำตัว และสร้างความแข็งแรงของหัวไหล่</p>
             </div>
 
             <div class="skill-card">
                 <div class="skill-header">
                     <span class="skill-name">Muscle-Up</span>
-                    <span class="skill-tag tag-strength">Explosive Pull</span>
+                    <span class="skill-tag tag-strength" data-i18n="tagExplosive">Explosive Pull</span>
                 </div>
-                <p class="skill-desc">ส่งแรงดึงสะพานข้อขึ้นเหนือบาร์อย่างทรงพลัง ด้วยจังหวะที่ถูกต้อง</p>
+                <p class="skill-desc" data-i18n="skillMuscleup">ส่งแรงดึงสะพานข้อขึ้นเหนือบาร์อย่างทรงพลัง ด้วยจังหวะที่ถูกต้อง</p>
             </div>
 
             <div class="skill-card">
                 <div class="skill-header">
                     <span class="skill-name">Front Lever</span>
-                    <span class="skill-tag tag-strength">Core & Lats</span>
+                    <span class="skill-tag tag-strength" data-i18n="tagCoreLats">Core & Lats</span>
                 </div>
-                <p class="skill-desc">เกร็งดึงลำตัวขนานกับพื้นด้วยความแข็งแกร่งของหลังส่วนบนและแกนกลาง</p>
+                <p class="skill-desc" data-i18n="skillFrontlever">เกร็งดึงลำตัวขนานกับพื้นด้วยความแข็งแกร่งของหลังส่วนบนและแกนกลาง</p>
             </div>
 
             <div class="skill-card">
                 <div class="skill-header">
                     <span class="skill-name">Dragon Flag</span>
-                    <span class="skill-tag tag-strength">Advanced Core</span>
+                    <span class="skill-tag tag-strength" data-i18n="tagAdvCore">Advanced Core</span>
                 </div>
-                <p class="skill-desc">ทักษะเกร็งแกนกลางลำตัวระดับสูง ท่าในตำนานเพื่อสร้างกล้ามท้องที่แข็งแกร่ง</p>
+                <p class="skill-desc" data-i18n="skillDragonflag">ทักษะเกร็งแกนกลางลำตัวระดับสูง ท่าในตำนานเพื่อสร้างกล้ามท้องที่แข็งแกร่ง</p>
             </div>
 
         </div>
@@ -942,128 +1057,128 @@
 
     <!-- Pricing Section -->
     <section class="container" id="pricing">
-        <div class="section-title">
-            <h2>ตารางการฝึกสำเร็จรูป (3 ระดับราคา)</h2>
-            <p>เลือกตารางการฝึกที่ตรงกับเป้าหมายและรูปแบบการใช้ชีวิตของคุณ</p>
+        <div class="section-title reveal">
+            <h2 data-i18n="pricingTitle">ตารางการฝึกเฉพาะตัวบุคคล (3 ระดับราคา)</h2>
+            <p data-i18n="pricingSubtitle">เลือกตารางการฝึกที่ตรงกับเป้าหมายและรูปแบบการใช้ชีวิตของคุณ</p>
         </div>
-        <div class="pricing-grid">
-            
+        <div class="pricing-grid reveal-stagger">
+
             <!-- Tier 1: 399 -->
             <div class="pricing-card">
                 <div>
                     <div class="plan-name">Starter Level Plan</div>
-                    <div class="plan-price">฿399 <span>/ ตาราง</span></div>
-                    <p style="color: var(--text-sub); font-size: 13px;">สำหรับผู้ที่ต้องการตารางการฝึกมาตรฐานตรงตามระดับของตัวเอง</p>
+                    <div class="plan-price">฿399 <span data-i18n="perPlan">/ ตาราง</span></div>
+                    <p style="color: var(--text-sub); font-size: 13px;" data-i18n="starterDesc">สำหรับผู้ที่ต้องการตารางการฝึกมาตรฐานตรงตามระดับของตัวเอง</p>
                     <ul class="plan-features">
-                        <li><i class="fa-solid fa-check"></i> ตารางการฝึกสำเร็จรูปตรงตามระดับร่างกาย (Beginner / Intermediate)</li>
-                        <li><i class="fa-solid fa-check"></i> ระบุจำนวนเซ็ต จำนวนครั้ง (Reps) และวันพักอย่างชัดเจน</li>
-                        <li><i class="fa-solid fa-check"></i> รับไฟล์ตารางการฝึก PDF นำไปดูซ้อมได้ทันที</li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="starterF1">ตารางการฝึกเฉพาะตัวบุคคลตรงตามระดับร่างกาย (Beginner / Intermediate)</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="starterF2">ระบุจำนวนเซ็ต จำนวนครั้ง (Reps) และวันพักอย่างชัดเจน</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="starterF3">รับไฟล์ตารางการฝึก PDF นำไปดูซ้อมได้ทันที</span></li>
                     </ul>
                 </div>
-                <button class="btn-primary" onclick="selectPlan('Starter Plan (399฿)')">เลือกตาราง 399 บาท</button>
+                <button class="btn-primary" onclick="selectPlan('Starter Plan (399฿)')" data-i18n="starterBtn">เลือกตาราง 399 บาท</button>
             </div>
 
             <!-- Tier 2: 799 (Featured) -->
             <div class="pricing-card featured">
-                <div class="badge-popular">คุ้มค่าที่สุด</div>
+                <div class="badge-popular" data-i18n="popularBadge">คุ้มค่าที่สุด</div>
                 <div>
                     <div class="plan-name">Flexible Custom Plan</div>
-                    <div class="plan-price">฿799 <span>/ ตาราง</span></div>
-                    <p style="color: var(--text-sub); font-size: 13px;">ปรับเปลี่ยนตารางให้เข้ากับเวลาซ้อมของคุณได้อย่างยืดหยุ่น</p>
+                    <div class="plan-price">฿799 <span data-i18n="perPlan">/ ตาราง</span></div>
+                    <p style="color: var(--text-sub); font-size: 13px;" data-i18n="flexDesc">ปรับเปลี่ยนตารางให้เข้ากับเวลาซ้อมของคุณได้อย่างยืดหยุ่น</p>
                     <ul class="plan-features">
-                        <li><i class="fa-solid fa-check"></i> ได้ตารางการฝึกสำเร็จรูปตามระดับร่างกาย</li>
-                        <li><i class="fa-solid fa-check"></i> <strong>สามารถปรับเปลี่ยนวันเวลาซ้อม</strong> ตามความสะดวกของคุณได้</li>
-                        <li><i class="fa-solid fa-check"></i> มีตัวเลือกท่าฝึกทดแทน (Alternative Exercises)</li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="flexF1">ได้ตารางการฝึกเฉพาะตัวบุคคลตามระดับร่างกาย</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n-html="flexF2"><strong>สามารถปรับเปลี่ยนวันเวลาซ้อม</strong> ตามความสะดวกของคุณได้</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="flexF3">มีตัวเลือกท่าฝึกทดแทน (Alternative Exercises)</span></li>
                     </ul>
                 </div>
-                <button class="btn-primary" onclick="selectPlan('Flexible Plan (799฿)')">เลือกตาราง 799 บาท</button>
+                <button class="btn-primary" onclick="selectPlan('Flexible Plan (799฿)')" data-i18n="flexBtn">เลือกตาราง 799 บาท</button>
             </div>
 
             <!-- Tier 3: 1299 -->
             <div class="pricing-card">
                 <div>
                     <div class="plan-name">Pro Support Plan</div>
-                    <div class="plan-price">฿1,299 <span>/ ตาราง</span></div>
-                    <p style="color: var(--text-sub); font-size: 13px;">ตารางยืดหยุ่น + ปรึกษาคำแนะนำด้านอาหารและสอบถามได้ตลอด</p>
+                    <div class="plan-price">฿1,299 <span data-i18n="perPlan">/ ตาราง</span></div>
+                    <p style="color: var(--text-sub); font-size: 13px;" data-i18n="proDesc">ตารางยืดหยุ่น + ปรึกษาคำแนะนำด้านอาหารและสอบถามได้ตลอด</p>
                     <ul class="plan-features">
-                        <li><i class="fa-solid fa-check"></i> ตารางการฝึกระดับ Pro ที่ปรับเปลี่ยนได้ตามความสะดวก</li>
-                        <li><i class="fa-solid fa-check"></i> <strong>ให้คำแนะนำด้านอาหารและโภชนาการเจาะลึก</strong></li>
-                        <li><i class="fa-solid fa-check"></i> <strong>ทักแชทสอบถามและปรึกษาปัญหากับทีมงานได้ตลอด</strong></li>
-                        <li><i class="fa-solid fa-check"></i> ส่งคลิปตรวจฟอร์มท่าเล่นเมื่อติดขัด</li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="proF1">ตารางการฝึกระดับ Pro ที่ปรับเปลี่ยนได้ตามความสะดวก</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n-html="proF2"><strong>ให้คำแนะนำด้านอาหารและโภชนาการเจาะลึก</strong></span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n-html="proF3"><strong>ทักแชทสอบถามและปรึกษาปัญหากับทีมงานได้ตลอด</strong></span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="proF4">ส่งคลิปตรวจฟอร์มท่าเล่นเมื่อติดขัด</span></li>
                     </ul>
                 </div>
-                <button class="btn-primary" onclick="selectPlan('Pro Support Plan (1299฿)')">เลือกตาราง 1,299 บาท</button>
+                <button class="btn-primary" onclick="selectPlan('Pro Support Plan (1299฿)')" data-i18n="proBtn">เลือกตาราง 1,299 บาท</button>
             </div>
 
         </div>
 
         <!-- Policy Notice -->
-        <div class="policy-notice">
-            <p style="margin-bottom: 8px;">⏳ <strong>สโคประยะเวลาการใช้งาน:</strong> ตารางฝึกมีอายุครอบคลุม <strong>3 เดือน</strong> (แนะนำให้ประเมินและปรับเปลี่ยนตารางใหม่หลังจาก 3 เดือนเพื่อพัฒนาการที่ต่อเนื่อง)</p>
-            <p style="margin-bottom: 8px;">🔄 <strong>การปรับตาราง:</strong> คอร์ส 799 และ 1,299 บาท สามารถทักมาปรับตารางได้ตลอด 3 เดือนเพื่อการพัฒนาที่ต่อเนื่อง (แนะนำปรับแค่เดือนละครั้ง หากยังไม่มีปัญหาเรื่องเวลา)</p>
-            <p>⚠️ <strong>นโยบายการสั่งซื้อ:</strong> <span class="no-refund">เมื่อทำการสั่งซื้อแล้วไม่มีการคืนเงินทุกกรณี</span></p>
+        <div class="policy-notice reveal">
+            <p style="margin-bottom: 8px;" data-i18n-html="policy1">⏳ <strong>สโคประยะเวลาการใช้งาน:</strong> ตารางฝึกมีอายุครอบคลุม <strong>3 เดือน</strong> (แนะนำให้ประเมินและปรับเปลี่ยนตารางใหม่หลังจาก 3 เดือนเพื่อพัฒนาการที่ต่อเนื่อง)</p>
+            <p style="margin-bottom: 8px;" data-i18n-html="policy2">🔄 <strong>การปรับตาราง:</strong> คอร์ส 799 และ 1,299 บาท สามารถทักมาปรับตารางได้ตลอด 3 เดือนเพื่อการพัฒนาที่ต่อเนื่อง (แนะนำปรับแค่เดือนละครั้ง หากยังไม่มีปัญหาเรื่องเวลา)</p>
+            <p data-i18n-html="policy3">⚠️ <strong>นโยบายการสั่งซื้อ:</strong> <span class="no-refund">เมื่อทำการสั่งซื้อแล้วไม่มีการคืนเงินทุกกรณี</span></p>
         </div>
     </section>
 
     <!-- Application Form Section -->
     <section class="container" id="apply">
-        <div class="section-title">
-            <h2>กรอกข้อมูลเพื่อรับตารางการฝึก</h2>
-            <p>ส่งข้อมูลของคุณเพื่อรับจัดส่งตารางที่เหมาะกับร่างกายของคุณมากที่สุด</p>
+        <div class="section-title reveal">
+            <h2 data-i18n="formTitle">กรอกข้อมูลเพื่อรับตารางการฝึก</h2>
+            <p data-i18n="formSubtitle">ส่งข้อมูลของคุณเพื่อรับจัดส่งตารางที่เหมาะกับร่างกายของคุณมากที่สุด</p>
         </div>
-        <div class="form-section">
+        <div class="form-section reveal">
             <form id="coachingForm" onsubmit="handleFormSubmit(event)">
                 <div class="form-grid">
                     <div class="form-group full-width">
-                        <label for="name">ชื่อ-นามสกุล *</label>
-                        <input type="text" id="name" required placeholder="เช่น ณัฐพล คุณชล">
+                        <label for="name" data-i18n="labelName">ชื่อ-นามสกุล *</label>
+                        <input type="text" id="name" required data-i18n-placeholder="placeholderName" placeholder="เช่น ณัฐพล คุณชล">
                     </div>
 
                     <div class="form-group">
-                        <label for="age">อายุ (ปี) *</label>
-                        <input type="number" id="age" required placeholder="เช่น 24">
+                        <label for="age" data-i18n="labelAge">อายุ (ปี) *</label>
+                        <input type="number" id="age" required data-i18n-placeholder="placeholderAge" placeholder="เช่น 24">
                     </div>
                     <div class="form-group">
-                        <label for="weight">น้ำหนัก / ส่วนสูง *</label>
-                        <input type="text" id="weight" required placeholder="เช่น 65 กก. / 175 ซม.">
+                        <label for="weight" data-i18n="labelWeight">น้ำหนัก / ส่วนสูง *</label>
+                        <input type="text" id="weight" required data-i18n-placeholder="placeholderWeight" placeholder="เช่น 65 กก. / 175 ซม.">
                     </div>
 
                     <div class="form-group full-width">
-                        <label for="package">เลือกตารางการฝึกที่ต้องการ *</label>
+                        <label for="package" data-i18n="labelPackage">เลือกตารางการฝึกที่ต้องการ *</label>
                         <select id="package" required>
-                            <option value="">-- กรุณาเลือกราคาตาราง --</option>
-                            <option value="Starter Plan (399฿)">Starter Level Plan (399 บาท)</option>
-                            <option value="Flexible Plan (799฿)">Flexible Custom Plan (799 บาท)</option>
-                            <option value="Pro Support Plan (1299฿)">Pro Support Plan (1,299 บาท)</option>
+                            <option value="" data-i18n="optSelect">-- กรุณาเลือกราคาตาราง --</option>
+                            <option value="Starter Plan (399฿)" data-i18n="optStarter">Starter Level Plan (399 บาท)</option>
+                            <option value="Flexible Plan (799฿)" data-i18n="optFlexible">Flexible Custom Plan (799 บาท)</option>
+                            <option value="Pro Support Plan (1299฿)" data-i18n="optPro">Pro Support Plan (1,299 บาท)</option>
                         </select>
                     </div>
 
                     <div class="form-group full-width">
-                        <label for="targetSkill">สกิลที่อยากทำได้ *</label>
-                        <textarea id="targetSkill" rows="2" required placeholder="เช่น อยากทำ Handstand, Muscle-Up, Front Lever"></textarea>
+                        <label for="targetSkill" data-i18n="labelTarget">สกิลที่อยากทำได้ *</label>
+                        <textarea id="targetSkill" rows="2" required data-i18n-placeholder="placeholderTarget" placeholder="เช่น อยากทำ Handstand, Muscle-Up, Front Lever"></textarea>
                     </div>
 
                     <div class="form-group full-width">
-                        <label for="experience">ประสบการณ์การออกกำลังกาย *</label>
-                        <textarea id="experience" rows="2" required placeholder="เช่น เพิ่งเริ่มเล่น 3 เดือน / เล่นเวทเทรนนิ่งมา 1 ปี / ดึงข้อได้ 5 ครั้ง"></textarea>
+                        <label for="experience" data-i18n="labelExp">ประสบการณ์การออกกำลังกาย *</label>
+                        <textarea id="experience" rows="2" required data-i18n-placeholder="placeholderExp" placeholder="เช่น เพิ่งเริ่มเล่น 3 เดือน / เล่นเวทเทรนนิ่งมา 1 ปี / ดึงข้อได้ 5 ครั้ง"></textarea>
                     </div>
 
                     <div class="form-group full-width">
-                        <label for="medical">โรคประจำตัว / อาการบาดเจ็บย้อนหลัง (ถ้ามี)</label>
-                        <textarea id="medical" rows="2" placeholder="เช่น เคยเจ็บข้อมือขวา, ไม่มีโรคประจำตัว"></textarea>
+                        <label for="medical" data-i18n="labelMedical">โรคประจำตัว / อาการบาดเจ็บย้อนหลัง (ถ้ามี)</label>
+                        <textarea id="medical" rows="2" data-i18n-placeholder="placeholderMedical" placeholder="เช่น เคยเจ็บข้อมือขวา, ไม่มีโรคประจำตัว"></textarea>
                     </div>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 25px;">ส่งข้อมูลและไปหน้าชำระเงิน</button>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 25px;" data-i18n="formSubmit">ส่งข้อมูลและไปหน้าชำระเงิน</button>
             </form>
         </div>
     </section>
 
     <!-- Coaching 1-1 Coming Soon Section -->
     <section class="container">
-        <div class="coming-soon-card">
-            <div class="cs-badge">COMING SOON</div>
-            <h2>COACHING 1-1 PERSONAL TRAINING</h2>
-            <p>เตรียมพบกับโปรแกรมเทรนส่วนตัวแบบ 1 ต่อ 1 ที่จะดูแลฟอร์มการเล่น เทคนิค และโภชนาการอย่างใกล้ชิดเฉพาะบุคคล เร็วๆ นี้!</p>
+        <div class="coming-soon-card reveal">
+            <div class="cs-badge" data-i18n="csBadge">COMING SOON</div>
+            <h2 data-i18n="csTitle">COACHING 1-1 PERSONAL TRAINING</h2>
+            <p data-i18n="csText">เตรียมพบกับโปรแกรมเทรนส่วนตัวแบบ 1 ต่อ 1 ที่จะดูแลฟอร์มการเล่น เทคนิค และโภชนาการอย่างใกล้ชิดเฉพาะบุคคล เร็วๆ นี้!</p>
         </div>
     </section>
 
@@ -1071,35 +1186,35 @@
     <div class="modal" id="checkoutModal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeCheckout()">&times;</span>
-            <h3 style="font-size: 20px; font-weight: 800; color: #ffffff;" id="modalTitle">รายละเอียดการชำระเงิน</h3>
+            <h3 style="font-size: 20px; font-weight: 800; color: #ffffff;" id="modalTitle" data-i18n="modalTitleDefault">รายละเอียดการชำระเงิน</h3>
             <p style="color: var(--accent-red); font-size: 18px; font-weight: 800; margin-top: 4px;" id="modalPrice">ยอดชำระสุทธิ: ฿0</p>
-            
-            <p style="font-size: 13px; color: var(--text-sub); margin-top: 15px;">โอนเงินเข้าบัญชีด้านล่างนี้:</p>
+
+            <p style="font-size: 13px; color: var(--text-sub); margin-top: 15px;" data-i18n="modalTransferNote">โอนเงินเข้าบัญชีด้านล่างนี้:</p>
 
             <!-- KBANK -->
             <div class="bank-card">
                 <div class="bank-icon kbank">K-BANK</div>
                 <div class="bank-details">
-                    <p>ธนาคารกสิกรไทย (KBANK)</p>
+                    <p data-i18n="bankKbankName">ธนาคารกสิกรไทย (KBANK)</p>
                     <h4>145-3-44900-5</h4>
-                    <p>ชื่อบัญชี: <strong>นายณัฐพล คุณชล</strong></p>
+                    <p><span data-i18n="accountNameLabel">ชื่อบัญชี:</span> <strong>นายณัฐพล คุณชล</strong></p>
                 </div>
             </div>
 
             <!-- PromptPay -->
             <div class="bank-card">
-                <div class="bank-icon promptpay">พร้อมเพย์</div>
+                <div class="bank-icon promptpay" data-i18n="promptpayLabel">พร้อมเพย์</div>
                 <div class="bank-details">
-                    <p>พร้อมเพย์ (PromptPay)</p>
+                    <p data-i18n="promptpayName">พร้อมเพย์ (PromptPay)</p>
                     <h4>090-111-7724</h4>
-                    <p>ชื่อบัญชี: <strong>นายณัฐพล คุณชล</strong></p>
+                    <p><span data-i18n="accountNameLabel">ชื่อบัญชี:</span> <strong>นายณัฐพล คุณชล</strong></p>
                 </div>
             </div>
 
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-                <p style="font-size: 12px; color: var(--text-sub);">ข้อความสมัคร (ระบบคัดลอกให้แล้ว):</p>
+                <p style="font-size: 12px; color: var(--text-sub);" data-i18n="copyMessageLabel">ข้อความสมัคร (ระบบคัดลอกให้แล้ว):</p>
                 <button type="button" class="btn-copy-manual" onclick="manualCopyText()">
-                    <i class="fa-regular fa-copy"></i> คัดลอกข้อความอีกครั้ง
+                    <i class="fa-regular fa-copy"></i> <span data-i18n="copyAgainBtn">คัดลอกข้อความอีกครั้ง</span>
                 </button>
             </div>
             <div class="summary-box">
@@ -1107,17 +1222,17 @@
             </div>
 
             <div class="help-box">
-                <h5><i class="fa-solid fa-paper-plane"></i> ขั้นตอนสุดท้ายเพื่อรับตารางฝึก:</h5>
-                <p style="color: #ffffff; margin-bottom: 6px;">1. โอนเงินเข้าบัญชีด้านบน แล้วบันทึกสลิป</p>
-                <p style="color: #ffffff; margin-bottom: 12px;">2. กดปุ่มสีเขียว <strong>เปิด LINE</strong> แล้วกด <strong>"วาง" (Paste)</strong> ในช่องพิมพ์เพื่อส่งข้อความพร้อมแนบสลิปได้เลยครับ</p>
+                <h5><i class="fa-solid fa-paper-plane"></i> <span data-i18n="finalStepsTitle">ขั้นตอนสุดท้ายเพื่อรับตารางฝึก:</span></h5>
+                <p style="color: #ffffff; margin-bottom: 6px;" data-i18n="step1">1. โอนเงินเข้าบัญชีด้านบน แล้วบันทึกสลิป</p>
+                <p style="color: #ffffff; margin-bottom: 12px;" data-i18n-html="step2">2. กดปุ่มสีเขียว <strong>เปิด LINE</strong> แล้วกด <strong>"วาง" (Paste)</strong> ในช่องพิมพ์เพื่อส่งข้อความพร้อมแนบสลิปได้เลยครับ</p>
 
                 <button class="btn-line" onclick="sendToLine()" style="width: 100%;">
                     <i class="fa-brands fa-line" style="font-size: 26px;"></i>
-                    คัดลอกข้อมูล & เปิด LINE ส่งสลิป
+                    <span data-i18n="lineBtn">คัดลอกข้อมูล & เปิด LINE ส่งสลิป</span>
                 </button>
             </div>
 
-            <button class="btn-outline" style="width: 100%; margin-top: 15px; font-size: 14px; padding: 10px;" onclick="closeCheckout()">ปิดหน้าต่างนี้</button>
+            <button class="btn-outline" style="width: 100%; margin-top: 15px; font-size: 14px; padding: 10px;" onclick="closeCheckout()" data-i18n="closeModalBtn">ปิดหน้าต่างนี้</button>
         </div>
     </div>
 
@@ -1128,24 +1243,207 @@
                 <div class="logo-badge" style="width:34px; height:34px; font-size:18px;"><span>N</span></div>
                 <span style="font-weight: 900; font-size: 16px; color: #ffffff;">NUT CALISTHENUTS</span>
             </div>
-            <p class="footer-text">© 2026 NUT CALISTHENUTS | วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล และประสบการณ์ของผม</p>
+            <p class="footer-text" data-i18n="footerText">© 2026 NUT CALISTHENUTS | วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล และประสบการณ์ของผม</p>
         </div>
     </footer>
 
     <script>
         let lineFormattedMessage = "";
+        let currentLang = 'th';
 
+        /* ---------------- i18n dictionary ---------------- */
+        const translations = {
+            en: {
+                logoSubtitle: "skill and strength",
+                navSkills: "Skills & Basics",
+                navPricing: "Plans & Pricing",
+                navApply: "Order a Plan",
+                navCta: "Choose Your Plan",
+                heroTitle: "INCREASE YOUR SKILL AND STRENGTH",
+                heroSubproblem: "Still switching programs every few weeks, unsure which move to pick, and not quite clear on anatomy & physiology?",
+                heroSolution: "This training plan turns your bodyweight training into a structured, science-based Calisthenics program that builds real strength and skill — safely and with results you can see.",
+                heroBtnPricing: "See Plan Pricing",
+                heroBtnSkills: "See Skills & Moves",
+                storyTitle: "Sports Science, Mahidol University, and my own experience",
+                storyTag: "Science-Based Training",
+                storyQuestion: "\"Ever wonder why following training clips still isn't getting you there?\"",
+                storyText: "Many people watch technique clips and copy them, but progress stalls because a short clip was never designed for every body type.<br><br>Built on <strong>Sports Science from Mahidol University and my own coaching experience</strong>, this plan is structured around your own body — reducing injury risk and helping you build strength systematically, with results you can actually see.",
+                skillsTitle: "FOUNDATIONAL STRENGTH & STRENGTH-TRACK SKILLS",
+                skillsSubtitle: "Build a solid base with fundamentals, then progress into advanced skills.",
+                tagBasic: "Beginner Friendly",
+                tagCore: "Core & Hip Flexors",
+                tagBalance: "Balance & Shoulders",
+                tagExplosive: "Explosive Pull",
+                tagCoreLats: "Core & Lats",
+                tagAdvCore: "Advanced Core",
+                skillPullup: "Builds back and lat strength — the foundation of every pulling movement.",
+                skillPushup: "Builds chest and shoulder pressing strength while teaching proper core bracing.",
+                skillDip: "Develops triceps and lower chest, adding pressing power on parallel bars.",
+                skillLsit: "Trains a hand-balance with legs held parallel to the floor, building core and hip strength.",
+                skillHandstand: "Trains hand balance, core control, and shoulder strength.",
+                skillMuscleup: "Drives an explosive pull over the bar with the correct transition timing.",
+                skillFrontlever: "Holds the body parallel to the floor using upper-back and core strength.",
+                skillDragonflag: "An advanced core-bracing skill — the legendary move for a rock-solid core.",
+                pricingTitle: "PERSONALIZED TRAINING PLANS (3 PRICE TIERS)",
+                pricingSubtitle: "Choose the plan that fits your goals and your lifestyle.",
+                perPlan: "/ plan",
+                starterDesc: "For anyone who wants a standard plan matched to their level.",
+                starterF1: "A personalized plan matched to your body level (Beginner / Intermediate)",
+                starterF2: "Clear sets, reps, and rest days spelled out",
+                starterF3: "Receive a PDF plan ready to train from right away",
+                starterBtn: "Choose the ฿399 Plan",
+                popularBadge: "Best Value",
+                flexDesc: "Adjust the schedule flexibly to fit your training time.",
+                flexF1: "A personalized plan matched to your body level",
+                flexF2: "<strong>Adjust training days and times</strong> to fit your schedule",
+                flexF3: "Includes alternative exercise options",
+                flexBtn: "Choose the ฿799 Plan",
+                proDesc: "A flexible plan plus in-depth nutrition guidance and ongoing support.",
+                proF1: "A Pro-level plan that can be adjusted anytime",
+                proF2: "<strong>In-depth nutrition and diet guidance</strong>",
+                proF3: "<strong>Message the team anytime with questions</strong>",
+                proF4: "Send form-check clips whenever you get stuck",
+                proBtn: "Choose the ฿1,299 Plan",
+                policy1: "⏳ <strong>Plan duration:</strong> Each plan covers <strong>3 months</strong> (we recommend reviewing and updating it after 3 months for continued progress).",
+                policy2: "🔄 <strong>Adjustments:</strong> The ฿799 and ฿1,299 plans can be adjusted anytime within the 3 months (we recommend once a month if your schedule allows).",
+                policy3: "⚠️ <strong>Order policy:</strong> <span class=\"no-refund\">All purchases are final — no refunds under any circumstances.</span>",
+                formTitle: "SUBMIT YOUR INFO TO GET YOUR PLAN",
+                formSubtitle: "Send your details so we can build the plan that best fits your body.",
+                labelName: "Full Name *",
+                placeholderName: "e.g. Nattapon Khunchon",
+                labelAge: "Age (years) *",
+                placeholderAge: "e.g. 24",
+                labelWeight: "Weight / Height *",
+                placeholderWeight: "e.g. 65 kg / 175 cm",
+                labelPackage: "Choose Your Plan *",
+                optSelect: "-- Please select a plan --",
+                optStarter: "Starter Level Plan (฿399)",
+                optFlexible: "Flexible Custom Plan (฿799)",
+                optPro: "Pro Support Plan (฿1,299)",
+                labelTarget: "Skill You Want to Achieve *",
+                placeholderTarget: "e.g. Handstand, Muscle-Up, Front Lever",
+                labelExp: "Training Experience *",
+                placeholderExp: "e.g. started 3 months ago / weight training for 1 year / can do 5 pull-ups",
+                labelMedical: "Medical Conditions / Past Injuries (if any)",
+                placeholderMedical: "e.g. previous right wrist injury, no conditions",
+                formSubmit: "Submit & Continue to Payment",
+                csBadge: "COMING SOON",
+                csTitle: "COACHING 1-1 PERSONAL TRAINING",
+                csText: "Get ready for a dedicated 1-on-1 coaching program covering form, technique, and nutrition — coming soon!",
+                modalTitleDefault: "Payment Details",
+                modalTransferNote: "Transfer to the account below:",
+                bankKbankName: "Kasikorn Bank (KBANK)",
+                accountNameLabel: "Account name:",
+                promptpayLabel: "PromptPay",
+                promptpayName: "PromptPay",
+                copyMessageLabel: "Order message (already copied for you):",
+                copyAgainBtn: "Copy Message Again",
+                finalStepsTitle: "Final steps to get your plan:",
+                step1: "1. Transfer to the account above and save the slip",
+                step2: "2. Tap the green <strong>Open LINE</strong> button, then <strong>Paste</strong> in the chat box to send your info with the slip attached",
+                lineBtn: "Copy Info & Open LINE",
+                closeModalBtn: "Close",
+                footerText: "© 2026 NUT CALISTHENUTS | Sports Science, Mahidol University, and my own experience"
+            }
+        };
+
+        function applyTranslations(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (lang === 'en' && translations.en[key]) {
+                    el.textContent = translations.en[key];
+                } else if (lang === 'th') {
+                    if (!el.hasAttribute('data-th-original')) {
+                        el.setAttribute('data-th-original', el.textContent);
+                    }
+                    el.textContent = el.getAttribute('data-th-original');
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (!el.hasAttribute('data-th-original-html')) {
+                    el.setAttribute('data-th-original-html', el.innerHTML);
+                }
+                if (lang === 'en' && translations.en[key]) {
+                    el.innerHTML = translations.en[key];
+                } else {
+                    el.innerHTML = el.getAttribute('data-th-original-html');
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (!el.hasAttribute('data-th-original-placeholder')) {
+                    el.setAttribute('data-th-original-placeholder', el.getAttribute('placeholder') || '');
+                }
+                if (lang === 'en' && translations.en[key]) {
+                    el.setAttribute('placeholder', translations.en[key]);
+                } else {
+                    el.setAttribute('placeholder', el.getAttribute('data-th-original-placeholder'));
+                }
+            });
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang === 'en' ? 'en' : 'th';
+            document.getElementById('langBtnTh').classList.toggle('active', lang === 'th');
+            document.getElementById('langBtnEn').classList.toggle('active', lang === 'en');
+            applyTranslations(lang);
+        }
+
+        /* ---------------- Scroll animations ---------------- */
+        function initScrollReveal() {
+            const targets = document.querySelectorAll('.reveal, .reveal-stagger');
+            if (!('IntersectionObserver' in window)) {
+                targets.forEach(t => t.classList.add('is-visible'));
+                return;
+            }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+            targets.forEach(t => observer.observe(t));
+        }
+
+        function initParallax() {
+            const layer = document.getElementById('heroParallax');
+            if (!layer) return;
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        const y = window.scrollY;
+                        layer.style.transform = `translateY(${y * 0.25}px)`;
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initScrollReveal();
+            initParallax();
+        });
+
+        /* ---------------- Existing site logic ---------------- */
         function selectPlan(planValue) {
             document.getElementById('package').value = planValue;
             document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
         }
 
         function openCheckout(planName, price) {
-            document.getElementById('modalTitle').innerText = 'ชำระเงิน: ' + planName;
-            document.getElementById('modalPrice').innerText = 'ยอดชำระสุทธิ: ฿' + price.toLocaleString();
+            document.getElementById('modalTitle').innerText = (currentLang === 'en' ? 'Payment: ' : 'ชำระเงิน: ') + planName;
+            document.getElementById('modalPrice').innerText = (currentLang === 'en' ? 'Total: ฿' : 'ยอดชำระสุทธิ: ฿') + price.toLocaleString();
             document.getElementById('summaryText').value = lineFormattedMessage;
             document.getElementById('checkoutModal').style.display = 'flex';
-            
+
             copyMessageToClipboard();
         }
 
@@ -1155,14 +1453,14 @@
 
         function handleFormSubmit(e) {
             e.preventDefault();
-            
+
             const name = document.getElementById('name').value;
             const age = document.getElementById('age').value;
             const weight = document.getElementById('weight').value;
             const selectedPackage = document.getElementById('package').value;
             const targetSkill = document.getElementById('targetSkill').value;
             const experience = document.getElementById('experience').value;
-            const medical = document.getElementById('medical').value || 'ไม่มี';
+            const medical = document.getElementById('medical').value || (currentLang === 'en' ? 'None' : 'ไม่มี');
 
             let price = 399;
             if(selectedPackage.includes('799')) price = 799;
@@ -1178,7 +1476,7 @@
                 `- ประสบการณ์การออกกำลังกาย: ${experience}\n` +
                 `- อาการบาดเจ็บ/โรคประจำตัว: ${medical}`;
 
-            openCheckout(selectedPackage || 'ตารางการฝึก Calisthenics', price);
+            openCheckout(selectedPackage || (currentLang === 'en' ? 'Calisthenics Plan' : 'ตารางการฝึก Calisthenics'), price);
         }
 
         function copyMessageToClipboard() {
@@ -1200,19 +1498,21 @@
 
         function manualCopyText() {
             copyMessageToClipboard();
-            alert('คัดลอกข้อความสมัครเรียบร้อยแล้ว!');
+            alert(currentLang === 'en' ? 'Message copied!' : 'คัดลอกข้อความสมัครเรียบร้อยแล้ว!');
         }
 
         function sendToLine() {
             copyMessageToClipboard();
-            alert('คัดลอกข้อความเรียบร้อยแล้ว!\n\nเมื่อระบบเปิดแชท LINE ให้กดค้างในช่องพิมพ์ แล้วเลือก "วาง (Paste)" เพื่อส่งข้อมูลพร้อมสลิปได้ทันทีครับ');
-            
+            alert(currentLang === 'en'
+                ? 'Copied!\n\nWhen LINE opens, press and hold the message box, then select "Paste" to send your info along with the slip.'
+                : 'คัดลอกข้อความเรียบร้อยแล้ว!\n\nเมื่อระบบเปิดแชท LINE ให้กดค้างในช่องพิมพ์ แล้วเลือก "วาง (Paste)" เพื่อส่งข้อมูลพร้อมสลิปได้ทันทีครับ');
+
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
+
             if (isMobile) {
                 // เรียกตรงเข้าแอป LINE บนมือถือด้วย URL Scheme
                 window.location.href = 'line://ti/p/@596oyodw';
-                
+
                 // ระบบสำรองกรณีเบราว์เซอร์ในแอปบล็อก URL Scheme
                 setTimeout(function() {
                     window.location.href = 'https://line.me/R/ti/p/@596oyodw?openExternalBrowser=1';
@@ -1225,4 +1525,3 @@
     </script>
 </body>
 </html>
-
