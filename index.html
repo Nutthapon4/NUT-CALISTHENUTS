@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="th" class="scroll-smooth">
 <head>
@@ -34,7 +33,6 @@
         }
     </script>
     <style>
-        /* Grid background matching reference design */
         .bg-grid-pattern {
             background-color: #08080A;
             background-image: 
@@ -49,7 +47,7 @@
             text-shadow: 0 0 20px rgba(255, 21, 43, 0.6);
         }
 
-        /* Scroll Animation Classes */
+        /* Scroll Animation */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -67,7 +65,7 @@
     <nav class="sticky top-0 z-40 bg-darkBg/90 backdrop-blur-md border-b border-gray-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- LOGO (WHITE, RED, BLACK WITH "N" ICON) -->
+            <!-- LOGO (N ICON + BRAND NAME) -->
             <a href="#" class="flex items-center gap-3 group">
                 <div class="w-11 h-11 bg-black text-white font-black flex items-center justify-center rounded-lg shadow-[0_0_15px_rgba(255,21,43,0.5)] group-hover:scale-105 transition-transform border-2 border-brandRed">
                     <span class="text-2xl font-heading tracking-tighter text-white">N</span>
@@ -82,7 +80,7 @@
                 </div>
             </a>
 
-            <!-- NAV LINKS (DESKTOP) -->
+            <!-- NAV LINKS -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
                 <a href="#hero" class="hover:text-brandRed transition-colors" data-th="หน้าแรก" data-en="HOME">หน้าแรก</a>
                 <a href="#pricing" class="hover:text-brandRed transition-colors" data-th="แพ็กเกจตารางฝึก" data-en="PACKAGES">แพ็กเกจตารางฝึก</a>
@@ -91,10 +89,8 @@
                 <a href="#faq" class="hover:text-brandRed transition-colors" data-th="คำถามที่พบบ่อย" data-en="FAQ">คำถามที่พบบ่อย</a>
             </div>
 
-            <!-- RIGHT CONTROLS: LANGUAGE SWITCHER & CTA -->
+            <!-- CONTROLS: LANGUAGE SWITCHER & CTA -->
             <div class="flex items-center gap-3">
-                
-                <!-- LANGUAGE SWITCHER BUTTONS [ TH | EN ] -->
                 <div class="flex items-center bg-black/80 border border-gray-800 rounded-lg p-1 text-xs font-bold font-heading">
                     <button onclick="setLanguage('th')" id="btn-th" class="px-2.5 py-1 rounded bg-brandRed text-white transition-all">TH</button>
                     <button onclick="setLanguage('en')" id="btn-en" class="px-2.5 py-1 rounded text-gray-400 hover:text-white transition-all">EN</button>
@@ -102,7 +98,7 @@
 
                 <a href="#pricing" class="hidden sm:flex bg-brandRed hover:bg-brandRedDark text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all transform hover:-translate-y-0.5 red-glow items-center gap-2 border border-red-500">
                     <span data-th="เลือกตารางฝึก" data-en="GET PROGRAM">เลือกตารางฝึก</span>
-                    <i class="fa-solid font-bold fa-arrow-right text-xs"></i>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
             </div>
         </div>
@@ -112,27 +108,23 @@
     <section id="hero" class="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
             
-            <!-- TOP BADGE -->
             <div class="inline-block mb-6">
                 <span class="bg-black/80 border border-brandRed/50 text-brandRed text-xs font-bold tracking-widest px-4 py-1.5 rounded-full uppercase shadow-[0_0_10px_rgba(255,21,43,0.2)]">
                     PERSONALIZED CALISTHENICS COACHING
                 </span>
             </div>
 
-            <!-- MAIN HEADLINE -->
             <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight font-heading text-white uppercase leading-none mb-6">
                 INCREASE YOUR <br class="hidden sm:block"/>
                 <span class="text-brandRed text-glow">SKILL AND STRENGTH</span>
             </h1>
 
-            <!-- SUBTITLE -->
             <p class="max-w-3xl mx-auto text-gray-300 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-10"
                data-th="หยุดฝึกแบบมั่วๆ แล้วไม่เห็นผลลัพธ์ เริ่มเทรนอย่างมีระบบด้วยตารางที่ออกแบบมาเพื่อ Calisthenics โดยเฉพาะ ปรับแต่งให้ตรงจุดเพื่อพัฒนาทักษะและความพละกำลังของคุณ"
                data-en="Stop training blindly without results. Start training systematically with routines designed specifically for Calisthenics, customized to maximize your skill and strength.">
                 หยุดฝึกแบบมั่วๆ แล้วไม่เห็นผลลัพธ์ เริ่มเทรนอย่างมีระบบด้วยตารางที่ออกแบบมาเพื่อ Calisthenics โดยเฉพาะ ปรับแต่งให้ตรงจุดเพื่อพัฒนาทักษะและความพละกำลังของคุณ
             </p>
 
-            <!-- HERO ACTION BUTTONS -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
                 <a href="#pricing" class="w-full sm:w-auto bg-brandRed hover:bg-brandRedDark text-white font-bold text-lg px-8 py-4 rounded-xl transition-all transform hover:scale-105 red-glow flex items-center justify-center gap-3 border border-red-500">
                     <span data-th="เลือกตารางฝึก (399฿ - 1,299฿)" data-en="SELECT PROGRAM (399฿ - 1,299฿)">เลือกตารางฝึก (399฿ - 1,299฿)</span>
@@ -143,7 +135,7 @@
                 </a>
             </div>
 
-            <!-- STATS COUNTER (2 ITEMS ONLY) -->
+            <!-- STATS COUNTER -->
             <div class="grid grid-cols-2 gap-6 max-w-xl mx-auto pt-8 border-t border-gray-800/80">
                 <div class="p-4 rounded-xl bg-cardBg/50 border border-cardBorder">
                     <div class="text-4xl sm:text-5xl font-black text-white font-heading">5+</div>
@@ -205,7 +197,7 @@
                     </button>
                 </div>
 
-                <!-- TIER 2: 799 BAHT (POPULAR) -->
+                <!-- TIER 2: 799 BAHT -->
                 <div class="bg-cardBg rounded-2xl p-8 border-2 border-brandRed flex flex-col justify-between relative shadow-[0_0_30px_rgba(255,21,43,0.2)] transform md:-translate-y-2 reveal">
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brandRed text-white text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider">
                         MOST POPULAR
@@ -244,7 +236,7 @@
                     </button>
                 </div>
 
-                <!-- TIER 3: 1,299 BAHT (VIP) -->
+                <!-- TIER 3: 1,299 BAHT -->
                 <div class="bg-cardBg rounded-2xl p-8 border border-cardBorder flex flex-col justify-between hover:border-gray-600 transition-all reveal">
                     <div>
                         <div class="inline-block px-3 py-1 bg-gray-800 text-gray-300 text-xs font-bold rounded-md mb-4">
@@ -366,7 +358,7 @@
                         </div>
                         <div class="bg-black/60 p-4 rounded-xl border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                             <div>
-                                <h5 class="text-white font-bold text-lg">2. Parallel Bar Dips (Weighted optional)</h5>
+                                <h5 class="text-white font-bold text-lg">2. Parallel Bar Dips</h5>
                                 <p class="text-xs sm:text-sm text-gray-400" data-th="พัฒนาพละกำลังอกล่างและ Triceps" data-en="Develop lower chest and triceps strength">พัฒนาพละกำลังอกล่างและ Triceps</p>
                             </div>
                             <span class="inline-block bg-brandRed/10 text-brandRed border border-brandRed/30 px-3 py-1 rounded-md text-xs font-bold">4 Sets x 8-10 Reps</span>
@@ -393,7 +385,6 @@
                     </div>
                 </div>
 
-                <!-- FOOTER INFO -->
                 <div class="mt-6 pt-6 border-t border-gray-800 flex flex-wrap items-center justify-between gap-4 text-xs text-gray-400">
                     <div class="flex items-center gap-2">
                         <i class="fa-regular fa-clock text-brandRed"></i>
@@ -510,7 +501,7 @@
         </div>
     </footer>
 
-    <!-- CHECKOUT & PROMPTPAY MODAL -->
+    <!-- CHECKOUT MODAL -->
     <div id="checkoutModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-cardBg border border-cardBorder rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
             
@@ -526,7 +517,6 @@
                 <p id="modalPackageName" class="text-sm text-brandRed font-semibold mt-1">แพ็กเกจ 399฿</p>
             </div>
 
-            <!-- PROMPTPAY QR CONTAINER -->
             <div class="bg-white p-4 rounded-xl text-center mb-6 shadow-inner">
                 <div class="text-xs text-gray-500 mb-2 font-bold uppercase tracking-wider">สแกนชำระผ่าน PROMPTPAY</div>
                 <img id="qrImage" src="" alt="PromptPay QR Code" class="w-48 h-48 mx-auto border border-gray-200 rounded-lg">
@@ -547,9 +537,9 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- JAVASCRIPT SYSTEM -->
     <script>
-        // 1. LANGUAGE SWITCHER SYSTEM
+        // LANGUAGE SWITCHER
         let currentLang = 'th';
         function setLanguage(lang) {
             currentLang = lang;
@@ -571,7 +561,7 @@
             });
         }
 
-        // 2. SCROLL REVEAL ANIMATION
+        // SCROLL REVEAL ANIMATION
         function revealOnScroll() {
             const reveals = document.querySelectorAll(".reveal");
             for (let i = 0; i < reveals.length; i++) {
@@ -587,7 +577,7 @@
         window.addEventListener("scroll", revealOnScroll);
         revealOnScroll();
 
-        // 3. ROUTINE TAB SWITCHER
+        // ROUTINE TAB SWITCHER
         function switchTab(tabName) {
             const tabs = ['beginner', 'intermediate', 'advanced'];
             tabs.forEach(t => {
@@ -603,7 +593,7 @@
             });
         }
 
-        // 4. CHECKOUT MODAL & PROMPTPAY QR
+        // CHECKOUT & PROMPTPAY QR
         function openCheckout(packageName, price) {
             document.getElementById('modalPackageName').innerText = packageName + ` (ราคา ${price} บาท)`;
             document.getElementById('modalPrice').innerText = `฿${price}.00`;
