@@ -1224,4 +1224,434 @@
     </script>
 </body>
 </html>
+นี่คือโค้ดแบบรวมไฟล์เดียวทั้งหมด (HTML + CSS + JavaScript) ครับ คุณสามารถคัดลอกทั้งหมดนี้ไปวางในไฟล์เดียว (เช่น index.html) แล้วเปิดใช้งานได้ทันทีครับ
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalized Calisthenics Program</title>
+  
+  <style>
+    /* --- Root Colors & Variables --- */
+    :root {
+      --bg-color: #0d0e11;
+      --card-bg: #16181d;
+      --card-border: #262932;
+      --text-main: #ffffff;
+      --text-muted: #a1a1aa;
+      --red-accent: #ff2a2a;
+      --red-hover: #e02222;
+      --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --- Navbar & Logo N --- */
+    .navbar {
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(13, 14, 17, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* โลโก้ N ขาว-แดง-ดำ */
+    .logo-n {
+      font-weight: 900;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      background: #000000;
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid #333;
+    }
+    .n-black { color: #ffffff; }
+    .n-red { color: var(--red-accent); }
+    .n-white { color: #ffffff; }
+
+    /* Language Switcher */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #181a20;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--card-border);
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .lang-btn.active, .lang-btn:hover {
+      color: var(--red-accent);
+    }
+
+    .divider {
+      color: #444;
+      font-size: 12px;
+    }
+
+    /* --- Sections & Typography --- */
+    section {
+      padding: 80px 0;
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero-sub {
+      color: var(--red-accent);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto 35px;
+      font-size: 1.05rem;
+    }
+
+    /* Buttons */
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--red-accent);
+      color: #ffffff;
+      box-shadow: 0 4px 20px rgba(255, 42, 42, 0.3);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--red-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(255, 42, 42, 0.5);
+    }
+
+    .btn-secondary {
+      background-color: #22252e;
+      color: #ffffff;
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background-color: #2d313d;
+      transform: translateY(-2px);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 42, 42, 0.1);
+      color: var(--red-accent);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 42, 42, 0.2);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    /* Cards & Pricing */
+    .pricing {
+      text-align: center;
+    }
+
+    .cards-grid {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 35px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .price {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--red-accent);
+      margin: 15px 0 20px;
+    }
+
+    .price span {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .feature-list li {
+      margin-bottom: 12px;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--red-accent);
+      font-weight: bold;
+    }
+
+    .btn-full {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* --- Scroll Animation Classes --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo-n">
+        <span class="n-black">N</span><span class="n-red">U</span><span class="n-white">T</span>
+      </a>
+
+      <div class="lang-switch">
+        <button id="lang-th" class="lang-btn active" onclick="setLanguage('th')">TH</button>
+        <span class="divider">|</span>
+        <button id="lang-en" class="lang-btn" onclick="setLanguage('en')">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero reveal">
+    <div class="container">
+      <h1 class="hero-title" data-key="heroTitle">
+        INCREASE YOUR SKILL AND STRENGTH
+      </h1>
+      <p class="hero-sub" data-key="heroSub">
+        ถ้าคุณยังเป็นคนที่เปลี่ยนโปรแกรมบ่อย สับสนในการเลือกท่า และยังไม่เข้าใจหลัก Anatomy & Physiology
+      </p>
+      <p class="hero-desc" data-key="heroDesc">
+        ตารางฝึกนี้จะช่วยเปลี่ยนการออกกำลังกายด้วยน้ำหนักตัวของคุณ ให้กลายเป็นโปรแกรมสร้างกล้ามเนื้อและพัฒนาทักษะ Calisthenics ได้อย่างเป็นระบบ เห็นผลจริง และปลอดภัยที่สุด
+      </p>
+      <div class="cta-group">
+        <a href="#pricing" class="btn btn-primary" data-key="btnPricing">ดูราคาตารางการฝึก</a>
+        <a href="#features" class="btn btn-secondary" data-key="btnSkills">ดูสกิล & ท่าฝึก</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features reveal" id="features">
+    <div class="container">
+      <div class="badge" data-key="badgeScience">🧪 วิทยาศาสตร์การกีฬาและประสบการณ์ของผม</div>
+      <h2 class="section-title" data-key="featureTitle">
+        "เคยคิดไหมทำไมฝึกตามคลิปต่างๆ แต่ก็ยังทำไม่ได้... เพราะอะไร?"
+      </h2>
+      <p class="section-desc" data-key="featureDesc">
+        ด้วยหลักวิทยาศาสตร์การกีฬาและประสบการณ์การฝึกของผม ตารางฝึกนี้จึงถูกออกแบบขึ้นมาเพื่อสร้างโครงสร้างการพัฒนาที่เหมาะกับร่างกาย ป้องกันการบาดเจ็บ และช่วยให้คุณพัฒนาความแข็งแรงได้อย่างเป็นระบบ
+      </p>
+    </div>
+  </section>
+
+  <section class="pricing reveal" id="pricing">
+    <div class="container">
+      <h2 class="section-title" data-key="pricingTitle">เลือกแพ็กเกจการฝึก</h2>
+      
+      <div class="cards-grid">
+        <div class="card reveal">
+          <h3 class="card-title" data-key="plan1Title">ตารางการฝึกเฉพาะตัวบุคคล</h3>
+          <div class="price">฿1,299 <span>/ 3 เดือน</span></div>
+          <ul class="feature-list">
+            <li data-key="plan1F1">1-on-1 Personal Support: ทักแชตปรึกษาได้โดยตรง นาน 3 เดือน</li>
+            <li data-key="plan1F2">Video Form Check: ส่งคลิปวิดีโอตรวจฟอร์มท่าเล่น เพื่อแก้องศาและพัฒนาเทคนิค</li>
+            <li data-key="plan1F3">Custom Adjustment: ประเมินและปรับตารางตามการตอบสนองของร่างกายรายบุคคล</li>
+          </ul>
+          <a href="https://lin.ee/pkZVsKc" target="_blank" class="btn btn-primary btn-full" data-key="btnSelect">เลือกแพ็กเกจนี้</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // --- 1. ระบบเลือกภาษา (TH / EN) ---
+    const translations = {
+      th: {
+        heroTitle: "INCREASE YOUR SKILL AND STRENGTH",
+        heroSub: "ถ้าคุณยังเป็นคนที่เปลี่ยนโปรแกรมบ่อย สับสนในการเลือกท่า และยังไม่เข้าใจหลัก Anatomy & Physiology",
+        heroDesc: "ตารางฝึกนี้จะช่วยเปลี่ยนการออกกำลังกายด้วยน้ำหนักตัวของคุณ ให้กลายเป็นโปรแกรมสร้างกล้ามเนื้อและพัฒนาทักษะ Calisthenics ได้อย่างเป็นระบบ เห็นผลจริง และปลอดภัยที่สุด",
+        btnPricing: "ดูราคาตารางการฝึก",
+        btnSkills: "ดูสกิล & ท่าฝึก",
+        badgeScience: "🧪 วิทยาศาสตร์การกีฬาและประสบการณ์ของผม",
+        featureTitle: '"เคยคิดไหมทำไมฝึกตามคลิปต่างๆ แต่ก็ยังทำไม่ได้... เพราะอะไร?"',
+        featureDesc: "ด้วยหลักวิทยาศาสตร์การกีฬาและประสบการณ์การฝึกของผม ตารางฝึกนี้จึงถูกออกแบบขึ้นมาเพื่อสร้างโครงสร้างการพัฒนาที่เหมาะกับร่างกาย ป้องกันการบาดเจ็บ และช่วยให้คุณพัฒนาความแข็งแรงได้อย่างเป็นระบบ",
+        pricingTitle: "เลือกแพ็กเกจการฝึก",
+        plan1Title: "ตารางการฝึกเฉพาะตัวบุคคล",
+        plan1F1: "1-on-1 Personal Support: ทักแชตปรึกษาได้โดยตรง นาน 3 เดือน",
+        plan1F2: "Video Form Check: ส่งคลิปวิดีโอตรวจฟอร์มท่าเล่น เพื่อแก้องศาและพัฒนาเทคนิค",
+        plan1F3: "Custom Adjustment: ประเมินและปรับตารางตามการตอบสนองของร่างกายรายบุคคล",
+        btnSelect: "เลือกแพ็กเกจนี้"
+      },
+      en: {
+        heroTitle: "INCREASE YOUR SKILL AND STRENGTH",
+        heroSub: "If you constantly change programs, feel confused about exercise selection, and lack understanding of Anatomy & Physiology...",
+        heroDesc: "This training routine transforms your bodyweight workouts into a systematic, muscle-building, and skill-focused Calisthenics program that yields real, safe results.",
+        btnPricing: "View Pricing",
+        btnSkills: "View Skills & Moves",
+        badgeScience: "🧪 Sports Science & Personal Experience",
+        featureTitle: '"Ever wondered why following video tutorials still doesn\'t produce results?"',
+        featureDesc: "Based on sports science and hands-on experience, this program is crafted to suit your body\'s structural needs, prevent injuries, and build strength systematically.",
+        pricingTitle: "Choose Your Package",
+        plan1Title: "Personalized Training Program",
+        plan1F1: "1-on-1 Personal Support: Direct chat consultation for 3 months",
+        plan1F2: "Video Form Check: Submit video clips for posture and form correction",
+        plan1F3: "Custom Adjustment: Program tweaks based on your personal progress",
+        btnSelect: "Select Package"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.getElementById('lang-th').classList.toggle('active', lang === 'th');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+
+      const elements = document.querySelectorAll('[data-key]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+
+      localStorage.setItem('preferred_lang', lang);
+    }
+
+    // --- 2. อนิเมชันเลื่อนหน้าจอ (Scroll Reveal Effect) ---
+    function handleScrollAnimation() {
+      const reveals = document.querySelectorAll('.reveal');
+      const windowHeight = window.innerHeight;
+
+      reveals.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const elementVisible = 80;
+
+        if (elementTop < windowHeight - elementVisible) {
+          el.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScrollAnimation);
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferred_lang') || 'th';
+      setLanguage(savedLang);
+      handleScrollAnimation();
+    });
+  </script>
+</body>
+</html>
+
 
