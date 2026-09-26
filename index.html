@@ -1,614 +1,1225 @@
 <!DOCTYPE html>
-<html lang="th" class="scroll-smooth">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUT CALISTHENUTS - Bodyweight Routine Academy</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Kanit & Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandRed: '#FF152B',
-                        brandRedDark: '#D0091B',
-                        darkBg: '#08080A',
-                        cardBg: '#121216',
-                        cardBorder: '#22222A'
-                    },
-                    fontFamily: {
-                        sans: ['Kanit', 'sans-serif'],
-                        heading: ['Montserrat', 'Kanit', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <title>NUT CALISTHENUTS | Skill and Strength</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        .bg-grid-pattern {
-            background-color: #08080A;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-        .red-glow {
-            box-shadow: 0 0 25px rgba(255, 21, 43, 0.35);
-        }
-        .text-glow {
-            text-shadow: 0 0 20px rgba(255, 21, 43, 0.6);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Kanit';
         }
 
-        /* Scroll Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        :root {
+            --bg-color: #09090b;
+            --card-bg: #18181b;
+            --card-border: #27272a;
+            --accent-red: #ef4444;
+            --accent-red-hover: #dc2626;
+            --red-glow: rgba(239, 68, 68, 0.25);
+            --line-green: #06c755;
+            --line-green-hover: #05b34c;
+            --text-white: #ffffff;
+            --text-sub: #94a3b8;
+            --border-color: #27272a;
+            --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(239, 68, 68, 0.1);
         }
-        .reveal.active {
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 50% 15%, rgba(239, 68, 68, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(185, 28, 28, 0.08) 0%, transparent 40%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes redPulse {
+            0%, 100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(239, 68, 68, 0.6); }
+        }
+
+        /* Navbar */
+        nav {
+            background-color: rgba(9, 9, 11, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 75px;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-badge {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transform: skewX(-8deg);
+            transition: all 0.3s ease;
+        }
+
+        .logo-badge span {
+            transform: skewX(8deg);
+            font-style: italic;
+        }
+
+        .logo-box:hover .logo-badge {
+            box-shadow: 0 0 22px rgba(239, 68, 68, 0.8);
+            transform: skewX(-8deg) scale(1.05);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            color: #ffffff;
+            font-size: 19px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .logo-subtitle {
+            color: var(--accent-red);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .btn-header {
+            background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+            color: #ffffff;
+            padding: 9px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
+        .btn-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(239, 68, 68, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 70px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-subproblem {
+            color: #f87171;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 12px rgba(248, 113, 113, 0.3);
+        }
+
+        .hero-solution {
+            color: #ffffff;
+            font-size: 16px;
+            max-width: 780px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
+            color: #ffffff;
+            padding: 15px 34px;
+            border-radius: 8px;
+            font-weight: 800;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.6);
+        }
+
+        .btn-line {
+            background-color: var(--line-green);
+            color: #ffffff;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
+        }
+
+        .btn-line:hover {
+            background-color: var(--line-green-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 199, 85, 0.4);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 15px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-outline:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Story Banner */
+        .story-section {
+            background: linear-gradient(135deg, #18181b 0%, #0f0f11 100%);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent-red);
+            border-radius: 16px;
+            padding: 35px;
+            margin: 40px auto;
+            max-width: 920px;
+            box-shadow: var(--card-shadow);
+            animation: floatSlow 6s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .story-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .story-title {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .story-title i {
+            color: var(--accent-red);
+        }
+
+        .thought-question {
+            color: #f87171;
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .edu-tag {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--accent-red);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            font-size: 12px;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .story-text {
+            color: var(--text-sub);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 70px 0 40px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .section-title p {
+            color: var(--text-sub);
+            font-size: 15px;
+            margin-top: 6px;
+        }
+
+        /* Skills Section */
+        .grid-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 22px;
+            margin-bottom: 60px;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.35s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-red), #991b1b);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(239, 68, 68, 0.4);
+            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.15);
+        }
+
+        .skill-card:hover::before {
             opacity: 1;
-            transform: translateY(0);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-size: 19px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .tag-basic {
+            font-size: 11px;
+            color: var(--text-sub);
+            font-weight: 700;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .tag-strength {
+            font-size: 11px;
+            color: var(--accent-red);
+            font-weight: 700;
+            text-transform: uppercase;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .skill-desc {
+            color: var(--text-sub);
+            font-size: 13.5px;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .pricing-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 35px 25px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+            box-shadow: var(--card-shadow);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(239, 68, 68, 0.5);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--accent-red);
+            background: linear-gradient(180deg, #1c1917 0%, #120a0a 100%);
+            animation: redPulse 4s infinite, floatSlow 5s ease-in-out infinite;
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: -14px;
+            right: 25px;
+            background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 4px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+        }
+
+        .plan-name {
+            font-size: 21px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .plan-price {
+            font-size: 42px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .plan-price span {
+            font-size: 14px;
+            color: var(--text-sub);
+            font-weight: 400;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 20px 0 30px;
+        }
+
+        .plan-features li {
+            color: #e4e4e7;
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .plan-features li i {
+            color: var(--accent-red);
+            margin-top: 4px;
+        }
+
+        /* Policy Notice */
+        .policy-notice {
+            background-color: var(--card-bg);
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 80px;
+            text-align: left;
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+
+        .policy-notice strong {
+            color: #ffffff;
+        }
+
+        .policy-notice span.no-refund {
+            color: #ef4444;
+            font-weight: 700;
+        }
+
+        /* Form Section */
+        .form-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            background-color: #09090b;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 15px;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--accent-red);
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+        }
+
+        .form-group select option {
+            background-color: #09090b;
+            color: #ffffff;
+        }
+
+        /* Coming Soon Section */
+        .coming-soon-card {
+            background: linear-gradient(135deg, #18181b 0%, #1c0d0d 100%);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 18px;
+            padding: 45px 25px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            animation: floatSlow 7s ease-in-out infinite;
+        }
+
+        .cs-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            padding: 6px 18px;
+            border-radius: 30px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+        }
+
+        .coming-soon-card h2 {
+            font-size: 28px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .coming-soon-card p {
+            color: var(--text-sub);
+            font-size: 15px;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        /* Modal Payment */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(6px);
+        }
+
+        .modal-content {
+            background-color: #18181b;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            max-width: 560px;
+            width: 100%;
+            padding: 30px;
+            position: relative;
+            text-align: left;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            color: var(--text-sub);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: var(--accent-red);
+        }
+
+        .bank-card {
+            background-color: #09090b;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px;
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bank-icon {
+            width: 75px;
+            height: 48px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 13px;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .bank-icon.kbank {
+            background-color: #138f2d;
+        }
+
+        .bank-icon.promptpay {
+            background-color: #00427a;
+        }
+
+        .bank-details p {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        .bank-details h4 {
+            font-size: 19px;
+            color: #ffffff;
+            letter-spacing: 1px;
+            margin: 2px 0;
+        }
+
+        .summary-box {
+            background: #09090b;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0 15px;
+        }
+
+        .summary-box textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #38bdf8;
+            font-family: monospace;
+            font-size: 13px;
+            resize: none;
+            outline: none;
+        }
+
+        .btn-copy-manual {
+            background-color: #27272a;
+            color: #ffffff;
+            border: 1px solid #3f3f46;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+
+        .btn-copy-manual:hover {
+            background-color: #3f3f46;
+        }
+
+        .help-box {
+            background-color: rgba(6, 199, 85, 0.08);
+            border: 1px solid rgba(6, 199, 85, 0.3);
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .help-box h5 {
+            color: var(--line-green);
+            font-size: 14px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            background-color: #09090b;
+        }
+
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .footer-text {
+            color: var(--text-sub);
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 34px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
-<body class="bg-darkBg text-gray-100 font-sans antialiased bg-grid-pattern min-h-screen selection:bg-brandRed selection:text-white">
+<body>
 
-    <!-- NAVIGATION BAR -->
-    <nav class="sticky top-0 z-40 bg-darkBg/90 backdrop-blur-md border-b border-gray-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            
-            <!-- LOGO (N ICON + BRAND NAME) -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 bg-black text-white font-black flex items-center justify-center rounded-lg shadow-[0_0_15px_rgba(255,21,43,0.5)] group-hover:scale-105 transition-transform border-2 border-brandRed">
-                    <span class="text-2xl font-heading tracking-tighter text-white">N</span>
-                </div>
-                <div class="flex flex-col">
-                    <div class="text-xl sm:text-2xl font-black tracking-wider text-white flex items-center gap-1 font-heading leading-none">
-                        NUT <span class="text-brandRed">CALISTHENUTS</span>
-                    </div>
-                    <span class="text-[9px] sm:text-[10px] tracking-[0.2em] text-gray-400 font-semibold uppercase mt-1">
-                        BODYWEIGHT ROUTINE ACADEMY
-                    </span>
+    <!-- Navbar -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo-box">
+                <div class="logo-badge"><span>N</span></div>
+                <div class="logo-text">
+                    <span class="logo-title">NUT CALISTHENUTS</span>
+                    <span class="logo-subtitle">skill and strength</span>
                 </div>
             </a>
-
-            <!-- NAV LINKS -->
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-                <a href="#hero" class="hover:text-brandRed transition-colors" data-th="หน้าแรก" data-en="HOME">หน้าแรก</a>
-                <a href="#pricing" class="hover:text-brandRed transition-colors" data-th="แพ็กเกจตารางฝึก" data-en="PACKAGES">แพ็กเกจตารางฝึก</a>
-                <a href="#routine" class="hover:text-brandRed transition-colors" data-th="ตัวอย่างตาราง" data-en="SAMPLE ROUTINE">ตัวอย่างตาราง</a>
-                <a href="#skills" class="hover:text-brandRed transition-colors" data-th="สกิลการฝึก" data-en="SKILLS">สกิลการฝึก</a>
-                <a href="#faq" class="hover:text-brandRed transition-colors" data-th="คำถามที่พบบ่อย" data-en="FAQ">คำถามที่พบบ่อย</a>
-            </div>
-
-            <!-- CONTROLS: LANGUAGE SWITCHER & CTA -->
-            <div class="flex items-center gap-3">
-                <div class="flex items-center bg-black/80 border border-gray-800 rounded-lg p-1 text-xs font-bold font-heading">
-                    <button onclick="setLanguage('th')" id="btn-th" class="px-2.5 py-1 rounded bg-brandRed text-white transition-all">TH</button>
-                    <button onclick="setLanguage('en')" id="btn-en" class="px-2.5 py-1 rounded text-gray-400 hover:text-white transition-all">EN</button>
-                </div>
-
-                <a href="#pricing" class="hidden sm:flex bg-brandRed hover:bg-brandRedDark text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all transform hover:-translate-y-0.5 red-glow items-center gap-2 border border-red-500">
-                    <span data-th="เลือกตารางฝึก" data-en="GET PROGRAM">เลือกตารางฝึก</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </a>
-            </div>
+            <ul class="nav-links">
+                <li><a href="#skills">สกิล & ท่าพื้นฐาน</a></li>
+                <li><a href="#pricing">ตารางการฝึก & ราคา</a></li>
+                <li><a href="#apply">สั่งซื้อตาราง</a></li>
+            </ul>
+            <a href="#pricing" class="btn-header">เลือกตารางการฝึก</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>INCREASE YOUR SKILL AND STRENGTH</h1>
+            <p class="hero-subproblem">ถ้าคุณยังเป็นคนที่เปลี่ยนโปรแกรมบ่อย สับสนในการเลือกท่า และยังไม่เข้าใจหลัก Anatomy & Physiology</p>
             
-            <div class="inline-block mb-6">
-                <span class="bg-black/80 border border-brandRed/50 text-brandRed text-xs font-bold tracking-widest px-4 py-1.5 rounded-full uppercase shadow-[0_0_10px_rgba(255,21,43,0.2)]">
-                    PERSONALIZED CALISTHENICS COACHING
-                </span>
+            <p class="hero-solution">ตารางฝึกนี้จะช่วยเปลี่ยนการออกกำลังกายด้วยน้ำหนักตัวของคุณ ให้กลายเป็นโปรแกรมสร้างกล้ามเนื้อและพัฒนาทักษะ Calisthenics ได้อย่างเป็นระบบ เห็นผลจริง และปลอดภัยที่สุด</p>
+            
+            <div class="hero-btns">
+                <a href="#pricing" class="btn-primary">ดูราคาตารางการฝึก</a>
+                <a href="#skills" class="btn-outline">ดูสกิล & ท่าฝึก</a>
             </div>
+        </div>
+    </section>
 
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight font-heading text-white uppercase leading-none mb-6">
-                INCREASE YOUR <br class="hidden sm:block"/>
-                <span class="text-brandRed text-glow">SKILL AND STRENGTH</span>
-            </h1>
-
-            <p class="max-w-3xl mx-auto text-gray-300 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-10"
-               data-th="หยุดฝึกแบบมั่วๆ แล้วไม่เห็นผลลัพธ์ เริ่มเทรนอย่างมีระบบด้วยตารางที่ออกแบบมาเพื่อ Calisthenics โดยเฉพาะ ปรับแต่งให้ตรงจุดเพื่อพัฒนาทักษะและความพละกำลังของคุณ"
-               data-en="Stop training blindly without results. Start training systematically with routines designed specifically for Calisthenics, customized to maximize your skill and strength.">
-                หยุดฝึกแบบมั่วๆ แล้วไม่เห็นผลลัพธ์ เริ่มเทรนอย่างมีระบบด้วยตารางที่ออกแบบมาเพื่อ Calisthenics โดยเฉพาะ ปรับแต่งให้ตรงจุดเพื่อพัฒนาทักษะและความพละกำลังของคุณ
+    <!-- Science-Based Intro Story -->
+    <section class="container">
+        <div class="story-section">
+            <div class="story-header">
+                <div class="story-title">
+                    <i class="fa-solid fa-flask"></i>
+                    <span>วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล และประสบการณ์ของผม</span>
+                </div>
+                <div class="edu-tag">Science-Based Training</div>
+            </div>
+            <div class="thought-question">
+                "เคยคิดไหมทำไมฝึกตามคลิปต่างๆ แต่ก็ยังทำไม่ได้... เพราะอะไร?"
+            </div>
+            
+            <p class="story-text">
+                หลายคนพยายามดูคลิปเทคนิคต่างๆ แล้วฝึกตาม แต่กลับพัฒนาช้าหรือติดขัดไม่ไปไหน... นั่นเพราะคลิปสั้นไม่ได้ถูกออกแบบมาให้เข้ากับโครงสร้างร่างกายของทุกคน<br><br>
+                ด้วยหลัก <strong>วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล และประสบการณ์การฝึกของผม</strong> ตารางฝึกนี้จึงถูกออกแบบขึ้นมาเพื่อสร้างโครงสร้างการพัฒนาที่เหมาะกับร่างกาย ป้องกันการบาดเจ็บ และช่วยให้คุณพัฒนาความแข็งแรงได้อย่างเป็นระบบและเห็นผลจริงที่สุด
             </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                <a href="#pricing" class="w-full sm:w-auto bg-brandRed hover:bg-brandRedDark text-white font-bold text-lg px-8 py-4 rounded-xl transition-all transform hover:scale-105 red-glow flex items-center justify-center gap-3 border border-red-500">
-                    <span data-th="เลือกตารางฝึก (399฿ - 1,299฿)" data-en="SELECT PROGRAM (399฿ - 1,299฿)">เลือกตารางฝึก (399฿ - 1,299฿)</span>
-                    <i class="fa-solid fa-chevron-right text-sm"></i>
-                </a>
-                <a href="#skills" class="w-full sm:w-auto bg-black/60 hover:bg-gray-900 text-gray-200 border border-gray-700 hover:border-gray-500 font-bold text-lg px-8 py-4 rounded-xl transition-all flex items-center justify-center">
-                    <span data-th="ดูสกิลที่ฝึกได้" data-en="VIEW TARGET SKILLS">ดูสกิลที่ฝึกได้</span>
-                </a>
-            </div>
-
-            <!-- STATS COUNTER -->
-            <div class="grid grid-cols-2 gap-6 max-w-xl mx-auto pt-8 border-t border-gray-800/80">
-                <div class="p-4 rounded-xl bg-cardBg/50 border border-cardBorder">
-                    <div class="text-4xl sm:text-5xl font-black text-white font-heading">5+</div>
-                    <div class="text-xs sm:text-sm text-gray-400 font-medium mt-1" data-th="ปีประสบการณ์" data-en="Years Experience">ปีประสบการณ์</div>
-                </div>
-                <div class="p-4 rounded-xl bg-cardBg/50 border border-cardBorder">
-                    <div class="text-4xl sm:text-5xl font-black text-white font-heading">200+</div>
-                    <div class="text-xs sm:text-sm text-gray-400 font-medium mt-1" data-th="ผู้เรียนเห็นผลจริง" data-en="Successful Clients">ผู้เรียนเห็นผลจริง</div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- PRICING PACKAGES SECTION -->
-    <section id="pricing" class="py-20 bg-black/40 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Skills Section -->
+    <section class="container" id="skills">
+        <div class="section-title">
+            <h2>ความแข็งแรงพื้นฐาน & สกิลสาย STRENGTH</h2>
+            <p>สร้างฐานร่างกายให้แน่นด้วยท่าพื้นฐาน แล้วต่อยอดไปสู่ทักษะขั้นสูง</p>
+        </div>
+        <div class="grid-skills">
             
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-brandRed mb-2">WORKOUT ROUTINE TIERS</h2>
-                <h3 class="text-3xl sm:text-5xl font-black text-white font-heading" data-th="แพ็กเกจตารางฝึกเฉพาะตัวบุคคล" data-en="PERSONALIZED ROUTINE PACKAGES">แพ็กเกจตารางฝึกเฉพาะตัวบุคคล</h3>
-                <p class="text-gray-400 mt-3 text-base" data-th="เลือกแพ็กเกจที่เหมาะสมกับเป้าหมายและสไตล์การเทรนของคุณ" data-en="Choose the package that fits your goal and training style.">เลือกแพ็กเกจที่เหมาะสมกับเป้าหมายและสไตล์การเทรนของคุณ</p>
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Pull-Up (ดึงข้อ)</span>
+                    <span class="skill-tag tag-basic">พื้นฐานสำหรับมือใหม่</span>
+                </div>
+                <p class="skill-desc">สร้างกล้ามเนื้อหลังและปีก (Lats) ปูพื้นฐานแรงดึงที่แข็งแกร่งที่สุด</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-                
-                <!-- TIER 1: 399 BAHT -->
-                <div class="bg-cardBg rounded-2xl p-8 border border-cardBorder flex flex-col justify-between hover:border-gray-600 transition-all reveal">
-                    <div>
-                        <div class="inline-block px-3 py-1 bg-gray-800 text-gray-300 text-xs font-bold rounded-md mb-4">
-                            BEGINNER / BASIC
-                        </div>
-                        <h4 class="text-2xl font-bold text-white mb-2" data-th="ตารางการฝึกเฉพาะตัวบุคคล" data-en="Personalized Workout Routine">ตารางการฝึกเฉพาะตัวบุคคล</h4>
-                        <p class="text-gray-400 text-sm mb-6" data-th="เหมาะสำหรับผู้ที่ต้องการตารางฝึกมาตรฐานนำไปฝึกด้วยตัวเอง" data-en="Ideal for those wanting a standard structured routine to train independently.">เหมาะสำหรับผู้ที่ต้องการตารางฝึกมาตรฐานนำไปฝึกด้วยตัวเอง</p>
-                        
-                        <div class="flex items-baseline gap-1 mb-8 pb-6 border-b border-gray-800">
-                            <span class="text-4xl sm:text-5xl font-black text-white font-heading">฿399</span>
-                            <span class="text-gray-400 text-sm" data-th="/ จ่ายครั้งเดียว" data-en="/ One-time payment">/ จ่ายครั้งเดียว</span>
-                        </div>
-
-                        <ul class="space-y-4 text-sm text-gray-300 mb-8">
-                            <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-circle-check text-brandRed mt-1"></i>
-                                <span data-th="ได้ตารางอย่างเดียว ในแต่ละช่วงของคุณ" data-en="Receive routine program only for your training stage">ได้ตารางอย่างเดียว ในแต่ละช่วงของคุณ</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-circle-check text-brandRed mt-1"></i>
-                                <span data-th="เลือกระดับตามความฟิต (Beginner / Intermediate)" data-en="Select level based on your fitness (Beginner / Intermediate)">เลือกระดับตามความฟิต (Beginner / Intermediate)</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-circle-check text-brandRed mt-1"></i>
-                                <span data-th="ไฟล์ PDF ละเอียด มีชื่อท่าและจำนวนเซตชัดเจน" data-en="Detailed PDF file with clear exercises and sets">ไฟล์ PDF ละเอียด มีชื่อท่าและจำนวนเซตชัดเจน</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <button onclick="openCheckout('ตารางการฝึกเฉพาะตัวบุคคล', 399)" class="w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-3.5 rounded-xl transition-colors text-center border border-gray-700">
-                        <span data-th="สั่งซื้อแพ็กเกจ 399฿" data-en="BUY PACKAGE 399฿">สั่งซื้อแพ็กเกจ 399฿</span>
-                    </button>
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Push-Up (วิดพื้น)</span>
+                    <span class="skill-tag tag-basic">พื้นฐานสำหรับมือใหม่</span>
                 </div>
-
-                <!-- TIER 2: 799 BAHT -->
-                <div class="bg-cardBg rounded-2xl p-8 border-2 border-brandRed flex flex-col justify-between relative shadow-[0_0_30px_rgba(255,21,43,0.2)] transform md:-translate-y-2 reveal">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brandRed text-white text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider">
-                        MOST POPULAR
-                    </div>
-
-                    <div>
-                        <div class="inline-block px-3 py-1 bg-brandRed/20 text-brandRed text-xs font-bold rounded-md mb-4 border border-brandRed/30">
-                            CUSTOMIZED FLEXIBLE
-                        </div>
-                        <h4 class="text-2xl font-bold text-white mb-2" data-th="ตารางฝึก + ปรับแต่งความเหมาะสม" data-en="Routine + Personalized Adjustments">ตารางฝึก + ปรับแต่งความเหมาะสม</h4>
-                        <p class="text-gray-400 text-sm mb-6" data-th="เหมาะสำหรับคนที่มีเวลาจำกัด หรือต้องการปรับให้เข้ากับชีวิตประจำวัน" data-en="Great for busy schedules or custom daily availability.">เหมาะสำหรับคนที่มีเวลาจำกัด หรือต้องการปรับให้เข้ากับชีวิตประจำวัน</p>
-                        
-                        <div class="flex items-baseline gap-1 mb-8 pb-6 border-b border-gray-800">
-                            <span class="text-4xl sm:text-5xl font-black text-white font-heading">฿799</span>
-                            <span class="text-gray-400 text-sm" data-th="/ จ่ายครั้งเดียว" data-en="/ One-time payment">/ จ่ายครั้งเดียว</span>
-                        </div>
-
-                        <ul class="space-y-4 text-sm text-gray-300 mb-8">
-                            <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-circle-check text-brandRed mt-1"></i>
-                                <span data-th="ได้ตารางฝึก + ปรับตารางตามความเหมาะสม ในแต่ละช่วง" data-en="Get routine + customized adjustments per stage">ได้ตารางฝึก + ปรับตารางตามความเหมาะสม ในแต่ละช่วง</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-circle-check text-brandRed mt-1"></i>
-                                <span data-th="ปรับตามความสะดวกในแต่ละวัน (เวลาฝึก / อุปกรณ์ที่มี)" data-en="Tailored to your daily schedule and equipment availability">ปรับตามความสะดวกในแต่ละวัน (เวลาฝึก / อุปกรณ์ที่มี)</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-circle-check text-brandRed mt-1"></i>
-                                <span data-th="คำนวณจุดก้าวหน้าและปรับความหนักให้ตรงเป้าหมาย" data-en="Calculated progressive overload for fast results">คำนวณจุดก้าวหน้าและปรับความหนักให้ตรงเป้าหมาย</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <button onclick="openCheckout('ตารางฝึก + ปรับแต่งความเหมาะสม', 799)" class="w-full bg-brandRed hover:bg-brandRedDark text-white font-bold py-3.5 rounded-xl transition-all red-glow border border-red-500">
-                        <span data-th="สั่งซื้อแพ็กเกจ 799฿" data-en="BUY PACKAGE 799฿">สั่งซื้อแพ็กเกจ 799฿</span>
-                    </button>
-                </div>
-
-                <!-- TIER 3: 1,299 BAHT -->
-                <div class="bg-cardBg rounded-2xl p-8 border border-cardBorder flex flex-col justify-between hover:border-gray-600 transition-all reveal">
-                    <div>
-                        <div class="inline-block px-3 py-1 bg-gray-800 text-gray-300 text-xs font-bold rounded-md mb-4">
-                            UNLIMITED VIP CONSULT
-                        </div>
-                        <h4 class="text-2xl font-bold text-white mb-2" data-th="ตารางฝึก + ปรับได้ตลอด + คอนสัลต์" data-en="Unlimited Custom + VIP Consult">ตารางฝึก + ปรับได้ตลอด + คอนสัลต์</h4>
-                        <p class="text-gray-400 text-sm mb-6" data-th="ดูแลใกล้ชิดเหมือนมีโค้ชส่วนตัว ปรับตารางได้แบบไม่มีจำกัด" data-en="Personal 1-on-1 guidance with unlimited routine adjustments.">ดูแลใกล้ชิดเหมือนมีโค้ชส่วนตัว ปรับตารางได้แบบไม่มีจำกัด</p>
-                        
-                        <div class="flex items-baseline gap-1 mb-8 pb-6 border-b border-gray-800">
-                            <span class="text-4xl sm:text-5xl font-black text-white font-heading">฿1,299</span>
-                            <span class="text-gray-400 text-sm" data-th="/ จ่ายครั้งเดียว" data-en="/ One-time payment">/ จ่ายครั้งเดียว</span>
-                        </div>
-
-                        <ul class="space-y-4 text-sm text-gray-300 mb-8">
-                            <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-circle-check text-brandRed mt-1"></i>
-                                <span data-th="สามารถปรับตารางได้ตลอดเวลา ตามพัฒนาการจริง" data-en="Unlimited routine adjustments anytime">สามารถปรับตารางได้ตลอดเวลา ตามพัฒนาการจริง</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-circle-check text-brandRed mt-1"></i>
-                                <span data-th="ทักมาปรึกษา สอบถามได้ตลอด เกี่ยวกับตารางและการฝึก" data-en="Direct chat consultation available at any time">ทักมาปรึกษา สอบถามได้ตลอด เกี่ยวกับตารางและการฝึก</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-circle-check text-brandRed mt-1"></i>
-                                <span data-th="ตรวจเช็กฟอร์มท่าฝึกผ่านวิดีโอ (Form Check Advice)" data-en="Video form check and correction feedback">ตรวจเช็กฟอร์มท่าฝึกผ่านวิดีโอ (Form Check Advice)</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <button onclick="openCheckout('ตารางฝึก VIP Consult', 1299)" class="w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-3.5 rounded-xl transition-colors text-center border border-gray-700">
-                        <span data-th="สั่งซื้อแพ็กเกจ 1,299฿" data-en="BUY PACKAGE 1,299฿">สั่งซื้อแพ็กเกจ 1,299฿</span>
-                    </button>
-                </div>
-
+                <p class="skill-desc">สร้างแรงดันหน้าอกและหัวไหล่ พร้อมฝึกการเกร็งแกนกลางลำตัวอย่างถูกต้อง</p>
             </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Dip (ดิพ)</span>
+                    <span class="skill-tag tag-basic">พื้นฐานสำหรับมือใหม่</span>
+                </div>
+                <p class="skill-desc">พัฒนาหลังแขนและอกส่วนล่าง เพิ่มพลังแรงดันทรงตัวบนบาร์คู่</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">L-Sit</span>
+                    <span class="skill-tag tag-basic">Core & Hip Flexors</span>
+                </div>
+                <p class="skill-desc">ฝึกการทรงตัวบนมือพร้อมยกขาขนานพื้น สร้างความแข็งแรงแกนกลางลำตัวและสะโพก</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Handstand</span>
+                    <span class="skill-tag tag-strength">Balance & Shoulders</span>
+                </div>
+                <p class="skill-desc">ฝึกการทรงตัวบนมือ คุมแกนกลางลำตัว และสร้างความแข็งแรงของหัวไหล่</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Muscle-Up</span>
+                    <span class="skill-tag tag-strength">Explosive Pull</span>
+                </div>
+                <p class="skill-desc">ส่งแรงดึงสะพานข้อขึ้นเหนือบาร์อย่างทรงพลัง ด้วยจังหวะที่ถูกต้อง</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Front Lever</span>
+                    <span class="skill-tag tag-strength">Core & Lats</span>
+                </div>
+                <p class="skill-desc">เกร็งดึงลำตัวขนานกับพื้นด้วยความแข็งแกร่งของหลังส่วนบนและแกนกลาง</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Dragon Flag</span>
+                    <span class="skill-tag tag-strength">Advanced Core</span>
+                </div>
+                <p class="skill-desc">ทักษะเกร็งแกนกลางลำตัวระดับสูง ท่าในตำนานเพื่อสร้างกล้ามท้องที่แข็งแกร่ง</p>
+            </div>
+
         </div>
     </section>
 
-    <!-- SAMPLE ROUTINE STRUCTURE SECTION -->
-    <section id="routine" class="py-20 border-t border-gray-800">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <!-- Pricing Section -->
+    <section class="container" id="pricing">
+        <div class="section-title">
+            <h2>ตารางการฝึกสำเร็จรูป (3 ระดับราคา)</h2>
+            <p>เลือกตารางการฝึกที่ตรงกับเป้าหมายและรูปแบบการใช้ชีวิตของคุณ</p>
+        </div>
+        <div class="pricing-grid">
             
-            <div class="text-center mb-12">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-brandRed mb-2">SAMPLE ROUTINE STRUCTURE</h2>
-                <h3 class="text-3xl sm:text-4xl font-black text-white font-heading" data-th="ตัวอย่างโครงสร้างตารางฝึก" data-en="Sample Routine Structure">ตัวอย่างโครงสร้างตารางฝึก</h3>
-                <p class="text-gray-400 mt-2 text-sm" data-th="ตัวอย่างการวางเซตและท่าฝึกสำหรับสาย Calisthenics" data-en="Example exercise splits designed for Calisthenics athletes">ตัวอย่างการวางเซตและท่าฝึกสำหรับสาย Calisthenics</p>
+            <!-- Tier 1: 399 -->
+            <div class="pricing-card">
+                <div>
+                    <div class="plan-name">Starter Level Plan</div>
+                    <div class="plan-price">฿399 <span>/ ตาราง</span></div>
+                    <p style="color: var(--text-sub); font-size: 13px;">สำหรับผู้ที่ต้องการตารางการฝึกมาตรฐานตรงตามระดับของตัวเอง</p>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> ตารางการฝึกสำเร็จรูปตรงตามระดับร่างกาย (Beginner / Intermediate)</li>
+                        <li><i class="fa-solid fa-check"></i> ระบุจำนวนเซ็ต จำนวนครั้ง (Reps) และวันพักอย่างชัดเจน</li>
+                        <li><i class="fa-solid fa-check"></i> รับไฟล์ตารางการฝึก PDF นำไปดูซ้อมได้ทันที</li>
+                    </ul>
+                </div>
+                <button class="btn-primary" onclick="selectPlan('Starter Plan (399฿)')">เลือกตาราง 399 บาท</button>
             </div>
 
-            <!-- TABS -->
-            <div class="flex justify-center mb-8 border-b border-gray-800 pb-4">
-                <div class="inline-flex bg-cardBg p-1.5 rounded-xl border border-cardBorder gap-2">
-                    <button onclick="switchTab('beginner')" id="tab-beginner" class="px-5 py-2.5 rounded-lg text-sm font-bold transition-all bg-brandRed text-white">
-                        BEGINNER (เริ่มต้น)
-                    </button>
-                    <button onclick="switchTab('intermediate')" id="tab-intermediate" class="px-5 py-2.5 rounded-lg text-sm font-bold transition-all text-gray-400 hover:text-white">
-                        INTERMEDIATE (ปานกลาง)
-                    </button>
-                    <button onclick="switchTab('advanced')" id="tab-advanced" class="px-5 py-2.5 rounded-lg text-sm font-bold transition-all text-gray-400 hover:text-white">
-                        ADVANCED (ขั้นสูง)
-                    </button>
+            <!-- Tier 2: 799 (Featured) -->
+            <div class="pricing-card featured">
+                <div class="badge-popular">คุ้มค่าที่สุด</div>
+                <div>
+                    <div class="plan-name">Flexible Custom Plan</div>
+                    <div class="plan-price">฿799 <span>/ ตาราง</span></div>
+                    <p style="color: var(--text-sub); font-size: 13px;">ปรับเปลี่ยนตารางให้เข้ากับเวลาซ้อมของคุณได้อย่างยืดหยุ่น</p>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> ได้ตารางการฝึกสำเร็จรูปตามระดับร่างกาย</li>
+                        <li><i class="fa-solid fa-check"></i> <strong>สามารถปรับเปลี่ยนวันเวลาซ้อม</strong> ตามความสะดวกของคุณได้</li>
+                        <li><i class="fa-solid fa-check"></i> มีตัวเลือกท่าฝึกทดแทน (Alternative Exercises)</li>
+                    </ul>
                 </div>
+                <button class="btn-primary" onclick="selectPlan('Flexible Plan (799฿)')">เลือกตาราง 799 บาท</button>
             </div>
 
-            <!-- TAB CONTENT CARD -->
-            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-8 shadow-xl">
-                
-                <div id="content-beginner" class="space-y-4">
-                    <div class="grid grid-cols-1 gap-4">
-                        <div class="bg-black/60 p-4 rounded-xl border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div>
-                                <h5 class="text-white font-bold text-base sm:text-lg">1. Incline Push-Ups / Standard Push-Ups</h5>
-                                <p class="text-xs sm:text-sm text-gray-400 mt-0.5" data-th="เน้นอกและหัวไหล่ ล็อคลำตัวตรง" data-en="Focus on chest & shoulders, keep core tight">เน้นอกและหัวไหล่ ล็อคลำตัวตรง</p>
-                            </div>
-                            <span class="inline-block bg-brandRed/10 text-brandRed border border-brandRed/30 px-3 py-1 rounded-md text-xs font-bold self-start sm:self-center">
-                                3 Sets x 10-12 Reps
-                            </span>
-                        </div>
-
-                        <div class="bg-black/60 p-4 rounded-xl border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div>
-                                <h5 class="text-white font-bold text-base sm:text-lg">2. Australian Pull-Ups (Bodyweight Row)</h5>
-                                <p class="text-xs sm:text-sm text-gray-400 mt-0.5" data-th="ปูพื้นฐานกำลังหลังและแรงดึงเข้าหาบาร์" data-en="Build foundational back strength and pulling power">ปูพื้นฐานกำลังหลังและแรงดึงเข้าหาบาร์</p>
-                            </div>
-                            <span class="inline-block bg-brandRed/10 text-brandRed border border-brandRed/30 px-3 py-1 rounded-md text-xs font-bold self-start sm:self-center">
-                                3 Sets x 8-10 Reps
-                            </span>
-                        </div>
-
-                        <div class="bg-black/60 p-4 rounded-xl border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div>
-                                <h5 class="text-white font-bold text-base sm:text-lg">3. Bench Dips / Chair Dips</h5>
-                                <p class="text-xs sm:text-sm text-gray-400 mt-0.5" data-th="สร้างกำลังหลังแขน (Triceps)" data-en="Build triceps pushing power">สร้างกำลังหลังแขน (Triceps)</p>
-                            </div>
-                            <span class="inline-block bg-brandRed/10 text-brandRed border border-brandRed/30 px-3 py-1 rounded-md text-xs font-bold self-start sm:self-center">
-                                3 Sets x 10 Reps
-                            </span>
-                        </div>
-
-                        <div class="bg-black/60 p-4 rounded-xl border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div>
-                                <h5 class="text-white font-bold text-base sm:text-lg">4. Hollow Body Hold & Plank</h5>
-                                <p class="text-xs sm:text-sm text-gray-400 mt-0.5" data-th="เกร็งแกนกลางลำตัวเพิ่มความแข็งแรง" data-en="Strengthen overall core stability">เกร็งแกนกลางลำตัวเพิ่มความแข็งแรง</p>
-                            </div>
-                            <span class="inline-block bg-brandRed/10 text-brandRed border border-brandRed/30 px-3 py-1 rounded-md text-xs font-bold self-start sm:self-center">
-                                3 Sets x 30 Secs
-                            </span>
-                        </div>
-                    </div>
+            <!-- Tier 3: 1299 -->
+            <div class="pricing-card">
+                <div>
+                    <div class="plan-name">Pro Support Plan</div>
+                    <div class="plan-price">฿1,299 <span>/ ตาราง</span></div>
+                    <p style="color: var(--text-sub); font-size: 13px;">ตารางยืดหยุ่น + ปรึกษาคำแนะนำด้านอาหารและสอบถามได้ตลอด</p>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> ตารางการฝึกระดับ Pro ที่ปรับเปลี่ยนได้ตามความสะดวก</li>
+                        <li><i class="fa-solid fa-check"></i> <strong>ให้คำแนะนำด้านอาหารและโภชนาการเจาะลึก</strong></li>
+                        <li><i class="fa-solid fa-check"></i> <strong>ทักแชทสอบถามและปรึกษาปัญหากับทีมงานได้ตลอด</strong></li>
+                        <li><i class="fa-solid fa-check"></i> ส่งคลิปตรวจฟอร์มท่าเล่นเมื่อติดขัด</li>
+                    </ul>
                 </div>
-
-                <div id="content-intermediate" class="hidden space-y-4">
-                    <div class="grid grid-cols-1 gap-4">
-                        <div class="bg-black/60 p-4 rounded-xl border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div>
-                                <h5 class="text-white font-bold text-lg">1. Chest-to-Bar Pull-Ups</h5>
-                                <p class="text-xs sm:text-sm text-gray-400" data-th="สร้างแรงดึงระเบิดเพื่อปูทางสู่ Muscle-Up" data-en="Explosive pull power leading to Muscle-Ups">สร้างแรงดึงระเบิดเพื่อปูทางสู่ Muscle-Up</p>
-                            </div>
-                            <span class="inline-block bg-brandRed/10 text-brandRed border border-brandRed/30 px-3 py-1 rounded-md text-xs font-bold">4 Sets x 6-8 Reps</span>
-                        </div>
-                        <div class="bg-black/60 p-4 rounded-xl border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div>
-                                <h5 class="text-white font-bold text-lg">2. Parallel Bar Dips</h5>
-                                <p class="text-xs sm:text-sm text-gray-400" data-th="พัฒนาพละกำลังอกล่างและ Triceps" data-en="Develop lower chest and triceps strength">พัฒนาพละกำลังอกล่างและ Triceps</p>
-                            </div>
-                            <span class="inline-block bg-brandRed/10 text-brandRed border border-brandRed/30 px-3 py-1 rounded-md text-xs font-bold">4 Sets x 8-10 Reps</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="content-advanced" class="hidden space-y-4">
-                    <div class="grid grid-cols-1 gap-4">
-                        <div class="bg-black/60 p-4 rounded-xl border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div>
-                                <h5 class="text-white font-bold text-lg">1. Clean Bar Muscle-Ups</h5>
-                                <p class="text-xs sm:text-sm text-gray-400" data-th="เทคนิคล็อกขา ดึงขึ้นตรงไม่สะบัด" data-en="Strict form without momentum swinging">เทคนิคล็อกขา ดึงขึ้นตรงไม่สะบัด</p>
-                            </div>
-                            <span class="inline-block bg-brandRed/10 text-brandRed border border-brandRed/30 px-3 py-1 rounded-md text-xs font-bold">5 Sets x 3-5 Reps</span>
-                        </div>
-                        <div class="bg-black/60 p-4 rounded-xl border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div>
-                                <h5 class="text-white font-bold text-lg">2. Front Lever Hold Progressions</h5>
-                                <p class="text-xs sm:text-sm text-gray-400" data-th="คุมสะโพกขนานพื้น ดึงแกนกลางขั้นสูง" data-en="Advanced isometric core & back pull hold">คุมสะโพกขนานพื้น ดึงแกนกลางขั้นสูง</p>
-                            </div>
-                            <span class="inline-block bg-brandRed/10 text-brandRed border border-brandRed/30 px-3 py-1 rounded-md text-xs font-bold">5 Sets x 5-8 Secs</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-6 pt-6 border-t border-gray-800 flex flex-wrap items-center justify-between gap-4 text-xs text-gray-400">
-                    <div class="flex items-center gap-2">
-                        <i class="fa-regular fa-clock text-brandRed"></i>
-                        <span data-th="ระยะเวลาฝึก: 45 - 60 นาที / วัน" data-en="Workout Duration: 45 - 60 Mins / Day">ระยะเวลาฝึก: <strong>45 - 60 นาที / วัน</strong></span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-rotate-left text-brandRed"></i>
-                        <span data-th="พักระหว่างเซต: 90 - 120 วินาที" data-en="Rest Between Sets: 90 - 120 Secs">พักระหว่างเซต: <strong>90 - 120 วินาที</strong></span>
-                    </div>
-                </div>
-
+                <button class="btn-primary" onclick="selectPlan('Pro Support Plan (1299฿)')">เลือกตาราง 1,299 บาท</button>
             </div>
 
+        </div>
+
+        <!-- Policy Notice -->
+        <div class="policy-notice">
+            <p style="margin-bottom: 8px;">⏳ <strong>สโคประยะเวลาการใช้งาน:</strong> ตารางฝึกมีอายุครอบคลุม <strong>3 เดือน</strong> (แนะนำให้ประเมินและปรับเปลี่ยนตารางใหม่หลังจาก 3 เดือนเพื่อพัฒนาการที่ต่อเนื่อง)</p>
+            <p style="margin-bottom: 8px;">🔄 <strong>การปรับตาราง:</strong> คอร์ส 799 และ 1,299 บาท สามารถทักมาปรับตารางได้ตลอด 3 เดือนเพื่อการพัฒนาที่ต่อเนื่อง (แนะนำปรับแค่เดือนละครั้ง หากยังไม่มีปัญหาเรื่องเวลา)</p>
+            <p>⚠️ <strong>นโยบายการสั่งซื้อ:</strong> <span class="no-refund">เมื่อทำการสั่งซื้อแล้วไม่มีการคืนเงินทุกกรณี</span></p>
         </div>
     </section>
 
-    <!-- SKILLS SHOWCASE SECTION -->
-    <section id="skills" class="py-20 bg-black/40 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-brandRed mb-2">TARGET SKILLS</h2>
-                <h3 class="text-3xl sm:text-4xl font-black text-white font-heading" data-th="สกิลที่คุณสามารถฝึกปลดล็อกได้" data-en="TARGET SKILLS YOU CAN UNLOCK">สกิลที่คุณสามารถฝึกปลดล็อกได้</h3>
-                <p class="text-gray-400 mt-2 text-sm" data-th="ตารางออกแบบมาเพื่อปูพื้นฐานอย่างปลอดภัย สู่สกิลระดับสูง" data-en="Routines designed for safe progression to advanced skills">ตารางออกแบบมาเพื่อปูพื้นฐานอย่างปลอดภัย สู่สกิลระดับสูง</p>
-            </div>
+    <!-- Application Form Section -->
+    <section class="container" id="apply">
+        <div class="section-title">
+            <h2>กรอกข้อมูลเพื่อรับตารางการฝึก</h2>
+            <p>ส่งข้อมูลของคุณเพื่อรับจัดส่งตารางที่เหมาะกับร่างกายของคุณมากที่สุด</p>
+        </div>
+        <div class="form-section">
+            <form id="coachingForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="name">ชื่อ-นามสกุล *</label>
+                        <input type="text" id="name" required placeholder="เช่น ณัฐพล คุณชล">
+                    </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                <div class="bg-cardBg p-5 rounded-xl border border-cardBorder text-center hover:border-brandRed/50 transition-colors">
-                    <div class="w-12 h-12 bg-black rounded-lg mx-auto flex items-center justify-center text-brandRed font-bold text-xl mb-3 border border-gray-800">🤸‍♂️</div>
-                    <h4 class="text-white font-bold text-sm">Handstand</h4>
-                    <p class="text-[11px] text-gray-400 mt-1">ยืนสองมือทรงตัว</p>
+                    <div class="form-group">
+                        <label for="age">อายุ (ปี) *</label>
+                        <input type="number" id="age" required placeholder="เช่น 24">
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">น้ำหนัก / ส่วนสูง *</label>
+                        <input type="text" id="weight" required placeholder="เช่น 65 กก. / 175 ซม.">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="package">เลือกตารางการฝึกที่ต้องการ *</label>
+                        <select id="package" required>
+                            <option value="">-- กรุณาเลือกราคาตาราง --</option>
+                            <option value="Starter Plan (399฿)">Starter Level Plan (399 บาท)</option>
+                            <option value="Flexible Plan (799฿)">Flexible Custom Plan (799 บาท)</option>
+                            <option value="Pro Support Plan (1299฿)">Pro Support Plan (1,299 บาท)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="targetSkill">สกิลที่อยากทำได้ *</label>
+                        <textarea id="targetSkill" rows="2" required placeholder="เช่น อยากทำ Handstand, Muscle-Up, Front Lever"></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="experience">ประสบการณ์การออกกำลังกาย *</label>
+                        <textarea id="experience" rows="2" required placeholder="เช่น เพิ่งเริ่มเล่น 3 เดือน / เล่นเวทเทรนนิ่งมา 1 ปี / ดึงข้อได้ 5 ครั้ง"></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="medical">โรคประจำตัว / อาการบาดเจ็บย้อนหลัง (ถ้ามี)</label>
+                        <textarea id="medical" rows="2" placeholder="เช่น เคยเจ็บข้อมือขวา, ไม่มีโรคประจำตัว"></textarea>
+                    </div>
                 </div>
-                <div class="bg-cardBg p-5 rounded-xl border border-cardBorder text-center hover:border-brandRed/50 transition-colors">
-                    <div class="w-12 h-12 bg-black rounded-lg mx-auto flex items-center justify-center text-brandRed font-bold text-xl mb-3 border border-gray-800">💪</div>
-                    <h4 class="text-white font-bold text-sm">Muscle-Up</h4>
-                    <p class="text-[11px] text-gray-400 mt-1">ดึงข้ามบาร์</p>
-                </div>
-                <div class="bg-cardBg p-5 rounded-xl border border-cardBorder text-center hover:border-brandRed/50 transition-colors">
-                    <div class="w-12 h-12 bg-black rounded-lg mx-auto flex items-center justify-center text-brandRed font-bold text-xl mb-3 border border-gray-800">⚖️</div>
-                    <h4 class="text-white font-bold text-sm">Front Lever</h4>
-                    <p class="text-[11px] text-gray-400 mt-1">ดึงตัวขนานพื้น</p>
-                </div>
-                <div class="bg-cardBg p-5 rounded-xl border border-cardBorder text-center hover:border-brandRed/50 transition-colors">
-                    <div class="w-12 h-12 bg-black rounded-lg mx-auto flex items-center justify-center text-brandRed font-bold text-xl mb-3 border border-gray-800">🔥</div>
-                    <h4 class="text-white font-bold text-sm">Planche</h4>
-                    <p class="text-[11px] text-gray-400 mt-1">ดันตัวขนานพื้น</p>
-                </div>
-                <div class="bg-cardBg p-5 rounded-xl border border-cardBorder text-center hover:border-brandRed/50 transition-colors">
-                    <div class="w-12 h-12 bg-black rounded-lg mx-auto flex items-center justify-center text-brandRed font-bold text-xl mb-3 border border-gray-800">🎯</div>
-                    <h4 class="text-white font-bold text-sm">One Arm Pull-Up</h4>
-                    <p class="text-[11px] text-gray-400 mt-1">ดึงข้อแขนเดียว</p>
-                </div>
-                <div class="bg-cardBg p-5 rounded-xl border border-cardBorder text-center hover:border-brandRed/50 transition-colors">
-                    <div class="w-12 h-12 bg-black rounded-lg mx-auto flex items-center justify-center text-brandRed font-bold text-xl mb-3 border border-gray-800">🦵</div>
-                    <h4 class="text-white font-bold text-sm">Pistol Squat</h4>
-                    <p class="text-[11px] text-gray-400 mt-1">สควอทขาเดียว</p>
-                </div>
-            </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 25px;">ส่งข้อมูลและไปหน้าชำระเงิน</button>
+            </form>
         </div>
     </section>
 
-    <!-- FAQ SECTION -->
-    <section id="faq" class="py-20 border-t border-gray-800">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-            <div class="text-center mb-12">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-brandRed mb-2">QUESTIONS & ANSWERS</h2>
-                <h3 class="text-3xl sm:text-4xl font-black text-white font-heading" data-th="คำถามที่พบบ่อย" data-en="Frequently Asked Questions">คำถามที่พบบ่อย</h3>
-            </div>
-
-            <div class="space-y-4">
-                <div class="bg-cardBg border border-cardBorder rounded-xl p-5">
-                    <h4 class="text-white font-bold text-base flex items-center gap-2" data-th="ไม่มีพื้นฐานเลย สามารถฝึกตามตารางได้ไหม?" data-en="Can I start if I have zero experience?">
-                        <i class="fa-solid fa-circle-question text-brandRed"></i>
-                        ไม่มีพื้นฐานเลย สามารถฝึกตามตารางได้ไหม?
-                    </h4>
-                    <p class="text-gray-400 text-sm mt-2 pl-6" data-th="ได้แน่นอนครับ ตารางฝึกของเรามีระดับ Beginner ที่ออกแบบมาสำหรับคนไม่มีพื้นฐาน โดยเริ่มจากท่าปูพื้นฐานกำลังข้อต่อและกล้ามเนื้ออย่างเป็นระบบ" data-en="Yes! Our beginner routines start right from scratch with foundational progressions suitable for anyone.">
-                        ได้แน่นอนครับ ตารางฝึกของเรามีระดับ Beginner ที่ออกแบบมาสำหรับคนไม่มีพื้นฐาน โดยเริ่มจากท่าปูพื้นฐานกำลังข้อต่อและกล้ามเนื้ออย่างเป็นระบบ
-                    </p>
-                </div>
-                <div class="bg-cardBg border border-cardBorder rounded-xl p-5">
-                    <h4 class="text-white font-bold text-base flex items-center gap-2" data-th="แพ็กเกจราคาแตกต่างกันอย่างไร?" data-en="How do the packages differ?">
-                        <i class="fa-solid fa-circle-question text-brandRed"></i>
-                        แพ็กเกจราคาแตกต่างกันอย่างไร?
-                    </h4>
-                    <p class="text-gray-400 text-sm mt-2 pl-6" data-th="- 399฿: รับตารางการฝึกเฉพาะตัวบุคคลตามช่วงระดับของคุณ
-- 799฿: ได้ตาราง + ปรับตารางให้เหมาะกับเวลาและอุปกรณ์ของคุณ
-- 1,299฿: ได้ตาราง + ปรับตารางได้ตลอดไม่จำกัด + ทักปรึกษาโค้ชได้ตลอดการฝึก" data-en="- 399฿: Personalized Routine Program
-- 799฿: Routine + Custom adjustments for daily routine & equipment
-- 1,299฿: Routine + Unlimited adjustments + Direct 1-on-1 coach chat">
-                        - <strong>399฿</strong>: รับตารางการฝึกเฉพาะตัวบุคคลตามช่วงระดับของคุณ<br>
-                        - <strong>799฿</strong>: ได้ตาราง + ปรับตารางให้เหมาะกับเวลาและอุปกรณ์ของคุณ<br>
-                        - <strong>1,299฿</strong>: ได้ตาราง + ปรับตารางได้ตลอดไม่จำกัด + ทักปรึกษาโค้ชได้ตลอดการฝึก
-                    </p>
-                </div>
-                <div class="bg-cardBg border border-cardBorder rounded-xl p-5">
-                    <h4 class="text-white font-bold text-base flex items-center gap-2" data-th="หลังชำระเงินแล้วจะได้รับตารางอย่างไร?" data-en="How do I receive the program after payment?">
-                        <i class="fa-solid fa-circle-question text-brandRed"></i>
-                        หลังชำระเงินแล้วจะได้รับตารางอย่างไร?
-                    </h4>
-                    <p class="text-gray-400 text-sm mt-2 pl-6" data-th="หลังแจ้งสลิปชำระเงินผ่านทาง LINE แล้ว โค้ชจะจัดส่งตารางและคำแนะนำในการเริ่มฝึกให้ทันทีภายใน 15-30 นาทีครับ" data-en="After sending payment slip via LINE, your customized program and instructions will be sent within 15-30 mins.">
-                        หลังแจ้งสลิปชำระเงินผ่านทาง LINE แล้ว โค้ชจะจัดส่งตารางและคำแนะนำในการเริ่มฝึกให้ทันทีภายใน 15-30 นาทีครับ
-                    </p>
-                </div>
-            </div>
+    <!-- Coaching 1-1 Coming Soon Section -->
+    <section class="container">
+        <div class="coming-soon-card">
+            <div class="cs-badge">COMING SOON</div>
+            <h2>COACHING 1-1 PERSONAL TRAINING</h2>
+            <p>เตรียมพบกับโปรแกรมเทรนส่วนตัวแบบ 1 ต่อ 1 ที่จะดูแลฟอร์มการเล่น เทคนิค และโภชนาการอย่างใกล้ชิดเฉพาะบุคคล เร็วๆ นี้!</p>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-black py-12 border-t border-gray-800 text-center">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-xl font-black tracking-wider text-white font-heading mb-2">
-                NUT <span class="text-brandRed">CALISTHENUTS</span>
-            </div>
-            <p class="text-xs text-gray-500">BODYWEIGHT ROUTINE ACADEMY © 2026. ALL RIGHTS RESERVED.</p>
-        </div>
-    </footer>
-
-    <!-- CHECKOUT MODAL -->
-    <div id="checkoutModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-cardBg border border-cardBorder rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
+    <!-- Modal Payment -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCheckout()">&times;</span>
+            <h3 style="font-size: 20px; font-weight: 800; color: #ffffff;" id="modalTitle">รายละเอียดการชำระเงิน</h3>
+            <p style="color: var(--accent-red); font-size: 18px; font-weight: 800; margin-top: 4px;" id="modalPrice">ยอดชำระสุทธิ: ฿0</p>
             
-            <button onclick="closeCheckout()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <p style="font-size: 13px; color: var(--text-sub); margin-top: 15px;">โอนเงินเข้าบัญชีด้านล่างนี้:</p>
 
-            <div class="text-center mb-6">
-                <div class="inline-block p-3 bg-brandRed/10 rounded-full text-brandRed mb-3">
-                    <i class="fa-solid fa-qrcode text-2xl"></i>
+            <!-- KBANK -->
+            <div class="bank-card">
+                <div class="bank-icon kbank">K-BANK</div>
+                <div class="bank-details">
+                    <p>ธนาคารกสิกรไทย (KBANK)</p>
+                    <h4>145-3-44900-5</h4>
+                    <p>ชื่อบัญชี: <strong>นายณัฐพล คุณชล</strong></p>
                 </div>
-                <h4 class="text-xl font-bold text-white" data-th="ชำระเงินเพื่อรับตารางฝึก" data-en="Scan Payment to Get Program">ชำระเงินเพื่อรับตารางฝึก</h4>
-                <p id="modalPackageName" class="text-sm text-brandRed font-semibold mt-1">แพ็กเกจ 399฿</p>
             </div>
 
-            <div class="bg-white p-4 rounded-xl text-center mb-6 shadow-inner">
-                <div class="text-xs text-gray-500 mb-2 font-bold uppercase tracking-wider">สแกนชำระผ่าน PROMPTPAY</div>
-                <img id="qrImage" src="" alt="PromptPay QR Code" class="w-48 h-48 mx-auto border border-gray-200 rounded-lg">
-                <div class="mt-3 text-black font-black text-2xl font-heading" id="modalPrice">฿399.00</div>
-                <div class="text-[11px] text-gray-500">พร้อมเพย์: 090-XXX-XXXX (NUT CALISTHENUTS)</div>
+            <!-- PromptPay -->
+            <div class="bank-card">
+                <div class="bank-icon promptpay">พร้อมเพย์</div>
+                <div class="bank-details">
+                    <p>พร้อมเพย์ (PromptPay)</p>
+                    <h4>090-111-7724</h4>
+                    <p>ชื่อบัญชี: <strong>นายณัฐพล คุณชล</strong></p>
+                </div>
             </div>
 
-            <div class="space-y-3">
-                <a id="lineNotifyBtn" href="https://line.me" target="_blank" class="w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg">
-                    <i class="fa-brands fa-line text-lg"></i>
-                    <span data-th="ส่งสลิปชำระเงินผ่าน LINE" data-en="Send Payment Slip to LINE">ส่งสลิปชำระเงินผ่าน LINE</span>
-                </a>
-                <button onclick="closeCheckout()" class="w-full bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold py-2.5 rounded-xl text-xs transition-colors">
-                    <span data-th="ปิดหน้าต่างนี้" data-en="Close">ปิดหน้าต่างนี้</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                <p style="font-size: 12px; color: var(--text-sub);">ข้อความสมัคร (ระบบคัดลอกให้แล้ว):</p>
+                <button type="button" class="btn-copy-manual" onclick="manualCopyText()">
+                    <i class="fa-regular fa-copy"></i> คัดลอกข้อความอีกครั้ง
+                </button>
+            </div>
+            <div class="summary-box">
+                <textarea id="summaryText" rows="5" readonly></textarea>
+            </div>
+
+            <div class="help-box">
+                <h5><i class="fa-solid fa-paper-plane"></i> ขั้นตอนสุดท้ายเพื่อรับตารางฝึก:</h5>
+                <p style="color: #ffffff; margin-bottom: 6px;">1. โอนเงินเข้าบัญชีด้านบน แล้วบันทึกสลิป</p>
+                <p style="color: #ffffff; margin-bottom: 12px;">2. กดปุ่มสีเขียว <strong>เปิด LINE</strong> แล้วกด <strong>"วาง" (Paste)</strong> ในช่องพิมพ์เพื่อส่งข้อความพร้อมแนบสลิปได้เลยครับ</p>
+
+                <button class="btn-line" onclick="sendToLine()" style="width: 100%;">
+                    <i class="fa-brands fa-line" style="font-size: 26px;"></i>
+                    คัดลอกข้อมูล & เปิด LINE ส่งสลิป
                 </button>
             </div>
 
+            <button class="btn-outline" style="width: 100%; margin-top: 15px; font-size: 14px; padding: 10px;" onclick="closeCheckout()">ปิดหน้าต่างนี้</button>
         </div>
     </div>
 
-    <!-- JAVASCRIPT SYSTEM -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <div class="logo-badge" style="width:34px; height:34px; font-size:18px;"><span>N</span></div>
+                <span style="font-weight: 900; font-size: 16px; color: #ffffff;">NUT CALISTHENUTS</span>
+            </div>
+            <p class="footer-text">© 2026 NUT CALISTHENUTS | วิทยาศาสตร์การกีฬา มหาวิทยาลัยมหิดล และประสบการณ์ของผม</p>
+        </div>
+    </footer>
+
     <script>
-        // LANGUAGE SWITCHER
-        let currentLang = 'th';
-        function setLanguage(lang) {
-            currentLang = lang;
-            const thBtn = document.getElementById('btn-th');
-            const enBtn = document.getElementById('btn-en');
+        let lineFormattedMessage = "";
 
-            if (lang === 'th') {
-                thBtn.className = "px-2.5 py-1 rounded bg-brandRed text-white transition-all";
-                enBtn.className = "px-2.5 py-1 rounded text-gray-400 hover:text-white transition-all";
-            } else {
-                enBtn.className = "px-2.5 py-1 rounded bg-brandRed text-white transition-all";
-                thBtn.className = "px-2.5 py-1 rounded text-gray-400 hover:text-white transition-all";
-            }
-
-            document.querySelectorAll('[data-th]').forEach(el => {
-                if (el.dataset[lang]) {
-                    el.innerText = el.dataset[lang];
-                }
-            });
+        function selectPlan(planValue) {
+            document.getElementById('package').value = planValue;
+            document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // SCROLL REVEAL ANIMATION
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll(".reveal");
-            for (let i = 0; i < reveals.length; i++) {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveals[i].getBoundingClientRect().top;
-                const elementVisible = 100;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", revealOnScroll);
-        revealOnScroll();
-
-        // ROUTINE TAB SWITCHER
-        function switchTab(tabName) {
-            const tabs = ['beginner', 'intermediate', 'advanced'];
-            tabs.forEach(t => {
-                const btn = document.getElementById(`tab-${t}`);
-                const content = document.getElementById(`content-${t}`);
-                if (t === tabName) {
-                    btn.className = "px-5 py-2.5 rounded-lg text-sm font-bold transition-all bg-brandRed text-white";
-                    content.classList.remove('hidden');
-                } else {
-                    btn.className = "px-5 py-2.5 rounded-lg text-sm font-bold transition-all text-gray-400 hover:text-white";
-                    content.classList.add('hidden');
-                }
-            });
-        }
-
-        // CHECKOUT & PROMPTPAY QR
-        function openCheckout(packageName, price) {
-            document.getElementById('modalPackageName').innerText = packageName + ` (ราคา ${price} บาท)`;
-            document.getElementById('modalPrice').innerText = `฿${price}.00`;
+        function openCheckout(planName, price) {
+            document.getElementById('modalTitle').innerText = 'ชำระเงิน: ' + planName;
+            document.getElementById('modalPrice').innerText = 'ยอดชำระสุทธิ: ฿' + price.toLocaleString();
+            document.getElementById('summaryText').value = lineFormattedMessage;
+            document.getElementById('checkoutModal').style.display = 'flex';
             
-            const qrUrl = `https://promptpay.io/0900000000/${price}.png`;
-            document.getElementById('qrImage').src = qrUrl;
-
-            const lineMsg = encodeURIComponent(`สวัสดีครับ สนใจสั่งซื้อ ${packageName} ราคา ${price} บาท ชำระเงินเรียบร้อยแล้วครับ`);
-            document.getElementById('lineNotifyBtn').href = `https://line.me/R/ti/p/@nutcalisthenuts?text=${lineMsg}`;
-
-            document.getElementById('checkoutModal').classList.remove('hidden');
+            copyMessageToClipboard();
         }
 
         function closeCheckout() {
-            document.getElementById('checkoutModal').classList.add('hidden');
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const weight = document.getElementById('weight').value;
+            const selectedPackage = document.getElementById('package').value;
+            const targetSkill = document.getElementById('targetSkill').value;
+            const experience = document.getElementById('experience').value;
+            const medical = document.getElementById('medical').value || 'ไม่มี';
+
+            let price = 399;
+            if(selectedPackage.includes('799')) price = 799;
+            if(selectedPackage.includes('1299')) price = 1299;
+
+            lineFormattedMessage = `สวัสดีครับ สั่งซื้อตารางการฝึกครับ\n\n` +
+                `📌 ข้อมูลผู้สมัคร:\n` +
+                `- ชื่อ-นามสกุล: ${name}\n` +
+                `- อายุ: ${age} ปี\n` +
+                `- น้ำหนัก/ส่วนสูง: ${weight}\n` +
+                `- ตารางที่เลือก: ${selectedPackage}\n` +
+                `- สกิลที่อยากทำได้: ${targetSkill}\n` +
+                `- ประสบการณ์การออกกำลังกาย: ${experience}\n` +
+                `- อาการบาดเจ็บ/โรคประจำตัว: ${medical}`;
+
+            openCheckout(selectedPackage || 'ตารางการฝึก Calisthenics', price);
+        }
+
+        function copyMessageToClipboard() {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(lineFormattedMessage).catch(err => {
+                    fallbackCopyText();
+                });
+            } else {
+                fallbackCopyText();
+            }
+        }
+
+        function fallbackCopyText() {
+            let textArea = document.getElementById('summaryText');
+            textArea.select();
+            textArea.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+        }
+
+        function manualCopyText() {
+            copyMessageToClipboard();
+            alert('คัดลอกข้อความสมัครเรียบร้อยแล้ว!');
+        }
+
+        function sendToLine() {
+            copyMessageToClipboard();
+            alert('คัดลอกข้อความเรียบร้อยแล้ว!\n\nเมื่อระบบเปิดแชท LINE ให้กดค้างในช่องพิมพ์ แล้วเลือก "วาง (Paste)" เพื่อส่งข้อมูลพร้อมสลิปได้ทันทีครับ');
+            
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // เรียกตรงเข้าแอป LINE บนมือถือด้วย URL Scheme
+                window.location.href = 'line://ti/p/@596oyodw';
+                
+                // ระบบสำรองกรณีเบราว์เซอร์ในแอปบล็อก URL Scheme
+                setTimeout(function() {
+                    window.location.href = 'https://line.me/R/ti/p/@596oyodw?openExternalBrowser=1';
+                }, 1200);
+            } else {
+                // สำหรับคอมพิวเตอร์ Desktop
+                window.location.href = 'https://line.me/R/ti/p/@596oyodw';
+            }
         }
     </script>
 </body>
